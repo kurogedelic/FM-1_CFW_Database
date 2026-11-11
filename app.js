@@ -1356,7 +1356,7 @@ function setView(v) {
   listView.hidden = v !== 'list';
   insightView.hidden = v !== 'insight';
   const shown = v === 'list' ? listView : v === 'insight' ? insightView : treeView;
-  if (v === 'insight') { renderInsight(); if (switching) for (const b of $$('.ins-stat b')) countUp(b, +b.dataset.to, 1100); }
+  if (v === 'insight') { renderInsight(); if (switching) for (const b of $$('.ins-stat b[data-to]')) countUp(b, +b.dataset.to, 1100); }
   // Family ⇄ Timeline: rows slide to their new places instead of a crossfade.
   if (switching && wasTree && isTree()) {
     relayout({ duration: 700 });
