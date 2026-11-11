@@ -1,0 +1,508 @@
+﻿source,target,relation,confidence,evidence,notes
+F:1,F:3,derive,readme,https://github.com/keremimo/melodee#readme,README verified
+F:1,F:5,derive,readme,https://github.com/charlesvestal/fm1-x0x#readme,README verified
+F:1,F:6,fork,github-api,https://api.github.com/repos/jasonpersinger/ghoulbox-fm1-dungeon-synth,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; prior: https://github.com/jasonpersinger/ghoulbox-fm1-dungeon-synth#readme
+F:1,F:10,derive,readme,https://github.com/beashoko/april-os#readme,README verified
+F:1,F:12,fork,github-api,https://api.github.com/repos/joshbartlettband-web/felucca-rainbow,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; prior: https://github.com/joshbartlettband-web/felucca-rainbow#readme
+F:1,F:15,fork,github-api,https://api.github.com/repos/okumurari2/maku,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; prior: https://github.com/okumurari2/maku#readme
+F:1,F:41,fork,github-api,https://api.github.com/repos/Wulgaren/Araminta,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; prior: https://github.com/Wulgaren/Araminta#readme
+F:1,F:46,candidate,catalog,https://github.com/aroum/fm1-custom-fw,Provisional ancestry from community catalogue; verify code history
+F:1,F:68,component,git-blob,https://github.com/dmajka/elixir/commit/4c08b532c0c831f55c4f71c6336112c70065092a,"39 code files byte-identical to Felucca (first source a53ecf4): HAL, crt0, linker script; NOTICE: instrument ported from LXR-02. README: ""built on Felucca's hardware layer, USB stack, updater, reverb and emulator"""
+F:1,F:74,component,git-blob,https://thebigbeat.app/bb-bob/downloads/BB-BOB-50-Source-r2.zip,BB-BOB-50-Source-r2: firmware/vendor/fm1 has 31 files byte-identical to Felucca blobs (platform only); README: runs independently of BB1
+F:1,F:76,candidate,catalog,https://github.com/aroum/fm1-custom-fw,Provisional ancestry from community catalogue; verify code history
+F:1,S:1,derive,readme,https://github.com/isod89/sloop-fm1#readme,README verified
+S:1,S:2,fork,github-api,https://api.github.com/repos/zvenson/dxsloop,GitHub parent.full_name=isod89/sloop-fm1; repository-level direct fork; prior: https://github.com/zvenson/dxsloop#readme
+S:1,S:12,candidate,catalog,https://github.com/aroum/fm1-custom-fw,Provisional ancestry from community catalogue; verify code history
+S:1,S:33,candidate,catalog,https://github.com/aroum/fm1-custom-fw,Provisional ancestry from community catalogue; verify code history
+F:5,O:1,derive,readme,https://github.com/charlesvestal/fm1-fomni#readme,README verified
+S:2,Z:1,derive,readme,https://github.com/zvenson/zp12#readme,"Platform inherited via sloopDX, README explicit"
+F:1,Z:3,port,readme,https://github.com/genkigenki/fm1-to-smk37,"Independent target-hardware port/branch, not a direct Git fork edge"
+S:1,Z:4,port,readme,https://github.com/genkigenki/fm1-to-smk37,"Independent target-hardware port/branch, not a direct Git fork edge"
+F:5,Z:5,port,readme,https://github.com/genkigenki/fm1-to-smk37,"Independent target-hardware port/branch, not a direct Git fork edge"
+O:1,Z:6,port,readme,https://github.com/genkigenki/fm1-to-smk37,"Independent target-hardware port/branch, not a direct Git fork edge"
+F:15,Z:7,port,readme,https://github.com/genkigenki/fm1-to-smk37,"Independent target-hardware port/branch, not a direct Git fork edge"
+F:12,Z:8,port,readme,https://github.com/genkigenki/fm1-to-smk37,"Independent target-hardware port/branch, not a direct Git fork edge"
+F:6,Z:9,port,readme,https://github.com/genkigenki/fm1-to-smk37,"Independent target-hardware port/branch, not a direct Git fork edge"
+S:1,Z:10,port,readme,https://github.com/zircothc/sloop-tab5/blob/main/README.md,First-party ESP32-P4 Tab5 port; source base: d315ad88c5fbaad232ce9426b06db66395bd87db; project status: not-build-verified. No GitHub fork parent.
+F:5,Z:11,port,readme,https://github.com/zircothc/x0x-tab5/blob/main/README.md,First-party ESP32-P4 Tab5 port; source base: 54194c54bb01e9d9b3fe9d641b3ddfa512ac04a3; project status: binary-published-hardware-unverified. No GitHub fork parent.
+S:5,Z:12,port,readme,https://github.com/zircothc/jiant-tab5/blob/main/README.md,First-party ESP32-P4 Tab5 port; source base: JIANT v0.9.18 (no SHA supplied); project status: not-build-verified. No GitHub fork parent.
+F:1,Z:13,port,readme,https://github.com/ChanceTheMaker/felucca-smk,"Independent target-hardware port/branch, not a direct Git fork edge"
+S:1,Z:14,port,readme,https://github.com/ChanceTheMaker/sloop-smk,"Independent target-hardware port/branch, not a direct Git fork edge"
+S:1,Z:15,port,readme,https://github.com/isod89/sloop-pro,"Independent target-hardware port/branch, not a direct Git fork edge"
+F:20,Z:16,port,readme,https://github.com/illuminus5/skiff/blob/main/SMK37.md,"Independent target-hardware port/branch, not a direct Git fork edge"
+Z:4,Z:17,variant,readme,https://github.com/genkigenki/fm1-to-smk37,"Independent target-hardware port/branch, not a direct Git fork edge"
+F:1,S:5,uptake,git-blob,https://github.com/juanjiant-bit/JIANT/commit/0f0352b090e0ce23d36ebb46d76ae374d05583ce,3 identical code file(s) first seen in source f21d6d6: firmware/src/editor_fm6.c; firmware/src/up_fm6.c; tests/fm6bank_test.c
+F:1,F:48,uptake,git-blob,https://github.com/jrdntnnr/sardab/commit/ccf64f3ba882fe89a7029ea24e3506171f5f9654,1 identical code file(s) first seen in source a53ecf4: firmware/src/ui_fm6op.c
+F:1,S:1,uptake,readme,https://github.com/isod89/sloop-fm1,Later upstream feature updates from Felucca into SLOOP
+F:5,F:1,uptake,readme,https://github.com/hugelton/Felucca/blob/main/LICENSING.md,Felucca credits X0X's dual-core startup/API through felucca-bsp (Charles Vestal). Precise source file lineage described in BSP NOTICE.
+F:3,F:1,uptake,readme,https://github.com/hugelton/Felucca/blob/main/LICENSING.md,"Felucca uses Melodee's second-core mechanism in felucca-bsp; LICENSING identifies chip/fm1_cpu1.{h,S}, and CREDITS attributes origin to Kerem Kilic"
+F:1,Z:18,extraction,readme,https://github.com/hugelton/Felucca,Board layer separated
+Z:18,Z:20,component,git-submodule,https://github.com/charlesvestal/fm1-base/blob/d83b64d6325da616e789ba8cf759493f68128c9f/.gitmodules,"bsp/ pinned to felucca-bsp e36cb7c578fd90e2e83672194144507dd348c82c (fm1-base d83b64d); dependency, not instrument ancestry"
+Z:20,Z:2,component,git-submodule,https://github.com/charlesvestal/fm1-amb/blob/189b759d49080ac85c649e4bc6a05a0d6f5cef45/.gitmodules,"base/ pinned to fm1-base 3ae2a65ddd02e15bf9ce925b5a7136d5d207ee25; dependency, not instrument ancestry"
+Z:13,Z:14,component,readme,https://github.com/ChanceTheMaker/sloop-smk,Hardware foundation reused
+F:1,F:2,fork,github-api,https://api.github.com/repos/ChanceTheMaker/Felucca,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:1,F:11,fork,github-api,https://api.github.com/repos/ELI7VH/Felucca,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:1,F:19,fork,github-api,https://api.github.com/repos/Gadlele/Pelucco,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:1,F:25,fork,github-api,https://api.github.com/repos/SPIKE-the-Percussionist/noiz_demons,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:5,F:27,fork,github-api,https://api.github.com/repos/Mr-Roboto/fm1-x0x-rmx,GitHub parent.full_name=charlesvestal/fm1-x0x; repository-level direct fork; independent code ancestry not inspected
+F:1,F:44,fork,github-api,https://api.github.com/repos/stanleygurvich/FeluccaMPE,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:3,F:45,fork,github-api,https://api.github.com/repos/tamabotmusic/TamaMPE,GitHub parent.full_name=keremimo/melodee; repository-level direct fork; independent code ancestry not inspected
+F:6,F:48,fork,github-api,https://api.github.com/repos/jrdntnnr/sardab,GitHub parent.full_name=jasonpersinger/ghoulbox-fm1-dungeon-synth; repository-level direct fork; independent code ancestry not inspected
+F:1,F:49,fork,github-api,https://api.github.com/repos/runestone74/Simorgh,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:1,F:51,fork,github-api,https://api.github.com/repos/izumoe/yanfei,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:1,F:52,fork,github-api,https://api.github.com/repos/thomasgregorymarsden-code/Felucca-opx,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:5,F:53,fork,github-api,https://api.github.com/repos/keyboy250/fm1-x0x-acultur8,GitHub parent.full_name=charlesvestal/fm1-x0x; repository-level direct fork; independent code ancestry not inspected
+F:1,F:54,fork,github-api,https://api.github.com/repos/briwil/Felucca,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:4,F:55,fork,github-api,https://api.github.com/repos/EremanSim/ChoralRootj-6,GitHub parent.full_name=Quixotic7/ChoralRootFM1; repository-level direct fork; independent code ancestry not inspected
+F:1,F:65,fork,github-api,https://api.github.com/repos/JB-Interactive/Felucca-Meow,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:1,F:66,fork,github-api,https://api.github.com/repos/fenderberg/fm1-nc-companion,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+F:18,F:67,fork,github-api,https://api.github.com/repos/dzwerg/Golana-DZ,GitHub parent.full_name=Gadlele/Golana; repository-level direct fork; independent code ancestry not inspected
+S:1,S:4,fork,github-api,https://api.github.com/repos/hericdk/fm1-quest,GitHub parent.full_name=isod89/sloop-fm1; repository-level direct fork; independent code ancestry not inspected
+F:1,S:5,fork,github-api,https://api.github.com/repos/juanjiant-bit/JIANT,GitHub parent.full_name=hugelton/Felucca; repository-level direct fork; independent code ancestry not inspected
+S:1,S:10,fork,github-api,https://api.github.com/repos/majnikool/sloop-fm1,GitHub parent.full_name=isod89/sloop-fm1; repository-level direct fork; independent code ancestry not inspected
+S:1,S:11,fork,github-api,https://api.github.com/repos/renebohne/sloop-fm1,GitHub parent.full_name=isod89/sloop-fm1; repository-level direct fork; independent code ancestry not inspected
+S:1,S:25,fork,github-api,https://api.github.com/repos/imijes/fm-dub,GitHub parent.full_name=isod89/sloop-fm1; repository-level direct fork; independent code ancestry not inspected
+S:1,S:28,fork,github-api,https://api.github.com/repos/schwartzworld/shifl,GitHub parent.full_name=isod89/sloop-fm1; repository-level direct fork; independent code ancestry not inspected
+S:1,S:29,fork,github-api,https://api.github.com/repos/merthsoft/sloop-fm1,GitHub parent.full_name=isod89/sloop-fm1; repository-level direct fork; independent code ancestry not inspected
+S:1,S:30,fork,github-api,https://api.github.com/repos/Leeman1982/sloop-fm1,GitHub parent.full_name=isod89/sloop-fm1; repository-level direct fork; independent code ancestry not inspected
+F:1,F:4,derive,readme,https://github.com/Quixotic7/ChoralRootFM1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:7,derive,readme,https://github.com/zednaked/jangada/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:9,derive,readme,https://github.com/DeadActive/hortator/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:13,derive,readme,https://github.com/math0ne/fm1-chord/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:14,derive,readme,https://github.com/oscillr/DUELL/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:5,F:17,derive,readme,https://github.com/apiel/fm1-tribe/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:18,derive,readme,https://github.com/Gadlele/Golana/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:20,derive,readme,https://github.com/illuminus5/skiff/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:23,derive,readme,https://github.com/bonszaimusic/caravel/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:24,derive,readme,https://github.com/TheShrimpBlimp/pigeon/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:26,derive,readme,https://github.com/delirioux/tuna/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+Z:2,F:28,derive,readme,https://github.com/sbegueria/fm1-dub/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:29,derive,readme,https://github.com/actuallysparky/FM-1-Unholy-Union-generative-drone-firmware/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:61,F:30,derive,readme,https://github.com/Rastapopolix/tessera/blob/main/README.md,Tessera grew out of Melodee (Tess); references prior releases under Tess name
+F:1,F:31,derive,readme,https://github.com/KemstheSage/reggae-os/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:32,derive,readme,https://github.com/erikdevos/glitchbox/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:34,derive,readme,https://github.com/gaumondp/patricktronics/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:35,derive,readme,https://github.com/ruppert/fmini-1/blob/main/README.md,README: inspired and partially based on Felucca; exact code ancestry not fully inspected
+F:1,F:37,derive,readme,https://github.com/gybe808-dotcom/FeluccaWavetableOdeathMod/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:38,derive,readme,https://github.com/mentalcells/ambwave/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:61,F:39,derive,readme,https://github.com/jamesusmusic/fm1-studio-tess/blob/main/README.md,"README credits both Tess and Melodee, with Tess as primary generative baseline"
+F:1,F:40,derive,readme,https://github.com/kpalaniuk/gnomad-firmware/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:6,F:42,derive,readme,https://github.com/ocean/estampie/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:43,derive,readme,https://github.com/eldontyrellcorp/Mini-Tone/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:22,F:47,derive,readme,https://github.com/devrvega/CRT-4/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:4,F:56,derive,readme,https://github.com/rosen-wav/more-chords-M-VAVE-FM-1-Custom-Firmware/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:5,F:57,derive,readme,https://github.com/dpwe/fm1-amy/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:35,F:58,derive,readme,https://github.com/ruppert/organvave-1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:3,F:61,derive,readme,https://github.com/Rastapopolix/melodee-tess/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:63,derive,readme,https://github.com/thebrodi/fm1-haave/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,F:64,derive,readme,https://github.com/bunglesociety/modular-one/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,F:69,derive,readme,https://github.com/fantasmoslam/Paleotone/blob/main/README.md,Current edition: SLOOP 2.8.4 on RAPTOR base; earlier PALEOTONE was GHOULBOX-derived
+F:1,F:71,derive,git-commit,https://github.com/mykeln/fm1-rift/compare/743551712c36b3984392eea1dbe13a309907e17a...HEAD,"Common commit 7435517 is readable in both hugelton/Felucca and mykeln/fm1-rift; compare reports 6 commits ahead, 0 behind (checked 2026-11-11)."
+T:2,F:72,derive,readme,https://github.com/galfaroth/veffbox/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,S:3,derive,readme,https://github.com/Nicodesy06/FM1-MOVE/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,S:7,derive,readme,https://github.com/catacombius/NoteSorcery/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,S:8,derive,readme,https://github.com/shaw-core/Sloop_ALG02/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,S:9,derive,readme,https://github.com/y6zkcqnf5r-hue/fm1-fm80s/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,S:15,derive,readme,https://github.com/megagott/mycelium-fm1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+T:1,S:16,derive,readme,https://github.com/GRiMMBIENT/grimm/blob/main/README.md,Dinghy firmware template; Felucca engines imported separately
+F:1,S:17,derive,readme,https://github.com/AlexanderSeel/TheReFmB1rth/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+T:1,S:19,derive,readme,https://github.com/EremanSim/Fm1dnbchatgpt/blob/main/README.md,Dinghy platform at named pinned commit
+F:1,S:20,derive,readme,https://github.com/Co-oscillator/Loom-FM-1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:1,S:22,derive,readme,https://github.com/kidbee85-beep/bunker-evolved/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+Z:1,S:23,derive,readme,https://github.com/thecemeterygates/masif-fm1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,S:26,derive,readme,https://github.com/michaeljsmalley/synthesthetic/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,S:27,derive,readme,https://github.com/Spiralfractalplugins/spiralfm1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:15,S:31,derive,readme,https://github.com/megagott/launchparty-fm1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+S:1,S:32,derive,readme,https://github.com/eatyourgreensstudio-dotcom/karma-fm1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+O:1,O:2,derive,readme,https://github.com/cartesive/fumi-1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:4,O:3,derive,readme,https://github.com/FicusFicusov/CoralFlower/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+T:4,O:4,derive,readme,https://github.com/xMagElonx/fm1-guitar/blob/main/README.md,Explicitly derives from official m-vave/fm1_open; no Felucca ancestry
+F:1,T:1,derive,readme,https://github.com/zvenson/dinghy/blob/main/README.md,Felucca's hardware platform with SLOOP-carried changes; not a full SLOOP instrument fork
+F:9,T:2,derive,readme,https://github.com/galfaroth/mnm1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+Z:2,T:3,derive,readme,https://github.com/devrvega/IND-1/blob/main/README.md,Source README explicitly names the upstream work. Code/commit ancestry may be unverified
+F:7,F:29,uptake,readme,https://github.com/actuallysparky/FM-1-Unholy-Union-generative-drone-firmware/blob/main/README.md,Jangada drone algorithm adapted; Felucca core is primary
+F:3,F:39,uptake,readme,https://github.com/jamesusmusic/fm1-studio-tess/blob/main/README.md,Melodee synths alongside Tess sequences; multiple ancestors
+Z:20,F:16,component,git-submodule,https://github.com/charlesvestal/fm1-polly/blob/0f51737625dedc5bf9bd7742ceac639cc43aebad/.gitmodules,"base/ pinned to fm1-base 3ae2a65ddd02e15bf9ce925b5a7136d5d207ee25; platform migration, not instrument ancestry"
+Z:20,F:59,component,git-submodule,https://github.com/davidpryan/haunted-fm1/blob/bd031d3722c5e3432392b6e60979379ad2bead1c/.gitmodules,"base/ pinned to fm1-base e35f7e2c6904ff1a3eed10035474c8cf089c0b88; dependency, not instrument ancestry"
+F:5,S:21,component,git-blob,https://github.com/De-Pattern/Ravel_FM1/commit/0ac95328a7915f3ab1368ff8430b1240583d41f5,"38 code files byte-identical to X0X (first source 0dda922): platform layer (firmware/fm1/hal, crt0); README: Felucca platform taken through X0X"
+S:1,T:1,uptake,readme,https://github.com/zvenson/dinghy/blob/main/README.md,SLOOP carries the Felucca hardware platform changes
+F:1,S:16,uptake,readme,https://github.com/GRiMMBIENT/grimm/blob/main/README.md,Felucca engines and audio platform imported on Dinghy template
+T:3,F:22,derive,readme,https://github.com/devrvega/LCD-4/blob/main/README.md,"LCD-4 README: built on IND-1, which itself derives from AMB-1; not directly from X0X"
+F:1,F:21,derive,readme,https://github.com/echoe/argo_fm1/blob/main/README.md,Originally catalogued as Felucca 8 Patterns; renamed to Argo; author calls it a Felucca branch
+F:1,F:33,derive,git-commit,https://github.com/tensor-programming/fm1-t1/compare/1727537624390cc3f9c7dff2456b43b3a8edb005...HEAD,Felucca 1.6 commit 1727537 exists in both repositories; compare reports 2 commits ahead; 30/71 shared firmware/src file blobs identical at current HEAD
+S:1,F:36,derive,readme,https://github.com/isod89/clipper-fm1/blob/main/README.md,Author: Clipper grew out of SLOOP; based on Felucca indirectly
+T:4,F:60,derive,readme,https://github.com/Narti-Live/fm1-fm-plaits/blob/main/README.md,README explicitly describes FM1 Open V14 + FM-PLAITS source ZIP; NOT Felucca lineage
+F:3,F:62,derive,repo-description,https://api.github.com/repos/synthi/fm1-1971,GitHub project description: fork of keremimo/melodee v1.3.5; README/LICENSING copied from Melodee; shared Git ancestry not demonstrated
+S:1,S:6,derive,readme,https://github.com/dspaudio/orbit/blob/main/README.md,"Author: ORBIT based on SLOOP/Felucca, changes to SLOOP versions documented"
+S:1,S:13,derive,readme,https://github.com/hericdk/winampFM/blob/main/README.md,Author: winampFM based on SLOOP 2.8.4 (early versions 2.6)
+S:1,S:14,derive,readme,https://github.com/hericdk/nomanskyFM/blob/main/README.md,Author: No Man Sky FM based on SLOOP 2.7.1; later upstream changes merged
+T:1,S:18,derive,readme,https://github.com/Guizmoh/Kawa-Tracker-Fm1/blob/main/README.md,"Author credits Dinghy as firmware foundation, Felucca and SLOOP separately; primary parent inferred from Dinghy-first list, specific code path not yet verified"
+O:1,O:5,fork,github-api,https://api.github.com/repos/RayDNoper/fm1-jambox,GitHub parent=charlesvestal/fm1-fomni; older fm1-fomnium URL redirects to fm1-jambox
+F:43,F:21,uptake,readme,https://github.com/echoe/argo_fm1/blob/main/README.md,Author: three engines imported from Mini-Tone
+S:5,F:21,uptake,readme,https://github.com/echoe/argo_fm1/blob/main/README.md,Author: JIANT drum engine imported
+S:1,S:18,component,readme,https://github.com/Guizmoh/Kawa-Tracker-Fm1/blob/main/README.md,Author lists SLOOP alongside Dinghy and Felucca; precise reused files unverified
+Z:2,S:24,component,git-blob,https://github.com/kidbee85-beep/cut-a-dor-release/commit/d9799abb84fef0cc59deb05e2f6a4c41032c32f1,"37 code files byte-identical to AMB-1 (first source d9ef0a3): HAL, crt0, installer; UPSTREAM-LICENSING.md names AMB-1 platform. UPSTREAM-LICENSING.md retains AMB-1's licensing (""References to upstream applications describe code ancestry""): Felucca platform via X0X/FoMni, then AMB-1"
+F:1,T:5,fork,github-api,https://api.github.com/repos/fantasmogenesis/Felucca,GitHub parent.full_name=hugelton/Felucca; groovebox branch at pinned SHA 31d9afabfdd1f9119c5004480cb0f90985eb76b6
+T:5,F:75,derive,git-submodule,https://github.com/fantasmogenesis/fntsmg-1/blob/main/.gitmodules,vendor/Felucca git-submodule points at fantasmogenesis/Felucca groovebox branch; pinned commit 31d9afabfdd1f9119c5004480cb0f90985eb76b6; author README confirms platform code reuse
+T:1,T:6,derive,readme,https://github.com/zvenson/obervave/blob/main/README.md,OberVave README: built on Dinghy; keeps unchanged Dinghy platform (boot/USB/updates/audio/settings)
+S:1,F:73,derive,readme,https://github.com/Spampy-Droid/SPAMPY-0.0-r949/blob/main/MELODEE-PORT-NOTICE.md,Creator's provenance: SPAMPY r918 based on SLOOP 2.7.1; r921/r923 docs confirm same base. Current repository source shares 18 identical firmware/src blobs among 65 common paths with current SLOOP; not Git commit ancestry proof
+T:6,F:73,uptake,readme,https://github.com/Spampy-Droid/SPAMPY-0.0-r949/blob/main/R921.md,OberVave 1.5 oscillator/filter/envelope/LFO and presets integrated in SPAMPY r921-r923; origin commit 6194c3bbf0d485bbd889d90800684fbb9ab3f757
+F:3,F:73,uptake,readme,https://github.com/Spampy-Droid/SPAMPY-0.0-r949/blob/main/MELODEE-PORT-NOTICE.md,"Melodee 1.4.1 native Prophet, SID, CZ synthesis and patch data were imported into SPAMPY; no full Melodee app branch"
+T:1,T:7,port,readme,https://github.com/fc79/smk37-base/blob/main/docs/CHANGES.md,Author documents SMK BASE starts from Dinghy main at 22acb91; SMK-37-specific port not GitHub fork; 8 exact code blobs among 12 common firmware/src files
+Z:4,T:7,component,readme,https://github.com/fc79/smk37-base/blob/main/LICENSING.md,"SMK-37 hardware layer from genkigenki/sloop-fm1 branch smk37, including controls, flash, loader and tests"
+T:6,T:7,uptake,readme,https://github.com/fc79/smk37-base/blob/main/LICENSING.md,"OberVave's loader screen, blob storage/slots and SMK wiring incorporated into SMK BASE"
+F:1,F:70,derive,git-blob,https://thebigbeat.app/fm1/install/files/bb1-source-2.2.tar.gz,"bb1-source-2.2: 78 of 104 path-matched firmware files byte-identical to Felucca 1.5.1 (a4d7ca2), incl. engines, sequencer, editor, panel; band instrument added in src/bb"
+F:5,F:70,uptake,readme,https://github.com/TexasRADIO/big-beat-bb1/blob/main/docs/CREDITS.md,First-party credits say BB1 uses X0X ports by Charles Vestal/contributors; exact imported files and primary app origin not verified
+S:1,T:8,derive,git-commit,https://github.com/w0ts/optimist/commit/f2b44c219b8a4ac00bc06dca756cdae8a259dd1a,"Shares 6 SLOOP commits up to SLOOP 2.2 (f2b44c2, 2026-10-04); no commits shared with X0X or Felucca. LICENSING.md also names SLOOP as base"
+F:3,T:8,uptake,readme,https://github.com/w0ts/optimist/blob/main/README.md,"Optimist author credits Melodee FM6/CZ/PROPHET, USB audio/TRS MIDI, expression and second-core adaptations"
+F:5,T:8,uptake,readme,https://github.com/w0ts/optimist/blob/main/README.md,"Optimist author credits X0X 303 acid engine, 909/808 kits, rescue tool, mixer glides, second-core start"
+T:8,F:5,uptake,readme,https://github.com/charlesvestal/fm1-x0x/blob/main/README.md,X0X author explicitly attributes render-pass DSP and 909/808 block processing optimizations to Optimist; no full-repo fork relation implied
+T:8,Z:18,uptake,readme,https://github.com/hugelton/felucca-bsp/blob/main/NOTICE,"felucca-bsp NOTICE: cache RAM from Optimist fm1_cache.h, commits f16f6683 and 9a1360ab, BLE drivers dual licensed by author to MPL-2.0"
+F:3,Z:18,uptake,readme,https://github.com/hugelton/felucca-bsp/blob/main/NOTICE,"felucca-bsp NOTICE: Melodee-derived second-core, USB MIDI host (specific pinned commit e9eab97...; Adrien Tibi and Kerem Kilic), licensed under MPL-2.0 by agreement"
+S:1,F:3,uptake,readme,https://github.com/keremimo/melodee/blob/main/docs/SLOOP_PUNCH_FX.md,"Melodee imports SLOOP 4ec1ac829fd2bdf2c571ea215fb3d62477d01220 punch effects and stereo reverb/insert, with its own integration"
+F:4,F:3,uptake,readme,https://github.com/keremimo/melodee/blob/main/LICENSING.md,"Melodee's LICENSING credits ChoralRoot v0.16 commit 9c7445cdd7b767c779741d28654fb59cca3acd97 boot stub, interrupted-update order, CRC, and recovery tests"
+Z:20,F:1,uptake,readme,https://github.com/hugelton/Felucca/blob/main/LICENSING.md,"Felucca AFTERTOUCH keytouch.c/h ports fm1-base's lib/sense.c and lib/touch.c (Charles Vestal), MPL-2.0; source headers confirm provenance"
+Z:8,F:12,upstream-merge,github-api,https://github.com/joshbartlettband-web/felucca-rainbow/pull/1,"Rainbow SMK-37 port was merged back into upstream felucca-rainbow on 2026-10-15T03:47:05Z; a verified reverse port integration, not another primary parent"
+Z:10,Z:11,shared-code,git-blob,https://github.com/zircothc/sloop-tab5/blob/main/tab5/panel_ui.h,The Tab5 platform projects have a byte-identical tab5/panel_ui.h (Git blob d0b00a74dca526abbf6ec98b5a7f4d1048d0408f); same author; direction of copying cannot be inferred.
+Z:10,Z:12,shared-code,git-blob,https://github.com/zircothc/sloop-tab5/blob/main/tab5/panel_ui.h,The Tab5 platform projects have a byte-identical tab5/panel_ui.h (Git blob d0b00a74dca526abbf6ec98b5a7f4d1048d0408f); same author; direction of copying cannot be inferred.
+S:1,S:5,uptake,readme,https://github.com/juanjiant-bit/JIANT/blob/9cead8f148b7fda73392b5be3b65bc69159b6c6e/README.md,README: fork of Felucca 1.1.5.1 that takes its song system from SLOOP
+S:1,F:48,uptake,readme,https://github.com/jrdntnnr/sardab/blob/830bb5831fe8451f30ba895e347411832e7a5f39/LICENSING.md,LICENSING.md: SLOOP 3a1350e level matching/attenuation; SLOOP 2.6 texture and track channels ported in 0b83c64
+F:3,F:48,uptake,readme,https://github.com/jrdntnnr/sardab/blob/830bb5831fe8451f30ba895e347411832e7a5f39/CREDITS.md,CREDITS.md: supply startup (hal/fm1_power.h) from Melodee 1.3.6
+F:1,F:77,derive,readme,https://github.com/SikkenWorks/ETCH#credits-and-licensing,README: Felucca is the directly derived foundation; ETCH modifies/adapts portions of it
+O:1,O:6,derive,readme,https://github.com/adamcharleswilsonmusic-code/Fart-Machine-One#readme,README: fork based on FoMni commit 405ef41aef75f7e70afd6decc01505df07c708e9
+O:1,O:7,component,readme,https://github.com/charlesvestal/fm1-monk#readme,"README: built on the platform layer of Felucca by way of FoMni and Velo; dependency, not instrument ancestry (MonkSynth)"
+Z:20,Z:21,component,git-submodule,https://github.com/charlesvestal/fm1-ctl/blob/2a9f92b93d100dd9d434391cc604f7ce3c404040/.gitmodules,"base/ pinned to fm1-base 3ae2a65ddd02e15bf9ce925b5a7136d5d207ee25; dependency, not instrument ancestry"
+Z:20,Z:22,component,git-submodule,https://github.com/charlesvestal/fm1-radio/blob/494c2a655f4cf3bd5130886133b6ab67103c6bf9/.gitmodules,"base/ pinned to fm1-base 6d6ae6d874fb34e2bec3fc6043fa7d859b206462; dependency, not instrument ancestry"
+Z:20,Z:23,component,git-submodule,https://github.com/charlesvestal/fm1-loom/blob/2ff5f7b13b63f711bcfa3aba846c00a37a579bb7/.gitmodules,"base/ pinned to fm1-base 317cb86cc60d6286fa80a02743e94e6a60ff842d; dependency, not instrument ancestry"
+F:1,F:78,component,readme,https://github.com/InigoHernandez/mono2k#credits-and-licence,"README: built on the open FM-1 work (Felucca first), carries Felucca's update loader; dependency, not instrument ancestry"
+O:2,O:8,derive,readme,https://github.com/aceyprime/zen-1#credits,"README: built on FuMi-1, whose instrument it keeps as a mode"
+T:1,T:9,derive,readme,https://github.com/konsumer/foma#readme,"README: Dinghy made smaller, the same FM-1 platform (Felucca's, via SLOOP)"
+T:9,T:10,component,readme,https://github.com/pjac1810/spellbox#readme,"README: built on foma (Felucca platform); dependency, not instrument ancestry"
+Z:18,Z:24,derive,readme,https://github.com/hugelton/pendel-bsp#readme,"README: a branch of felucca-bsp, with its history, plus the Pocket AMP board"
+Z:24,Z:25,component,git-submodule,https://github.com/hugelton/Pendel/blob/f9095bfa9b23e82cf53999ee5b2f5aa2217a042b/.gitmodules,"firmware/bsp pinned to pendel-bsp 0d2e8755210ce4b8f3e4607bd646c0cc1ca8bdcb; dependency, not instrument ancestry"
+F:5,N:1,uptake,readme,https://github.com/ip2k/lunar-modulator#readme,README credits uptake
+F:1,N:1,uptake,readme,https://github.com/ip2k/lunar-modulator#readme,README credits uptake
+T:1,N:2,component,readme,https://github.com/joakimeriksson/fm1-dock#readme,"platform dependency, not instrument ancestry"
+T:6,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+F:28,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+Z:2,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+O:1,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+O:7,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+F:3,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+F:5,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+N:11,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+N:7,N:2,uptake,readme,https://github.com/joakimeriksson/fm1-dock#readme,README credits uptake
+F:1,N:3,component,readme,https://github.com/nzimas/tonitor#readme,"platform dependency, not instrument ancestry"
+T:1,N:4,component,readme,https://github.com/jsmith13/fm_lab#readme,"platform dependency, not instrument ancestry"
+S:2,N:4,uptake,readme,https://github.com/jsmith13/fm_lab#readme,README credits uptake
+Z:20,N:5,component,readme,https://github.com/kidbee85-beep/mutable-dreams#readme,"platform dependency, not instrument ancestry"
+Z:20,N:6,component,git-submodule,https://github.com/ejtb76/amenity/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+O:1,N:7,derive,readme,https://github.com/jadamsowers/fm1-fimba#readme,FiMba-1 started as a fork of FoMni's tree.
+F:1,N:7,uptake,readme,https://github.com/jadamsowers/fm1-fimba#readme,README credits uptake
+F:5,N:7,uptake,readme,https://github.com/jadamsowers/fm1-fimba#readme,README credits uptake
+T:4,N:8,derive,readme,https://github.com/ferluht/fm1-lofi-sampler#readme,The firmware is a fork of the GPLv3 FM-1 open firmware (with the SDK linking exception)
+F:3,N:10,derive,readme,https://github.com/keremimo/saadet#readme,Saadet began as a fork of Melodee.
+T:1,N:11,component,readme,https://github.com/PatttF/fm-106#readme,"platform dependency, not instrument ancestry"
+F:3,N:11,uptake,readme,https://github.com/PatttF/fm-106#readme,README credits uptake
+F:3,N:12,uptake,readme,https://github.com/deamonSLINKY/PERF-1#readme,README credits uptake
+F:26,N:12,influence,readme,https://github.com/deamonSLINKY/PERF-1#readme,README credits influence
+Z:20,N:13,component,git-submodule,https://github.com/styvesgoupil/frasil/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:20,N:14,component,git-submodule,https://github.com/Philip-Bos/echofield-fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:14,influence,readme,https://github.com/Philip-Bos/echofield-fm1#readme,README credits influence
+S:1,N:14,influence,readme,https://github.com/Philip-Bos/echofield-fm1#readme,README credits influence
+S:5,N:14,influence,readme,https://github.com/Philip-Bos/echofield-fm1#readme,README credits influence
+F:20,N:14,influence,readme,https://github.com/Philip-Bos/echofield-fm1#readme,README credits influence
+F:3,N:14,influence,readme,https://github.com/Philip-Bos/echofield-fm1#readme,README credits influence
+F:1,N:15,component,readme,https://github.com/jartificer/fm1-gm#readme,"platform dependency, not instrument ancestry"
+F:28,N:16,derive,readme,https://github.com/FartyPants/fm1-nachtfahrt#readme,"NACHTFAHRT is a fork of DUB-1, itself a fork of AMB-1, Charles Vestal's generative ambient firmware for the FM-1."
+F:1,N:16,uptake,readme,https://github.com/FartyPants/fm1-nachtfahrt#readme,README credits uptake
+S:5,N:16,uptake,readme,https://github.com/FartyPants/fm1-nachtfahrt#readme,README credits uptake
+T:4,N:16,uptake,readme,https://github.com/FartyPants/fm1-nachtfahrt#readme,README credits uptake
+S:5,N:17,derive,readme,https://github.com/JazzyRhythmer/Rhythmer#readme,Built by Jazzy Rhythmer on JIANT's sequencing and project system.
+F:1,N:17,uptake,readme,https://github.com/JazzyRhythmer/Rhythmer#readme,README credits uptake
+F:5,N:17,uptake,readme,https://github.com/JazzyRhythmer/Rhythmer#readme,README credits uptake
+N:6,N:17,uptake,readme,https://github.com/JazzyRhythmer/Rhythmer#readme,README credits uptake
+F:78,N:17,uptake,readme,https://github.com/JazzyRhythmer/Rhythmer#readme,README credits uptake
+F:9,N:17,uptake,readme,https://github.com/JazzyRhythmer/Rhythmer#readme,README credits uptake
+F:68,N:17,uptake,readme,https://github.com/JazzyRhythmer/Rhythmer#readme,README credits uptake
+T:6,N:17,uptake,readme,https://github.com/JazzyRhythmer/Rhythmer#readme,README credits uptake
+T:6,N:18,derive,readme,https://github.com/AndrewGG88/S1Vave#readme,OberVave Synthesizer & Dinghy Platform: zvenson (original OberVave codebase and Dinghy platform wiring)
+T:1,N:18,component,readme,https://github.com/AndrewGG88/S1Vave#readme,"platform dependency, not instrument ancestry"
+S:5,N:20,derive,readme,https://github.com/fvalente/GammaWave-FM1#readme,"fixes taken from the firmware Pocket GammaWave is built on (JIANT 0.7.8 to 0.9.18, Felucca after 1.6.1)"
+F:1,N:20,uptake,readme,https://github.com/fvalente/GammaWave-FM1#readme,README credits uptake
+Z:20,N:21,component,git-submodule,https://github.com/profikid/fm1-break-choppah/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:22,derive,readme,https://github.com/UnkleBlairy/BBL-JAM-BOX#readme,"It is a modified version of Felucca by Leo Kuroshita (@kurogedelic), Hugelton Instruments"
+F:4,N:23,derive,readme,https://github.com/Quixotic7/PurpleMonkeyFM1#readme,"built on ChoralRoot FM-1, which is built on Felucca by Leo Kuroshita with the FM6 engine of Melodee"
+F:3,N:23,uptake,readme,https://github.com/Quixotic7/PurpleMonkeyFM1#readme,README credits uptake
+S:1,N:23,uptake,readme,https://github.com/Quixotic7/PurpleMonkeyFM1#readme,README credits uptake
+Z:20,N:24,component,readme,https://github.com/mikejohnsonbeats/OG-Synth-source#readme,"platform dependency, not instrument ancestry"
+F:1,N:25,component,readme,https://github.com/Nacsez/FMER#readme,"platform dependency, not instrument ancestry"
+S:1,N:25,uptake,readme,https://github.com/Nacsez/FMER#readme,README credits uptake
+S:6,N:26,component,readme,https://github.com/dspaudio/mc-1#readme,"platform dependency, not instrument ancestry"
+F:1,N:27,component,readme,https://github.com/Reytian/fm1-min1#readme,"platform dependency, not instrument ancestry"
+F:5,N:27,uptake,readme,https://github.com/Reytian/fm1-min1#readme,README credits uptake
+Z:2,N:27,uptake,readme,https://github.com/Reytian/fm1-min1#readme,README credits uptake
+O:1,N:27,uptake,readme,https://github.com/Reytian/fm1-min1#readme,README credits uptake
+Z:2,N:27,influence,readme,https://github.com/Reytian/fm1-min1#readme,README credits influence
+F:1,N:28,component,readme,https://github.com/seajaysec/386-DX-FM1-KaraokeBot#readme,"platform dependency, not instrument ancestry"
+F:5,N:28,uptake,readme,https://github.com/seajaysec/386-DX-FM1-KaraokeBot#readme,README credits uptake
+O:1,N:29,component,readme,https://github.com/adamcharleswilsonmusic-code/Trumpagotchi#readme,"platform dependency, not instrument ancestry"
+F:1,N:30,component,readme,https://github.com/charlesvestal/fm1-velocity#readme,"platform dependency, not instrument ancestry"
+O:1,N:30,uptake,readme,https://github.com/charlesvestal/fm1-velocity#readme,README credits uptake
+F:1,N:31,derive,readme,https://github.com/Gadlele/Fantasma#readme,Fantasma is by Gadlele. It is a fork of Felucca by Leo Kuroshita
+T:1,N:31,uptake,readme,https://github.com/Gadlele/Fantasma#readme,README credits uptake
+T:1,N:32,component,readme,https://github.com/llozd/bytemania#readme,"platform dependency, not instrument ancestry"
+F:1,N:33,component,readme,https://github.com/npi3pak/fm1-gator#readme,"platform dependency, not instrument ancestry"
+S:6,N:33,uptake,readme,https://github.com/npi3pak/fm1-gator#readme,README credits uptake
+S:1,N:33,uptake,readme,https://github.com/npi3pak/fm1-gator#readme,README credits uptake
+F:4,N:33,uptake,readme,https://github.com/npi3pak/fm1-gator#readme,README credits uptake
+S:1,N:34,derive,readme,https://github.com/BlackKittenDevices/Kitten-Synths#readme,"basado en SLOOP, Felucca y FMini-1"
+F:35,N:34,uptake,readme,https://github.com/BlackKittenDevices/Kitten-Synths#readme,README credits uptake
+Z:20,N:35,component,git-submodule,https://github.com/charlesvestal/fm1-ripple/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:36,derive,readme,https://github.com/FBNFRTG/drift-fm1#readme,By Fabian Freitag. Based on Felucca by Leo Kuroshita / Hügelton Instruments.
+S:18,N:37,derive,readme,https://github.com/Guizmoh/K-WASUB_Firmware_for_FM1#readme,"K-WASUB is born from KAWA (Omnipotard / Leo Kuroshita, Hügelton Instruments), whose FM-1 platform it reuses"
+Z:20,N:38,component,git-submodule,https://github.com/ignis32/midimonitor_fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:3,N:38,uptake,readme,https://github.com/ignis32/midimonitor_fm1#readme,README credits uptake
+Z:18,N:39,component,git-submodule,https://github.com/ignis32/trireme_fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:20,N:40,component,git-submodule,https://github.com/jiripisa/fm1-berlinan/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+T:1,N:41,component,readme,https://github.com/KHAVld/ARTIHIVE#readme,"platform dependency, not instrument ancestry"
+T:6,N:41,uptake,readme,https://github.com/KHAVld/ARTIHIVE#readme,README credits uptake
+T:1,N:42,component,readme,https://github.com/marksweiss/tastywaves#readme,"platform dependency, not instrument ancestry"
+S:16,N:43,derive,readme,https://github.com/PolarPatch/Arctic-scream-FM-1#readme,"GR!MM (GPL-3.0): the firmware this is built on, and everything GR!MM itself builds on: Felucca, Dinghy, SLOOP, X0X"
+F:1,N:44,component,readme,https://github.com/JanSchulten/FM1-Firmware-VibeCoding-Template#readme,"platform dependency, not instrument ancestry"
+F:5,N:45,derive,readme,https://github.com/JazzyRhythmer/Jazzy/blob/HEAD/LICENSING.md,"X0X is free software under the GNU General Public License, version 3 only. It is a fork of Felucca and keeps Felucca's licence."
+F:68,N:45,uptake,readme,https://github.com/JazzyRhythmer/Jazzy#readme,README credits uptake
+T:6,N:45,uptake,readme,https://github.com/JazzyRhythmer/Jazzy#readme,README credits uptake
+F:3,N:45,uptake,readme,https://github.com/JazzyRhythmer/Jazzy#readme,README credits uptake
+Z:20,N:46,component,git-submodule,https://github.com/Philip-Bos/jamtrack-fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:47,component,readme,https://github.com/ChanceTheMaker/doom-fm1-smk#readme,"platform dependency, not instrument ancestry"
+F:1,N:48,component,readme,https://github.com/ChanceTheMaker/gamedude-fm1-smk#readme,"platform dependency, not instrument ancestry"
+Z:14,N:48,uptake,readme,https://github.com/ChanceTheMaker/gamedude-fm1-smk#readme,README credits uptake
+F:1,N:49,component,readme,https://github.com/charlesvestal/fm1-mocky#readme,"platform dependency, not instrument ancestry"
+O:1,N:49,uptake,readme,https://github.com/charlesvestal/fm1-mocky#readme,README credits uptake
+T:4,N:50,derive,readme,https://github.com/chmess/fm1-keyboard-academy#readme,This project is based on M-VAVE FM1 Open V14 and was modified on 2026-10-24.
+T:4,N:51,component,git-submodule,https://github.com/clickysteve/clatter-pocket/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:52,component,readme,https://github.com/devrvega/BOP-1#readme,"platform dependency, not instrument ancestry"
+F:5,N:52,uptake,readme,https://github.com/devrvega/BOP-1#readme,README credits uptake
+Z:2,N:52,uptake,readme,https://github.com/devrvega/BOP-1#readme,README credits uptake
+T:3,N:52,uptake,readme,https://github.com/devrvega/BOP-1#readme,README credits uptake
+F:22,N:52,uptake,readme,https://github.com/devrvega/BOP-1#readme,README credits uptake
+F:47,N:52,uptake,readme,https://github.com/devrvega/BOP-1#readme,README credits uptake
+F:36,N:53,derive,readme,https://github.com/isod89/siren-fm1#readme,"Built on Clipper and SLOOP, themselves based on Felucca."
+S:1,N:53,uptake,readme,https://github.com/isod89/siren-fm1#readme,README credits uptake
+Z:20,N:54,component,readme,https://github.com/JackieAlacrity2373/fm1-j6#readme,"platform dependency, not instrument ancestry"
+Z:20,N:55,component,readme,https://github.com/maxravedj/fm1-audio-router#readme,"platform dependency, not instrument ancestry"
+T:1,N:56,component,readme,https://github.com/mhellar/numetal-skratchmaster-pro-fm1#readme,"platform dependency, not instrument ancestry"
+T:4,N:57,component,readme,https://github.com/MidiHax/fm1-midi-processor#readme,"platform dependency, not instrument ancestry"
+F:1,N:58,derive,readme,https://github.com/OllieNicklinUK/switchblade#readme,Switch Blade is a fork of Felucca by Leo Kuroshita
+N:7,N:59,derive,readme,https://github.com/slothpallas/mope-1#readme,"which reached it through X0X, FoMni and FiMba-1, the firmware MOPE-1 started from."
+F:1,N:59,component,readme,https://github.com/slothpallas/mope-1#readme,"platform dependency, not instrument ancestry"
+F:5,N:59,uptake,readme,https://github.com/slothpallas/mope-1#readme,README credits uptake
+O:1,N:59,uptake,readme,https://github.com/slothpallas/mope-1#readme,README credits uptake
+F:1,N:60,component,readme,https://github.com/thomasj/fm1-sidj#readme,"platform dependency, not instrument ancestry"
+F:5,N:60,uptake,readme,https://github.com/thomasj/fm1-sidj#readme,README credits uptake
+Z:20,N:60,uptake,readme,https://github.com/thomasj/fm1-sidj#readme,README credits uptake
+T:4,N:61,component,readme,https://github.com/arrastao/baile-fm1#readme,"platform dependency, not instrument ancestry"
+F:5,N:62,derive,readme,https://github.com/cmlarsen/fm1-rocket-os#readme,"It forks X0X by Charles Vestal, which itself forks Felucca by Leo Kuroshita"
+F:6,N:63,derive,readme,https://github.com/emilystgeist/fiendbox#readme,"It is a fork of GHOULBOX (Jason Persinger's dungeon-synth firmware), which is itself a fork of Felucca"
+S:5,N:63,uptake,readme,https://github.com/emilystgeist/fiendbox#readme,README credits uptake
+N:20,N:64,derive,readme,https://github.com/Guillel51/Quantum-GammaWave#readme,"Quantum GammaWave is an evolution of Pocket GammaWave (GW-1) by Leo Kuroshita (@kurogedelic) / Hügelton Instruments, built on JIANT FM and Felucca."
+S:5,N:64,uptake,readme,https://github.com/Guillel51/Quantum-GammaWave#readme,README credits uptake
+F:1,N:64,uptake,readme,https://github.com/Guillel51/Quantum-GammaWave#readme,README credits uptake
+F:1,N:65,component,readme,https://github.com/hiroikezawa/brutal-fm#readme,"platform dependency, not instrument ancestry"
+N:15,N:66,component,readme,https://github.com/jartificer/fm1-trax#readme,"platform dependency, not instrument ancestry"
+F:1,N:66,uptake,readme,https://github.com/jartificer/fm1-trax#readme,README credits uptake
+F:5,N:66,uptake,readme,https://github.com/jartificer/fm1-trax#readme,README credits uptake
+O:1,N:66,uptake,readme,https://github.com/jartificer/fm1-trax#readme,README credits uptake
+Z:20,N:67,component,git-submodule,https://github.com/RahelPuest/tonic-fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:20,N:68,component,git-submodule,https://github.com/Reytian/fm1-luogu/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:69,component,readme,https://github.com/seanohollaren/fm1-doom#readme,"platform dependency, not instrument ancestry"
+N:16,N:70,derive,readme,https://github.com/stephencummins/fm1-aisling#readme,"It is a fork of NACHTFAHRT, FartyPants's Berlin School firmware."
+F:5,N:71,uptake,readme,https://github.com/y6zkcqnf5r-hue/fm1-trawler#readme,README credits uptake
+O:1,N:71,uptake,readme,https://github.com/y6zkcqnf5r-hue/fm1-trawler#readme,README credits uptake
+T:1,N:71,uptake,readme,https://github.com/y6zkcqnf5r-hue/fm1-trawler#readme,README credits uptake
+T:4,N:72,component,readme,https://github.com/albinoIguana/FM1-Lab#readme,"platform dependency, not instrument ancestry"
+Z:20,N:72,uptake,readme,https://github.com/albinoIguana/FM1-Lab#readme,README credits uptake
+F:1,N:72,uptake,readme,https://github.com/albinoIguana/FM1-Lab#readme,README credits uptake
+F:1,N:73,component,readme,https://github.com/CaspiusLabs/Emerald-YM#readme,"platform dependency, not instrument ancestry"
+F:1,N:74,derive,readme,https://github.com/DanimanX/ReplicantFM1#readme,custom GPL-3.0 firmware (fork of Felucca) with kick/drum/bass/hi-hat and acid sounds
+F:1,N:75,component,readme,https://github.com/DedrichVonDorn/wt2-fm1-firmware#readme,"platform dependency, not instrument ancestry"
+F:5,N:75,uptake,readme,https://github.com/DedrichVonDorn/wt2-fm1-firmware#readme,README credits uptake
+F:1,N:76,uptake,readme,https://github.com/DimmKirr/modd#readme,README credits uptake
+F:3,N:76,uptake,readme,https://github.com/DimmKirr/modd#readme,README credits uptake
+S:1,N:76,uptake,readme,https://github.com/DimmKirr/modd#readme,README credits uptake
+T:1,N:77,component,readme,https://github.com/Electro-Dig/function-acid-fw#readme,"platform dependency, not instrument ancestry"
+S:1,N:77,uptake,readme,https://github.com/Electro-Dig/function-acid-fw#readme,README credits uptake
+F:5,N:77,uptake,readme,https://github.com/Electro-Dig/function-acid-fw#readme,README credits uptake
+F:1,N:78,derive,readme,https://github.com/ImpossibleKnot/bongo-cat-studio#readme,"Tiny Studio is an independent, AI-assisted custom build of Felucca by Leo Kuroshita / Hügelton Instruments and its contributors."
+T:4,N:79,component,readme,https://github.com/jonludwig1234/stack-trace-arcade-rat-fm1#readme,"platform dependency, not instrument ancestry"
+T:1,N:80,component,readme,https://github.com/LXXero/oplbox#readme,"platform dependency, not instrument ancestry"
+Z:20,N:81,component,git-submodule,https://github.com/pjh-133/tidepool-fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:82,component,readme,https://github.com/sirpearson/fm-1-monomachine#readme,"platform dependency, not instrument ancestry"
+F:5,N:82,uptake,readme,https://github.com/sirpearson/fm-1-monomachine#readme,README credits uptake
+N:2,N:83,component,readme,https://github.com/stefanolofsson/pinktrombone-fm1#readme,"platform dependency, not instrument ancestry"
+F:1,N:84,component,readme,https://github.com/WillCMcC/kidboy-firmware#readme,"platform dependency, not instrument ancestry"
+F:1,N:85,component,readme,https://github.com/zisonzishen/crate-fm1#readme,"platform dependency, not instrument ancestry"
+S:1,N:85,uptake,readme,https://github.com/zisonzishen/crate-fm1#readme,README credits uptake
+F:1,N:86,variant,readme,https://github.com/1bitfromdend/Felucca-KONTROL-MIDI#readme,Felucca 1.8.0 KONTROL EDITION for M-VAVE FM-1 and Native Instruments Kontrol S-Series MK3.
+F:1,N:87,component,readme,https://github.com/AL-255/nsx39-fm1-firmware#readme,"platform dependency, not instrument ancestry"
+F:1,N:88,derive,readme,https://github.com/andiogenes/roland#readme,"Drum-only firmware for the M-VAVE FM-1, built on Felucca (GPL-3.0-only). It keeps Felucca's drum engine and its sequencer and offers nothing else"
+S:1,N:88,uptake,readme,https://github.com/andiogenes/roland#readme,README credits uptake
+F:1,N:89,derive,readme,https://github.com/capitanplaneta80-create/enjambre-fm1#readme,"un motor nuevo (ENJAMB) para Felucca de Leo Kuroshita (Hügelton Instruments), sin afiliación con sus autores."
+F:1,N:90,derive,readme,https://github.com/capitanplaneta80-create/vegetal-fm1#readme,"Un firmware que solo muestra el motor VEGETAL, construido sobre Felucca de Leo Kuroshita (Hügelton Instruments)."
+Z:20,N:91,component,git-submodule,https://github.com/charlesvestal/fm1-ocarina/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:92,derive,readme,https://github.com/cmlarsen/fm1-zed#readme,Custom M-Vave FM-1 firmware based on Felucca
+T:1,N:93,component,readme,https://github.com/codemtm/FM1-Atmosphere-OS#readme,"platform dependency, not instrument ancestry"
+T:4,N:94,component,readme,https://github.com/cotrino/fm1-cofrade#readme,"platform dependency, not instrument ancestry"
+T:1,N:95,component,readme,https://github.com/DarkHelmet67/fm1-insert-coin#readme,"platform dependency, not instrument ancestry"
+Z:20,N:97,component,readme,https://github.com/davidpryan/fm1-relay#readme,"platform dependency, not instrument ancestry"
+F:59,N:98,derive,readme,https://github.com/davidpryan/witchbox-1#readme,"Its frame is HAUNT-1's, a fork of AMB-1 by Charles Vestal, on the platform of Felucca by Leo Kuroshita"
+Z:20,N:98,component,git-submodule,https://github.com/davidpryan/witchbox-1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:2,N:98,uptake,readme,https://github.com/davidpryan/witchbox-1#readme,README credits uptake
+Z:20,N:99,component,git-submodule,https://github.com/DocRuzzy/dubwise-fm/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:99,uptake,readme,https://github.com/DocRuzzy/dubwise-fm#readme,README credits uptake
+F:28,N:99,uptake,readme,https://github.com/DocRuzzy/dubwise-fm#readme,README credits uptake
+T:10,N:99,uptake,readme,https://github.com/DocRuzzy/dubwise-fm#readme,README credits uptake
+Z:18,N:100,component,git-submodule,https://github.com/doohinkus/kris-jangle/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:20,N:101,component,readme,https://github.com/ELENICK97/TeenTaal-FM1#readme,"platform dependency, not instrument ancestry"
+S:1,N:102,derive,readme,https://github.com/epidex/beat-it#readme,"Custom firmware for the M-VAVE FM-1, built on SLOOP 2.8.5 (GPL-3.0-only)."
+S:1,N:103,derive,readme,https://github.com/epidex/bump-it#readme,Custom firmware for the M-VAVE FM-1: all of SLOOP 2.8.5 (GPL-3.0-only) with a purple theme
+Z:20,N:104,component,readme,https://github.com/genkigenki/erik37#readme,"platform dependency, not instrument ancestry"
+S:1,N:105,component,readme,https://github.com/genkigenki/Makkuro37#readme,"platform dependency, not instrument ancestry"
+F:3,N:105,uptake,readme,https://github.com/genkigenki/Makkuro37#readme,README credits uptake
+S:1,N:106,component,readme,https://github.com/genkigenki/Vector37#readme,"platform dependency, not instrument ancestry"
+F:3,N:106,uptake,readme,https://github.com/genkigenki/Vector37#readme,README credits uptake
+S:18,N:107,derive,readme,https://github.com/Guizmoh/K-Glitch#readme,K-GLITCH is an FM-1 glitch instrument project based on the KAWA tracker firmware.
+F:5,N:108,derive,readme,https://github.com/gybe808-dotcom/GabberBuddy#readme,"GabberBuddy is a free, non-commercial hack of X0X, the groovebox firmware for the M-VAVE FM-1"
+S:1,N:109,derive,readme,https://github.com/HistoryOfSky/m-pyre#readme,"Made by History Of Sky. Free and open source (GPL-3.0), based on SLOOP"
+Z:20,N:110,component,readme,https://github.com/hvemnd/spooky-stable-v2#readme,"platform dependency, not instrument ancestry"
+Z:20,N:111,component,git-submodule,https://github.com/ignis32/typhoon_fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:36,N:112,port,readme,https://github.com/isod89/clipper-pro#readme,Clipper for the FM-1 lives at isod89/clipper-fm1; its README is kept here as README-CLIPPER.md.
+F:1,N:113,derive,readme,https://github.com/JanSchulten/JAN3000-M-Wave-Firmware#readme,JAN3000 is a fork of Felucca by Leo Kuroshita (Hügelton Instruments).
+S:16,N:114,derive,readme,https://github.com/jeanlucmouton30-jpg/AETHER-FM1#readme,AETHER FM-1 is an independent project derived from GR!MM.
+F:5,N:115,derive,readme,https://github.com/jeffwebb-to/dwnlo#readme,"DWNLO is a fork of X0X, itself a fork of Felucca."
+Z:20,N:116,component,readme,https://github.com/johnskiller/driftseq-fm1base#readme,"platform dependency, not instrument ancestry"
+F:1,N:118,derive,readme,https://github.com/JulesMarecaille/mrc-synth#readme,It is a modified version of Felucca by Leo Kuroshita (Hügelton Instruments)
+Z:18,N:118,component,git-submodule,https://github.com/JulesMarecaille/mrc-synth/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:2,N:119,derive,readme,https://github.com/Kayman18/FM1-genAMB#readme,"Built on Charles Vestal's fm1-amb and fm1-base, with felucca-bsp by Leo Kuroshita / Hügelton Instruments."
+Z:20,N:119,component,readme,https://github.com/Kayman18/FM1-genAMB#readme,"platform dependency, not instrument ancestry"
+O:8,N:119,uptake,readme,https://github.com/Kayman18/FM1-genAMB#readme,README credits uptake
+Z:20,N:120,component,git-submodule,https://github.com/kclack/acid-fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+T:1,N:121,component,readme,https://github.com/kevinelliott/fm-1-agent-deck#readme,"platform dependency, not instrument ancestry"
+T:1,N:123,component,readme,https://github.com/leonardoMirabal/frodhes#readme,"platform dependency, not instrument ancestry"
+F:1,N:124,derive,readme,https://github.com/MarcGoudy/guru-600#readme,"A Prophet-600 emulator firmware for the M-VAVE FM-1, by Marc Massé, based on Felucca by Leo Kuroshita."
+F:1,N:125,component,readme,https://github.com/MarcoCasanova00/FM-23#readme,"platform dependency, not instrument ancestry"
+Z:20,N:126,component,git-submodule,https://github.com/mattb/fm1-beets/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:127,derive,readme,https://github.com/monch1962/mvave-fm1-mpe#readme,A fork of hugelton/Felucca 1.6.1 that adds MIDI Polyphonic Expression
+T:1,N:128,component,readme,https://github.com/mongio/virgo-fm1#readme,"platform dependency, not instrument ancestry"
+Z:2,N:129,derive,readme,https://github.com/Moon1ord/fm_1_aq_1#readme,"AQ-1 is a fork of AMB-1 by Charles Vestal, and keeps its form"
+Z:20,N:129,component,git-submodule,https://github.com/Moon1ord/fm_1_aq_1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+O:1,N:129,uptake,readme,https://github.com/Moon1ord/fm_1_aq_1#readme,README credits uptake
+F:1,N:130,derive,readme,https://github.com/MPASTEAU/FM-Stud1o-FM-1-Firmware#readme,It is a fork of [Felucca](https://github.com/hugelton/Felucca) by Leo Kuroshita
+F:1,N:131,derive,readme,https://github.com/mrjoshida/CINCO#readme,Portions derived from Felucca (C) 2026 Leo Kuroshita / Hügelton Instruments under GNU GPL-3.0.
+F:1,N:132,derive,readme,https://github.com/mrjoshida/noice-voice#readme,**Felucca Base**: Free software licensed under [GPL-3.0-only](LICENSE).
+Z:18,N:132,component,git-submodule,https://github.com/mrjoshida/noice-voice/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+T:1,N:133,component,readme,https://github.com/NicholasPratt/Prysm#readme,"platform dependency, not instrument ancestry"
+Z:20,N:134,component,git-submodule,https://github.com/NickCulbertson/FM1-Mighty-Arp/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:135,derive,readme,https://github.com/NjamesZ/nja-tack-fm1#readme,"NJA TACK is an independent, Felucca-derived firmware project for the **M-VAVE FM-1**"
+S:6,N:136,component,readme,https://github.com/npi3pak/fm1-operator#readme,"platform dependency, not instrument ancestry"
+Z:20,N:137,component,git-submodule,https://github.com/oikoaudio/tack/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:138,derive,readme,https://github.com/osaebo/felucca-drone/blob/main/DRONE.md,This fork of [Felucca](https://github.com/hugelton/Felucca) (GPL-3.0) for the M-VAVE FM-1 adds two things:
+F:5,N:139,component,git-submodule,https://github.com/OwenKirby/carnac-os/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:20,N:140,component,git-submodule,https://github.com/pianomansam/fm1-vnl/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:20,N:141,component,git-submodule,https://github.com/profikid/fm1-anatomix-voxinator/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:20,N:142,component,git-submodule,https://github.com/RahelPuest/jungle-os-fm1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:1,N:142,influence,readme,https://github.com/RahelPuest/jungle-os-fm1#readme,README credits influence
+F:5,N:142,influence,readme,https://github.com/RahelPuest/jungle-os-fm1#readme,README credits influence
+S:1,N:142,influence,readme,https://github.com/RahelPuest/jungle-os-fm1#readme,README credits influence
+F:24,N:142,influence,readme,https://github.com/RahelPuest/jungle-os-fm1#readme,README credits influence
+T:4,N:143,derive,readme,https://github.com/rfb/fm1-time-signal-source#readme,Based on [m-vave/fm1_open](https://github.com/m-vave/fm1_open) commit
+Z:20,N:145,component,git-submodule,https://github.com/TEG-Lizard-Man/cyma-1/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+Z:18,N:146,component,readme,https://github.com/Teryox77/ondadream-fm1#readme,"platform dependency, not instrument ancestry"
+O:6,N:147,derive,readme,https://github.com/thefriendlyhedgehog/FM-Cat1#readme,"Forked from [Fart Machine One](https://github.com/adamcharleswilsonmusic-code/Fart-Machine-One), which is built on FoMni, X0X and Felucca."
+T:4,N:148,derive,readme,https://github.com/ttreu/fm1-glider#readme,Built on [M-VAVE FM1 Open](https://github.com/m-vave/fm1_open) (V14)
+F:1,N:149,derive,readme,https://github.com/wochende/FM-1-Felucca-Tutor#readme,built on top of the open-source **Felucca** framework.
+F:3,N:150,fork,github-api,https://github.com/djStrombo/SMK-dee,Based on the [Melodee](https://github.com/keremimo/melodee) multi-engine synthesizer for the M-VAVE FM-1 created by **keremimo**
+Z:20,N:151,fork,github-api,https://github.com/davidamomusic/fm-fam,README statement
+Z:18,N:151,component,git-submodule,https://github.com/davidamomusic/fm-fam/blob/HEAD/.gitmodules,"platform dependency, not instrument ancestry"
+F:3,N:152,fork,github-api,https://github.com/joshbartlettband-web/Double-Rainbow,Based on [Felucca](https://github.com/hugelton/Felucca) by Leo Kuroshita
+F:1,N:153,fork,github-api,https://github.com/andrixb/OPQuencer,a merge of two lineages: Felucca 1.5.1 by Leo Kuroshita ... SLOOP by isod89
+S:1,N:153,uptake,readme,https://github.com/andrixb/OPQuencer#readme,README credits uptake
+O:1,N:154,fork,github-api,https://github.com/gglchrm/fm1-fomni-for-Astra,README statement
+F:1,N:155,fork,github-api,https://github.com/GraphicHealer/FeluccaSEQ,README statement
+T:4,N:156,fork,github-api,https://github.com/jbarrychristian/fm1_open_AKDM,README statement
+S:1,N:157,fork,github-api,https://github.com/MiloMeowzers/sloop-smk37,"[SLOOP](https://github.com/isod89/sloop-fm1) by isod89, on [Felucca](https://github.com/hugelton/Felucca)"
+T:4,N:158,fork,github-api,https://github.com/theNoisery/fN-1,README statement
+S:1,N:159,fork,github-api,https://github.com/zakariachowdhury/flowstate-fm1,README statement
+S:1,N:160,fork,github-api,https://github.com/adriandomc/dino-synth,[SLOOP v2.8.3](https://github.com/isod89/sloop-fm1/releases/tag/v2.8.3) ... con cuatro visualizadores adicionales del dinoperro cósmico.
+S:1,N:161,fork,github-api,https://github.com/andrerezemini/sloop-lab,A thin fork of [SLOOP](https://github.com/isod89/sloop-fm1) by isod89
+S:5,N:162,fork,github-api,https://github.com/benjamuels/UMBRA-OBSCURA,It is a fork of [Felucca](https://github.com/hugelton/Felucca) 1.1.5.1 by Hügelton Instruments (GPL-3.0) and takes its song system from [SLOOP]
+T:4,N:163,fork,github-api,https://github.com/benm0ra/fm1_op3n#readme,"It builds on [FM1 Open V14](https://github.com/m-vave/fm1_open) by M-VAVE, so M-VAVE's FM engine still makes every sound."
+F:1,N:164,fork,github-api,https://github.com/BourbonWX/Dungeon-Tracker#readme,"**This is Dungeon Tracker**, a fork of Felucca 1.6.1 for the M-VAVE FM-1: an old-school tracker-style FM"
+F:1,N:165,fork,github-api,https://github.com/burn-again/Felucca-Sog#readme,"This is **Felucca-Sog**, a fork of [Felucca](https://github.com/hugelton/Felucca) by Hügelton Instruments."
+F:1,N:166,fork,github-api,https://github.com/CDMGaming/TILT-FM#readme,"**TILT-FM is a modified version of Felucca** (by Leo Kuroshita, Hügelton Instruments), made by CDM Gaming in 2026."
+T:4,N:167,fork,github-api,https://github.com/coldmayo/fm1_drone,README statement
+F:1,N:168,fork,github-api,https://github.com/Comradevergreen/fm-evergreen#readme,It is a fork of [Felucca](https://github.com/hugelton/Felucca) 1.1.5.1 by Hügelton Instruments (GPL-3.0)
+S:5,N:168,uptake,readme,https://github.com/Comradevergreen/fm-evergreen#readme,README credits uptake
+S:1,N:169,fork,github-api,https://github.com/Cosmo-K-444/lowtide-fm1#readme,"a fork of <a href=""https://github.com/isod89/sloop-fm1"">SLOOP</a> by isod89, based on <a href=""https://github.com/hugelton/Felucca"">Felucca</a>"
+F:5,N:170,fork,github-api,https://github.com/curist/fm1-clk320-probe#readme,"A fork of [X0X](https://github.com/charlesvestal/fm1-x0x) by Charles Vestal, itself a fork of"
+F:1,N:171,fork,github-api,https://github.com/devan78/cyberdeck-fm1,README statement
+F:3,N:172,fork,github-api,https://github.com/DJSquintz/Paisley,README statement
+F:1,N:173,fork,github-api,https://github.com/doug-parks/furybox#readme,**FURYBOX** is firmware for the **M-VAVE FM-1** that turns it into a KORG Poly-800 style polysynth. It is a fork of
+F:1,N:174,fork,github-api,https://github.com/easyhard007/Felucca-RDX#readme,It is a modified fork of [Felucca](https://github.com/hugelton/Felucca) by Leo
+F:1,N:175,fork,github-api,https://github.com/etopotemkin/alarusse#readme,A fork of Felucca for the M-VAVE FM-1 aimed at rave / hard-techno live sets. Upstream: [hugelton/Felucca](https://github.com/hugelton/Felucca).
+F:1,N:176,fork,github-api,https://github.com/Forban5929/Alter-FM1#readme,"ALTER is a fork of [Felucca](https://github.com/hugelton/Felucca) by Leo Kuroshita. It keeps Felucca's hardware layer, effects and"
+F:1,N:177,fork,github-api,https://github.com/grant-vine/dabbl8,README statement
+F:5,N:177,influence,readme,https://github.com/grant-vine/dabbl8#readme,README credits influence
+F:3,N:178,fork,github-api,https://github.com/jazzfolderPARLA/VintageS#readme,Modified from [Melodee](https://github.com) by Kerem Kilic and [Felucca](https://github.com) by Leo Kuroshita (Hügelton Instruments).
+F:1,N:179,fork,github-api,https://github.com/LotionOnTheSkin/NEON#readme,"This fork of [Felucca](https://github.com/hugelton/Felucca) adds **NEON**, a synthwave sound engine for the M-VAVE FM-1:"
+F:1,N:180,fork,github-api,https://github.com/manuelerdoes/oergelfm1,README statement
+S:5,N:181,fork,github-api,https://github.com/MarcoCasanova00/JIANT-tekno-rework#readme,**Based on**: [JIANT FM](https://github.com/juanjiant-bit/JIANT) v0.9.18
+F:1,N:182,fork,github-api,https://github.com/Motheraudio/TheCove,README statement
+S:1,N:183,fork,github-api,https://github.com/myldy20/BRKLOOP#readme,"Free and open source (GPL-3.0), based on <a href=""https://github.com/hugelton/Felucca"">Felucca</a> by Leo Kuroshita / Hügelton Instruments."
+F:1,N:184,fork,github-api,https://github.com/oMauNaProducer/5-LAB#readme,"**5-LAB v1.1.8** is a fork of [Felucca](https://github.com/hugelton/Felucca) 1.6.1 (Leo Kuroshita, Hügelton Instruments), a multi-engine"
+F:1,N:185,fork,github-api,https://github.com/p-orlov/Ecolucca#readme,"Ecolucca is a fork of Felucca, alternative firmware for the FM-1 synth, that turns it into an evolving sound ecosystem:"
+F:1,N:186,fork,github-api,https://github.com/RIKIPIEL/Feluccamicro,README statement
+F:1,N:187,fork,github-api,https://github.com/rinaldohack/StudioKeys-Micro#readme,"Based on [Felucca](https://github.com/hugelton/Felucca) by Leo Kuroshita (@kurogedelic), Hügelton Instruments"
+F:3,N:188,fork,github-api,https://github.com/SeattleUser0/OrangeCat#readme,"Orange Cat is custom firmware for the M-VAVE FM-1, built from [Melodee](https://github.com/keremimo/melodee) 1.4.5 by"
+F:3,N:189,fork,github-api,https://github.com/stevensnasdell-cmd/dock#readme,Dock started as a fork of Melodee 1.4.1 on 17 Oct 2026.
+F:1,N:189,uptake,readme,https://github.com/stevensnasdell-cmd/dock#readme,README credits uptake
+S:1,N:190,fork,github-api,https://github.com/theNoisery/snoop-fm1#readme,"Free and open source (GPL-3.0), based on <a href=""https://github.com/hugelton/Felucca"">Felucca</a> by Leo Kuroshita / Hügelton Instruments."
+S:5,N:191,fork,github-api,https://github.com/Xanacognition/XANOISE#readme,It is a fork of [Felucca](https://github.com/hugelton/Felucca) 1.1.5.1 by Hügelton Instruments (GPL-3.0)
+S:1,N:192,fork,github-api,https://github.com/xoxoaudiolabs/sloop-remote-out#readme,SLOOP Remote Out: a fork of SLOOP 2.8.1 with a REMOTE OUT
+F:1,N:193,fork,github-api,https://github.com/yummy-waffle/WT-1,README statement
+F:1,N:194,fork,github-api,https://github.com/kmplngj/Felucca#readme,"This is my personal fork of [Hügelton's Felucca](https://github.com/hugelton/Felucca),"
+S:5,N:195,fork,github-api,https://github.com/pfkellogg/JIANT#readme,**This fork: JIANT FM + FM-1 Big Screen (unofficial).** JIANT Beta V10.49 with the FM-1's screen shown big by
+Z:20,N:117,component,readme,https://github.com/Joolo09/zombie-fm1-web/blob/HEAD/source/platform-081/README.md,"source/platform-081/ is a vendored copy of fm1-base (its README is fm1-base's; MPL-2.0); dependency, not instrument ancestry"
+Z:20,N:196,fork,github-api,https://github.com/TruBitTech/fm1-base,"A base for M-VAVE FM-1 firmware, on felucca-bsp"
+Z:18,N:196,component,readme,https://github.com/TruBitTech/fm1-base#readme,"platform dependency, not instrument ancestry"
+F:1,N:197,fork,github-api,https://github.com/ttylab80387/Felucca,"This `fm-blocks` branch adds FM BLOCKS, a falling-blocks game, to Felucca 1.7.0."
+T:4,N:198,fork,github-api,https://github.com/pfkellogg/fm1_open,README statement
+F:3,N:199,fork,github-api,https://github.com/pfkellogg/melodee,README statement
+S:1,N:200,fork,github-api,https://github.com/pfkellogg/sloop-fm1,README statement
+F:1,N:201,fork,github-api,https://github.com/carlosshawplatino/Felucca,README statement
+F:5,N:202,fork,github-api,https://github.com/copych/fm1-x0x,README statement
+F:1,N:203,fork,github-api,https://github.com/DeadActive/Felucca,README statement
+F:9,N:203,uptake,readme,https://github.com/DeadActive/Felucca#readme,README credits uptake
+F:1,N:204,fork,github-api,https://github.com/doohinkus/Felucca,README statement
+F:5,N:205,fork,github-api,https://github.com/Harvie/fm1-x0x,This is experimental fork of https://github.com/charlesvestal/fm1-x0x
+S:1,N:206,fork,github-api,https://github.com/jmarianski/sloop-fm1,This fork of [SLOOP](https://github.com/isod89/sloop-fm1) carries two additions on top of SLOOP
+S:1,N:207,fork,github-api,https://github.com/Jozan-Mate-K/sloop-fm1,SLOOP turns the FM-1 into a four-track groovebox you play live
+F:1,N:208,fork,github-api,https://github.com/mediaworkbench/Felucca#readme,This is a fork of [Felucca Firmware for the M-VAVE FM-1](https://github.com/hugelton/Felucca).
+F:1,N:209,fork,github-api,https://github.com/mene311/Felucca#readme,FM-1 TRACKER v1.4-tr2 (commit message; README unchanged from upstream)
+T:4,N:210,fork,github-api,https://github.com/monoeater/fm1_open#readme,"MONOEATER.NOISE: FM-1 cut-up noise firmware. Added freeze wash, slow wash bend, effects after the wash, logo, latch, saved knobs, sequenced effects"
+F:1,N:211,fork,github-api,https://github.com/mrsheez/Felucca#readme,"This branch is EDDA OS 1.7.4, the Mr. Sheez performance fork of Felucca 1.7.0 (GPL-3.0)"
+S:5,N:212,fork,github-api,https://github.com/pedeplei1281/JIANT/releases/tag/smk37-1,"Unofficial build of JIANT for the M-Vave SMK-37, from PR #197 (commit 255cc9fd), until it is merged."
+S:1,N:213,fork,github-api,https://github.com/pedronogueiranunes/sloop-fm1#readme,"sloop-peeeo is a personal fork of SLOOP by isod89, which is itself based on Felucca by Leo Kuroshita / Hügelton Instruments."
+S:1,N:214,fork,github-api,https://github.com/ristiisa/sloop-fm1#readme,SLOOP 2.5: merge upstream 2.4.1 (commit message)
+T:4,N:215,fork,github-api,https://github.com/scottrabara/fm1_open#readme,"This fork of M-VAVE's FM1 Open adds a few protocol extensions for Sideband, a sound editor for the FM-1"
+F:1,N:216,fork,github-api,https://github.com/spinkham/Felucca/releases/tag/v1.0.3-div0fix,Felucca 1.0.3-div0fix (test build) - release; README unchanged
+T:1,N:96,derive,readme,https://github.com/darrenjaworski/fm-1-impressionism/blob/HEAD/LICENSING.md,"LICENSING: ""a fork of zvenson/dinghy""; 48 code files byte-identical to Dinghy (platform, crt0, app.ld, hal)"
+Z:2,N:12,derive,readme,https://github.com/deamonSLINKY/PERF-1/blob/HEAD/LICENSING.md,"LICENSING: ""a fork of HYP-1 by RedtailWorks, itself a fork of Charles Vestal's AMB-1"" (HYP-1 has no public repository); 26 code files identical to AMB-1"
+N:7,N:217,fork,github-api,https://github.com/Saintpid/n001se,GitHub fork record (44 commits ahead of FiMba-1)
+N:217,N:144,derive,readme,https://github.com/Saintpid/Wild/blob/HEAD/LICENSING.md,"LICENSING keeps n001se's text: ""built on FiMba-1 (and through it FoMni, X0X and Felucca)""; same author; 36 code files identical to X0X/FoMni platform"
+F:1,N:76,component,readme,https://github.com/DimmKirr/modd/blob/HEAD/THIRD_PARTY.md,"THIRD_PARTY: firmware/upstream/felucca/ is Felucca v1.6.1 (UI renderer, audio core, sequencer reference); dependency, not instrument ancestry"
+F:1,N:71,component,readme,https://github.com/y6zkcqnf5r-hue/fm1-trawler#readme,"README credits: Felucca (Leo Kuroshita / Hügelton Instruments), the hardware layer, for the port; no byte-identical files (rewritten)"
+S:1,N:19,influence,readme,https://github.com/Erbubar23/bubba-machine#readme,"README: ""Grabación como SLOOP"" (recording like SLOOP); no code files identical to the main lineages"
+N:16,N:9,derive,readme,https://github.com/FartyPants/fm1-piano/blob/HEAD/hybrid/nightly/install/index.html,"Installer page: ""FM-1 HYBRID PIANO is built on Felucca ... by way of X0X and FoMni"" (the AMB-1 family's credit line). Same author as NACHTFAHRT; the web emulator is NACHTFAHRT's (amb.wasm from web/emu/amb_web.c, a file only DUB-1 and NACHTFAHRT have; worklet.js differs from NACHTFAHRT's in 4 of 134 lines). Firmware source not published"
+N:218,N:219,uptake,readme,https://github.com/Keitark/fm1-doom#readme,"README: source 783a03d ""adds the NES port's live filter/Wah effect"" (same author, same WL82 SDK route)"

@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>FM-1 CFW Database</title>
+<meta name="description" content="A database of custom firmware for the M-VAVE FM-1: lineage, versions, installers and links.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FM-1 CFW Database">
+<meta property="og:description" content="A database of custom firmware for the M-VAVE FM-1: lineage, versions, installers and links.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M11 7v18M11 13c0 5 10 3 10 9' stroke='%231d1d1f' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='11' cy='7' r='2.6' fill='%231d1d1f'/%3E%3Ccircle cx='21' cy='23' r='2.6' fill='%231d1d1f'/%3E%3C/svg%3E">
+<style>
+/* ---------- Tokens (Apple system palette) ---------- */
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --fg: #1d1d1f;
+  --muted: #6e6e73;
+  --faint: #aeaeb2;
+  --border: rgba(60, 60, 67, .12);
+  --border-strong: rgba(60, 60, 67, .22);
+  --fill: rgba(118, 118, 128, .12);
+  --fill-strong: rgba(118, 118, 128, .2);
+  --line: #c7c7cc;
+  --accent: #0071e3;
+  --pick: #b07d00;
+  --active: #34c759;
+  --scrim: rgba(245, 245, 247, .76);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, .07);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, .14), 0 0 0 .5px rgba(0, 0, 0, .06);
+
+  /* Four type sizes only. */
+  --fs-xs: 11px;
+  --fs-sm: 13px;
+  --fs-md: 15px;
+  --fs-lg: 19px;
+
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Hiragino Sans", "Segoe UI", sans-serif;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --bar-h: 52px;
+  --rail-w: 44px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --surface: #1c1c1e;
+    --fg: #f5f5f7;
+    --muted: #98989d;
+    --faint: #636366;
+    --border: rgba(84, 84, 88, .55);
+    --border-strong: rgba(120, 120, 128, .7);
+    --fill: rgba(118, 118, 128, .24);
+    --fill-strong: rgba(118, 118, 128, .34);
+    --line: #48484a;
+    --accent: #0a84ff;
+    --pick: #ffd60a;
+    --active: #30d158;
+    --scrim: rgba(22, 22, 23, .76);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, .5);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, .6), 0 0 0 .5px rgba(255, 255, 255, .1);
+  }
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 var(--fs-sm)/1.45 var(--font);
+  -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%;
+}
+button, input, a { font: inherit; color: inherit; }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+/* Fukiai icon font (fonts/fukiai.woff, from hugelton/Fukiai). Glyphs are Private Use code points. */
+@font-face { font-family: 'Fukiai'; src: url('fonts/fukiai.woff') format('woff'); font-display: block; }
+.fi {
+  display: inline-block; flex: none; width: 1em; height: 1em;
+  font: normal 400 16px/1 'Fukiai'; speak: never;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+.press { transition: transform .12s var(--ease), background-color .15s; }
+.press:active { transform: scale(.96); }
+
+/* ---------- Header ---------- */
+#bar {
+  position: fixed; inset: 0 0 auto 0; height: var(--bar-h); z-index: 20;
+  display: flex; align-items: center; gap: 8px;
+  padding: 0 max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
+  background: var(--scrim);
+  -webkit-backdrop-filter: saturate(1.8) blur(20px); backdrop-filter: saturate(1.8) blur(20px);
+  border-bottom: .5px solid var(--border);
+}
+.search { position: relative; flex: 1 1 auto; max-width: 420px; display: flex; align-items: center; }
+.search > .fi { position: absolute; left: 10px; color: var(--muted); pointer-events: none; }
+#search {
+  width: 100%; height: 34px; padding: 0 64px 0 32px;
+  border: 0; border-radius: 10px; background: var(--fill); outline: none;
+  transition: background-color .2s, box-shadow .2s;
+}
+#search::placeholder { color: var(--muted); }
+#search:focus { background: var(--surface); box-shadow: inset 0 0 0 1px var(--accent); }
+#search::-webkit-search-cancel-button { display: none; }
+.search-end { position: absolute; right: 6px; display: flex; align-items: center; gap: 4px; color: var(--muted); font-size: var(--fs-xs); }
+#searchClear {
+  display: grid; place-items: center; width: 22px; height: 22px; padding: 0;
+  border: 0; border-radius: 50%; background: var(--fill-strong); color: var(--muted);
+  opacity: 0; transform: scale(.6); pointer-events: none;
+  transition: opacity .15s, transform .2s var(--ease);
+}
+#searchClear.show { opacity: 1; transform: none; pointer-events: auto; }
+#searchClear .fi { font-size: 11px; }
+.bar-end { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+
+/* Segmented control with a sliding thumb */
+.seg { position: relative; display: inline-flex; padding: 2px; background: var(--fill); border-radius: 9px; }
+.seg-thumb {
+  position: absolute; left: 0; top: 2px; bottom: 2px; border-radius: 7px;
+  background: var(--surface); box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+}
+.seg.ready .seg-thumb { transition: transform .28s var(--ease), width .28s var(--ease); }
+@media (prefers-color-scheme: dark) { .seg-thumb { background: #636366; box-shadow: none; } }
+.seg button {
+  position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 28px; padding: 0 12px; border: 0; background: none; color: var(--muted); font-weight: 500;
+  transition: color .2s;
+}
+.seg button[aria-pressed="true"] { color: var(--fg); }
+.icon-btn {
+  position: relative; display: grid; place-items: center; width: 34px; height: 34px; padding: 0;
+  border: 0; border-radius: 10px; background: var(--fill); color: var(--fg);
+}
+.icon-btn:hover { background: var(--fill-strong); }
+.icon-btn[aria-expanded="true"] { background: var(--fill-strong); }
+.icon-btn .badge { position: absolute; top: 6px; right: 6px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* Title */
+.brand {
+  display: inline-flex; align-items: center; gap: 7px; flex: none; margin-right: 4px;
+  color: var(--fg); text-decoration: none; font-size: var(--fs-md); font-weight: 600; letter-spacing: -.01em; white-space: nowrap;
+}
+.brand .fi { font-size: 22px; transition: transform .25s var(--ease); }
+.brand:hover .fi { transform: rotate(-8deg); }
+
+/* ---------- About ---------- */
+#about {
+  width: min(520px, calc(100vw - 24px)); max-height: min(640px, calc(100dvh - 48px)); padding: 0;
+  border: 0; border-radius: 18px; background: var(--surface); color: var(--fg); box-shadow: var(--shadow-lg); overflow: hidden;
+}
+#about[open] { animation: pop .26s cubic-bezier(.2, 1.2, .4, 1); }
+#about::backdrop { background: rgba(0, 0, 0, .28); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); animation: fade .2s; }
+.about-head { display: flex; align-items: center; gap: 10px; padding: 16px 16px 0 20px; }
+.about-head h2 { flex: 1; margin: 0; font-size: var(--fs-lg); font-weight: 600; letter-spacing: -.015em; }
+.about-tabs { padding: 14px 20px 0; }
+.about-tabs .seg { display: flex; }
+.about-tabs .seg button { flex: 1; }
+.about-body { max-height: calc(min(640px, 100dvh - 48px) - 150px); overflow-y: auto; padding: 4px 20px 20px; font-size: var(--fs-md); line-height: 1.6; }
+.about-body p { margin: 14px 0 0; }
+.about-body [lang]:not(.on) { display: none; }
+.about-body .on { animation: fade .25s var(--ease); }
+.about-body .thanks a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.about-body .thanks a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.about-body .sign { color: var(--muted); }
+.disclaimer { margin-top: 20px; padding-top: 14px; border-top: .5px solid var(--border); color: var(--muted); font-size: var(--fs-sm); line-height: 1.55; }
+.disclaimer h3 { margin: 0; font-size: var(--fs-xs); font-weight: 600; color: var(--muted); }
+.disclaimer p { margin: 6px 0 0; }
+.disclaimer a { color: var(--accent); text-decoration: none; }
+.disclaimer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.about-body strong { font-weight: 600; }
+.about-count { margin: 18px 0 0; color: var(--faint); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; }
+
+/* ---------- Filter panel ---------- */
+#panel {
+  position: fixed; top: calc(var(--bar-h) + 6px); right: 12px; z-index: 30; width: 240px;
+  padding: 6px; background: var(--surface); border-radius: 14px; box-shadow: var(--shadow-lg);
+  transform-origin: top right; animation: pop .2s var(--ease);
+}
+.panel-label { padding: 8px 10px 4px; font-size: var(--fs-xs); color: var(--muted); }
+.opt {
+  display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 8px 10px;
+  border: 0; border-radius: 8px; background: none; text-align: left;
+}
+.opt:hover { background: var(--fill); }
+.opt .fi { color: var(--accent); opacity: 0; transform: scale(.5); transition: opacity .15s, transform .2s var(--ease); }
+.opt[aria-checked="true"] .fi { opacity: 1; transform: none; }
+.panel-row { padding: 4px 4px 6px; }
+.panel-row .seg { display: flex; }
+.panel-row .seg button { flex: 1; }
+.panel-sep { height: .5px; margin: 6px 4px; background: var(--border); }
+
+/* ---------- Lineage colors ---------- */
+.life, .conn, .item, .ver, .swatch, .arc { --lc: var(--lc-l, var(--line)); }
+@media (prefers-color-scheme: dark) {
+  .life, .conn, .item, .ver, .swatch, .arc { --lc: var(--lc-d, var(--line)); }
+}
+.swatch { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--lc); vertical-align: 1px; flex: none; }
+
+/* ---------- Tree (phylogram: time → right, one row per project) ---------- */
+#treeView, #listView, #insightView { position: fixed; inset: 0; }
+.view-in { animation: fade .22s var(--ease); }
+#viewport { position: absolute; inset: 0; overflow: hidden; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+#viewport.is-panning { cursor: grabbing; }
+#world { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+#edges { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.life { fill: none; stroke: var(--lc); stroke-width: 2; stroke-linecap: round; transition: stroke .25s, opacity .25s; }
+.conn { fill: none; stroke: var(--lc); stroke-width: 1.5; opacity: .75; stroke-linecap: round; transition: stroke .25s, opacity .25s; }
+.conn.tentative, .life.undated { stroke-dasharray: 3 4; }
+/* "Built on" a platform (not lineage): dotted */
+.conn.platform { stroke-dasharray: .5 4.5; stroke-width: 2; }
+/* After the last release: still pushed to, or forked from, but not released */
+.life.tail { stroke-dasharray: 1 5; opacity: .55; }
+.life.tail.is-dim { opacity: .15; }
+.snap { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 4; opacity: .35; }
+.life.is-path, .conn.is-path { stroke-width: 3; opacity: 1; }
+.life.is-hover, .conn.is-hover { stroke-width: 3.5; opacity: 1; }
+.is-dim { opacity: .22; }
+/* Lines grow from left to right on first load. */
+#edges.intro .life:not(.tail):not(.undated), #edges.intro .conn:not(.tentative) { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw .7s var(--ease) forwards; animation-delay: calc(var(--i, 0) * 18ms + 120ms); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+/* Dotted lines keep their dots: they fade in after the solid part has drawn. */
+#edges.intro .life.tail, #edges.intro .life.undated, #edges.intro .conn.tentative { animation: fade .4s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 18ms + 500ms); }
+
+.item {
+  position: absolute; left: 0; top: 0; display: flex; align-items: center; height: 24px; margin-top: -12px;
+  transition: opacity .25s;
+  animation: fade .35s both; animation-delay: calc(var(--i, 0) * 18ms);
+}
+.item.leaving { opacity: 0; pointer-events: none; }
+.mark {
+  width: 9px; height: 9px; margin-left: -4.5px; flex: none; border-radius: 50%;
+  background: var(--lc); box-shadow: 0 0 0 3px var(--bg);
+  transition: transform .18s var(--ease), background-color .2s;
+}
+.item.beta .mark, .item.undated .mark { background: var(--bg); box-shadow: inset 0 0 0 2px var(--lc), 0 0 0 3px var(--bg); }
+.name {
+  margin-left: 5px; padding: 2px 7px; border: 0; border-radius: 7px;
+  background: var(--bg); color: var(--fg); font-size: var(--fs-sm); font-weight: 500; white-space: nowrap;
+  transition: background-color .15s, color .15s, transform .12s var(--ease);
+}
+/* Opaque even on hover, so a highlighted line behind the name doesn't show through. */
+.name:hover { background: color-mix(in srgb, var(--fg) 10%, var(--bg)); }
+.name:active { transform: scale(.96); }
+.item:hover .mark { transform: scale(1.3); }
+.item.base .name, .row-title.base { font-style: italic; }
+.item.heavy .name { font-size: var(--fs-md); font-weight: 600; }
+.item.is-selected .name { background: var(--accent); color: #fff; }
+.item.is-selected .mark { transform: scale(1.35); }
+/* "Other N": smaller projects folded together */
+.item.group .mark { background: var(--faint); }
+.item.group .name { background: color-mix(in srgb, var(--fg) 8%, var(--bg)); color: var(--muted); }
+.item.group .name:hover { background: color-mix(in srgb, var(--fg) 14%, var(--bg)); color: var(--fg); }
+
+/* Release points on a project's line */
+.ver {
+  position: absolute; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; padding: 0;
+  display: grid; place-items: center; border: 0; background: none; cursor: pointer;
+  transition: opacity .25s; animation: fade .4s both; animation-delay: calc(var(--i, 0) * 18ms + 300ms);
+}
+.ver-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--lc); box-shadow: 0 0 0 2px var(--bg);
+  transition: transform .15s var(--ease), background-color .15s;
+}
+.ver.pre .ver-dot { background: var(--bg); box-shadow: inset 0 0 0 1.5px var(--lc), 0 0 0 2px var(--bg); }
+.ver:hover { z-index: 2; }
+.ver.is-hover { opacity: 1; }
+.ver.is-hover .ver-dot { transform: scale(1.25); }
+.item.is-hover { opacity: 1; }
+.item.is-hover .mark { transform: scale(1.3); }
+.ver:hover .ver-dot { transform: scale(1.6); }
+.ver-name {
+  position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+  padding: 0 4px; border-radius: 4px; background: var(--bg);
+  font-size: var(--fs-xs); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums;
+  opacity: 0; pointer-events: none; transition: opacity .15s;
+}
+.ver:hover .ver-name { opacity: 1; }
+.ver:hover .ver-name { color: var(--fg); }
+/* Version names show on hover only. In Family (horizontal) they sit above the dot. */
+body:not(.vertical) .ver-name { left: 50%; top: -10px; transform: translate(-50%, -50%); }
+
+/* Date axis (follows the canvas horizontally) */
+#axis {
+  position: fixed; top: var(--bar-h); left: 0; right: var(--rail-w); height: 30px; z-index: 4; pointer-events: none; overflow: hidden;
+  background: linear-gradient(var(--bg) 55%, transparent);
+}
+.tick {
+  position: absolute; left: 0; top: 7px; font-size: var(--fs-xs); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums;
+  transform: translateX(-50%);
+}
+.tick.month { color: var(--fg); font-weight: 600; }
+.tick.snap { color: var(--muted); }
+body.vertical #axis { display: none; }
+
+/* ---------- Date rail (dots) ---------- */
+#rail { position: fixed; top: var(--bar-h); bottom: 0; right: 0; width: var(--rail-w); z-index: 3; }
+#dots {
+  position: absolute; inset: 18px 0; display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+  cursor: pointer; touch-action: none; outline: none;
+}
+#dots:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 8px; }
+.dot {
+  width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; pointer-events: none;
+  background: var(--faint); opacity: .4;
+  transition: opacity .2s, transform .18s var(--ease), background-color .15s;
+}
+.dot.in-view { opacity: 1; }
+.dot.is-hover { background: var(--fg); opacity: 1; transform: scale(1.45); }
+#dotLabel {
+  position: absolute; right: calc(50% + 12px); top: 0; margin-top: -10px; pointer-events: none;
+  font-size: var(--fs-md); font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap;
+  text-shadow: 0 0 4px var(--bg), 0 0 10px var(--bg);
+  opacity: 0; translate: 6px 0; transition: opacity .15s, translate .2s var(--ease);
+}
+#dotLabel.show { opacity: 1; translate: 0 0; }
+
+/* Code exchange arcs (toolbar "Code") */
+.arc { fill: none; stroke: var(--lc); stroke-width: .75; stroke-linecap: round; opacity: .3; pointer-events: stroke; transition: opacity .25s, stroke-width .2s; }
+.arc.back { stroke-width: 1; opacity: .5; }
+.arc.influence { opacity: .2; }
+.arc.is-dim { opacity: .08; }
+.arc.is-path { opacity: .9; stroke-width: 1.25; }
+.arc:hover { opacity: 1; stroke-width: 1.5; }
+body.arc-hovering .arc:not(.is-hover) { opacity: .06; }
+.arc.is-hover { opacity: 1; stroke-width: 1.5; }
+/* Arrowhead in the arc's own color where supported (context-stroke), grey otherwise. */
+.arc-head { fill: none; stroke: var(--muted); stroke: context-stroke; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.arc-layer { transition: opacity .3s; }
+body:not(.show-arcs) .arc-layer { opacity: 0; pointer-events: none; }
+.arc.grow { stroke-dasharray: 1; stroke-dashoffset: 1; animation: arc-grow .7s var(--ease) forwards; }
+@keyframes arc-grow { to { stroke-dashoffset: 0; } }
+
+/* ---------- Tree toolbar (bottom right) ---------- */
+#tools {
+  position: fixed; right: calc(var(--rail-w) + 12px); bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 6;
+  display: flex; align-items: center; gap: 8px; padding: 5px 6px 5px 6px;
+  background: var(--scrim); -webkit-backdrop-filter: saturate(1.8) blur(20px); backdrop-filter: saturate(1.8) blur(20px);
+  border: .5px solid var(--border); border-radius: 14px; box-shadow: var(--shadow-md);
+  animation: pop .3s .2s var(--ease) both; transform-origin: bottom right;
+}
+.tool {
+  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px;
+  border: 0; border-radius: 9px; background: none; color: var(--fg); font-weight: 500;
+}
+.tool:hover { background: var(--fill); }
+.tool[aria-pressed="true"] { background: var(--fill-strong); }
+.tool .fi { font-size: 14px; transition: transform .25s var(--ease); }
+.tool[aria-pressed="true"] .fi { transform: rotate(180deg); }
+.tool-sep { width: .5px; height: 20px; background: var(--border-strong); }
+#emphSeg button { height: 26px; padding: 0 10px; }
+#emphSeg .fi { font-size: 12px; }
+
+/* Emphasis: lines, dots and names scale with forks or stars (--w from 0 to 1). */
+body.emph .life { stroke-width: calc(1.25px + var(--w, 0) * 5px); stroke-opacity: calc(.35 + var(--w, 0) * .65); }
+body.emph .life.tail { stroke-opacity: calc(.2 + var(--w, 0) * .35); }
+body.emph .item .mark { width: calc(6px + var(--w, 0) * 9px); height: calc(6px + var(--w, 0) * 9px); margin-left: calc(-3px - var(--w, 0) * 4.5px); }
+body.emph .item .name { opacity: calc(.5 + var(--w, 0) * .5); font-weight: 500; font-size: var(--fs-sm); }
+body.emph .item.w2 .name { font-weight: 600; font-size: var(--fs-md); }
+body.emph .item.w3 .name { font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.015em; }
+body.emph .ver-dot { opacity: calc(.45 + var(--w, 0) * .55); }
+.life, .item .mark, .item .name { transition: stroke-width .35s var(--ease), stroke-opacity .35s, width .35s var(--ease), height .35s var(--ease), margin .35s var(--ease), opacity .3s, font-size .3s var(--ease); }
+
+/* ---------- Insight ---------- */
+#insightView { top: var(--bar-h); overflow-y: auto; background: var(--bg); }
+.insight-inner { max-width: 1120px; margin: 0 auto; padding: 20px 16px calc(40px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.ins-card { min-width: 0; padding: 16px; border-radius: 14px; background: color-mix(in srgb, var(--fg) 4%, var(--bg)); }
+.ins-card.wide { grid-column: 1 / -1; }
+.ins-card h2 { margin: 0 0 2px; font-size: var(--fs-md); font-weight: 600; letter-spacing: -.01em; }
+.ins-card .ins-sub { margin: 0 0 12px; color: var(--muted); font-size: var(--fs-xs); }
+.ins-stats { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.ins-stat { padding: 14px 16px; border-radius: 14px; background: color-mix(in srgb, var(--fg) 4%, var(--bg)); }
+.ins-stat b { display: block; font-size: var(--fs-lg); font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.015em; }
+.ins-stat span { color: var(--muted); font-size: var(--fs-xs); }
+/* Column chart (one series over time) */
+.ins-cols { display: flex; align-items: flex-end; gap: 2px; height: 120px; border-bottom: .5px solid var(--border); }
+.ins-col { flex: 1; min-width: 2px; height: 100%; display: flex; align-items: flex-end; cursor: default; }
+.ins-col i { display: block; width: 100%; border-radius: 4px 4px 0 0; background: var(--accent); opacity: .85; transition: opacity .15s; }
+.ins-col:hover i { opacity: 1; }
+.ins-col.zero i { background: transparent; }
+.ins-axis { display: flex; justify-content: space-between; margin-top: 6px; color: var(--muted); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; }
+/* Ranked bars */
+.ins-bars { display: grid; gap: 6px; }
+.ins-bar { display: grid; grid-template-columns: minmax(0, 40%) minmax(0, 1fr) auto; align-items: center; gap: 10px; font-size: var(--fs-sm); }
+.ins-bar .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ins-bar button.nm { padding: 0; border: 0; background: none; color: var(--fg); text-align: left; font: inherit; cursor: pointer; }
+.ins-bar button.nm:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ins-bar .track { height: 8px; }
+.ins-bar .track i { display: block; height: 100%; min-width: 2px; border-radius: 0 4px 4px 0; background: var(--accent); opacity: .85; }
+.ins-bar .val { color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; min-width: 2.5em; }
+.ins-bar.lineage .track i { --lc: var(--lc-l, var(--accent)); background: var(--lc); opacity: 1; }
+#insightTip { position: fixed; z-index: 30; pointer-events: none; padding: 6px 9px; border-radius: 8px; background: var(--fg); color: var(--bg); font-size: var(--fs-xs); white-space: nowrap; transform: translate(-50%, calc(-100% - 8px)); }
+@media (prefers-color-scheme: dark) { .ins-bar.lineage .track i { --lc: var(--lc-d, var(--accent)); } }
+@media (max-width: 680px) {
+  .insight-inner { grid-template-columns: minmax(0, 1fr); padding: 12px 12px 40px; gap: 12px; }
+  .ins-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+
+/* Info panel rows: an icon, then the value */
+#infoRows { margin-top: 6px; display: grid; gap: 4px; }
+.info-row { display: grid; grid-template-columns: 16px minmax(0, 1fr); column-gap: 6px; align-items: start; color: var(--muted); line-height: 1.45; }
+.info-row > .fi:first-child { font-size: 13px; width: 16px; margin-top: 2px; color: var(--muted); }
+.info-row.note { display: block; }
+.row-body { min-width: 0; overflow-wrap: anywhere; }
+.info-row a { color: var(--fg); text-decoration: none; }
+.info-row a:hover, .info-row .jump:hover { text-decoration: underline; text-underline-offset: 3px; }
+.info-row .jump { padding: 0; border: 0; background: none; color: var(--accent); }
+.info-row.note { color: var(--muted); }
+.info-row .stars { margin-left: 6px; display: inline-flex; vertical-align: -1px; }
+.info-row .row-kind { margin-left: 6px; color: var(--muted); }
+.gh-mark { width: 13px; height: 13px; fill: currentColor; flex: none; }
+
+/* Author's Choice */
+.pick-star { margin-left: 5px; font-size: 12px; color: var(--pick); vertical-align: 0; }
+.item.is-selected .pick-star { color: #fff; }
+.pick-badge {
+  display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px 1px 5px; border-radius: 999px;
+  background: color-mix(in srgb, var(--pick) 16%, transparent); color: var(--pick);
+  font-size: var(--fs-xs); font-weight: 600; white-space: nowrap;
+}
+.pick-badge .fi { font-size: 11px; }
+.row-title .pick-badge { margin-left: 8px; vertical-align: 1px; }
+.info-head .pick-badge { margin-bottom: 6px; }
+.info-head .pick-badge[hidden] { display: none; }
+
+/* ---------- Popover ---------- */
+#info { position: fixed; left: 0; top: 0; z-index: 15; width: min(260px, calc(100vw - 16px)); pointer-events: none; }
+.info-card {
+  max-height: calc(100dvh - var(--bar-h) - 16px); overflow-y: auto; overscroll-behavior: contain;
+  padding: 14px 14px 14px 16px; background: var(--surface); border-radius: 14px; box-shadow: var(--shadow-lg);
+  opacity: 0; transform: scale(.96); transform-origin: var(--ox, 0) var(--oy, 0);
+  transition: opacity .12s, transform .12s;
+}
+#info.is-open { pointer-events: auto; }
+#info.is-open .info-card { opacity: 1; transform: none; transition: opacity .18s, transform .26s cubic-bezier(.2, 1.2, .4, 1); }
+#info.is-away { visibility: hidden; }
+.info-head { display: flex; align-items: flex-start; gap: 10px; }
+.info-head > div { flex: 1; min-width: 0; }
+.info-name { margin: 0; font-size: var(--fs-lg); font-weight: 600; letter-spacing: -.015em; line-height: 1.25; overflow-wrap: anywhere; }
+.info-sub { margin-top: 3px; color: var(--muted); }
+.info-sub a { color: var(--fg); text-decoration: none; }
+.stars { display: inline-flex; align-items: center; gap: 3px; white-space: nowrap; }
+.stars .fi { font-size: 12px; }
+.info-sub button { padding: 0; border: 0; background: none; color: var(--accent); }
+.info-sub a:hover, .info-sub button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.close {
+  display: grid; place-items: center; width: 26px; height: 26px; margin: -3px -5px 0 0; padding: 0; flex: 0 0 auto;
+  border: 0; border-radius: 50%; background: var(--fill); color: var(--muted);
+}
+.close:hover { color: var(--fg); background: var(--fill-strong); }
+.close .fi { font-size: 12px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.link {
+  display: inline-flex; align-items: center; gap: 5px; height: 30px; padding: 0 12px;
+  border-radius: 999px; background: var(--fill); text-decoration: none; font-weight: 500;
+}
+.link:hover { background: var(--fill-strong); }
+.link .fi { font-size: 13px; color: var(--muted); transition: transform .18s var(--ease); }
+.link:hover .fi { transform: rotate(-12deg) scale(1.1); }
+
+/* ---------- List ---------- */
+#listView { top: var(--bar-h); overflow-y: auto; }
+#listView { background: var(--bg); }
+.list-inner { padding: 0 0 calc(40px + env(safe-area-inset-bottom)); }
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
+th {
+  position: sticky; top: 0; z-index: 1; background: color-mix(in srgb, var(--fg) 5%, var(--bg));
+  padding: 10px 12px; text-align: left; white-space: nowrap;
+  font-size: var(--fs-xs); font-weight: 500; color: var(--muted); border-bottom: .5px solid var(--border);
+}
+th button { display: inline-flex; align-items: center; gap: 3px; padding: 0; border: 0; background: none; color: inherit; font: inherit; }
+th button:hover, th[aria-sort] button { color: var(--fg); }
+th .fi { font-size: 11px; opacity: 0; transition: opacity .15s, transform .2s var(--ease); }
+th[aria-sort] .fi { opacity: 1; }
+th[aria-sort="ascending"] .fi { transform: rotate(180deg); }
+td { padding: 12px; border-bottom: .5px solid var(--border); white-space: nowrap; }
+th:first-child, td:first-child { padding-left: max(16px, env(safe-area-inset-left)); }
+th:last-child, td:last-child { padding-right: max(16px, env(safe-area-inset-right)); }
+/* Each row carries its lineage color, faintly. */
+tbody tr { --lc: var(--lc-l, var(--fg)); cursor: pointer; transition: background-color .15s; background: color-mix(in srgb, var(--lc) 7%, transparent); }
+tbody tr:hover { background: color-mix(in srgb, var(--lc) 14%, transparent); }
+tbody tr.is-selected { background: color-mix(in srgb, var(--lc) 22%, transparent); }
+@media (prefers-color-scheme: dark) { tbody tr { --lc: var(--lc-d, var(--fg)); } }
+tbody tr:focus-visible { outline-offset: -2px; }
+.row-title { display: flex; align-items: center; gap: 7px; font-weight: 600; }
+.row-sub { color: var(--muted); font-size: var(--fs-xs); }
+td.col-name { white-space: normal; min-width: 180px; }
+.col-author { max-width: 160px; overflow: hidden; text-overflow: ellipsis; }
+td.col-base { white-space: normal; min-width: 120px; }
+td.col-hw { white-space: normal; min-width: 90px; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+th.num button { flex-direction: row-reverse; }
+.row-base { padding: 0; border: 0; background: none; color: var(--fg); font-weight: 500; text-align: left; }
+.row-base:hover { color: var(--accent); }
+.col-hw { white-space: normal; }
+.tag {
+  display: inline-block; margin: 1px 4px 1px 0; padding: 1px 7px; border-radius: 6px;
+  background: var(--fill); font-size: var(--fs-xs); white-space: nowrap;
+}
+.ver-tag { display: inline-block; max-width: 110px; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; font-variant-numeric: tabular-nums; font-weight: 500; }
+.ver-tag.pre { color: var(--muted); }
+td.col-links { white-space: normal; min-width: 120px; }
+.row-link { display: inline-block; margin-right: 10px; color: var(--accent); text-decoration: none; white-space: nowrap; }
+.row-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.col-author .row-link { color: inherit; }
+.muted { color: var(--muted); }
+.empty { padding: 48px 12px; text-align: center; color: var(--muted); white-space: normal; }
+
+/* ---------- Motion ---------- */
+@keyframes fade { from { opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+@keyframes pop { from { opacity: 0; transform: scale(.96); } }
+
+/* ---------- Narrow ---------- */
+@media (max-width: 680px) {
+  #tools { right: calc(var(--rail-w) + 8px); gap: 4px; }
+  #tools .label { display: none; }
+  #tools .tool { padding: 0 8px; }
+  .brand span { display: none; }
+  :root { --rail-w: 36px; }
+  .seg .label { display: none; }
+  .seg button { padding: 0 10px; }
+  #search { padding-right: 52px; }
+  #panel { left: 12px; right: 12px; width: auto; }
+  .col-base, .col-author, .col-hw, .col-rel, .col-stars, .col-license, .col-released, .col-updated { display: none; }
+  td, th { padding-left: 8px; padding-right: 8px; }
+}
+@media (max-width: 1100px) and (min-width: 681px) {
+  .col-updated { display: none; }
+}
+@media (max-width: 1240px) and (min-width: 681px) {
+  .col-released, .col-license, .col-rel { display: none; }
+}
+@media (max-width: 960px) and (min-width: 681px) {
+  .col-hw, .col-stars { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }
+}
+</style>
+</head>
+<body data-view="family">
+<noscript><p style="padding:80px 20px">This page needs JavaScript to draw the firmware timeline.</p></noscript>
+
+<header id="bar">
+  <a class="brand" href="./" aria-label="FM-1 CFW Database"><i class="fi" aria-hidden="true">&#xEB56;</i><span>FM-1 CFW Database</span></a>
+  <div class="search" role="search">
+    <i class="fi" aria-hidden="true">&#xEA58;</i>
+    <input id="search" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-label="Search firmware or author">
+    <div class="search-end">
+      <span id="searchCount" aria-live="polite"></span>
+      <button id="searchClear" class="press" type="button" aria-label="Clear search"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
+    </div>
+  </div>
+  <div class="bar-end">
+    <div class="seg" role="group" aria-label="View" id="viewSeg">
+      <span class="seg-thumb"></span>
+      <button type="button" data-view="family" aria-pressed="true" title="Family">
+        <i class="fi" aria-hidden="true">&#xEB3D;</i>
+        <span class="label">Family</span>
+      </button>
+      <button type="button" data-view="timeline" aria-pressed="false" title="Timeline">
+        <i class="fi" aria-hidden="true">&#xEA30;</i>
+        <span class="label">Timeline</span>
+      </button>
+      <button type="button" data-view="list" aria-pressed="false" title="List">
+        <i class="fi" aria-hidden="true">&#xEA51;</i>
+        <span class="label">List</span>
+      </button>
+      <button type="button" data-view="insight" aria-pressed="false" title="Insight">
+        <i class="fi" aria-hidden="true">&#xEA2F;</i>
+        <span class="label">Insight</span>
+      </button>
+    </div>
+    <button id="panelBtn" class="icon-btn press" type="button" aria-label="Sort and filter" aria-haspopup="dialog" aria-expanded="false" aria-controls="panel">
+      <i class="fi" aria-hidden="true">&#xEA5A;</i>
+      <span class="badge" id="panelBadge" hidden></span>
+    </button>
+    <button id="aboutBtn" class="icon-btn press" type="button" aria-label="About this site" aria-haspopup="dialog"><i class="fi" aria-hidden="true">&#xEB1D;</i></button>
+  </div>
+</header>
+
+<div id="panel" role="dialog" aria-label="Sort and filter" hidden>
+  <div id="sortGroup">
+    <div class="panel-label" id="sortLabel">Sort</div>
+    <div role="radiogroup" aria-labelledby="sortLabel" id="sortOptions"></div>
+    <div class="panel-sep"></div>
+  </div>
+  <div class="panel-label">Projects</div>
+  <div class="panel-row">
+    <div class="seg" role="group" aria-label="Projects shown" id="modeSeg">
+      <span class="seg-thumb"></span>
+      <button type="button" data-mode="main">Main</button>
+      <button type="button" data-mode="all">All</button>
+    </div>
+  </div>
+  <div class="panel-label">Activity</div>
+  <div class="panel-row">
+    <div class="seg" role="group" aria-label="Activity filter" id="statusSeg">
+      <span class="seg-thumb"></span>
+      <button type="button" data-status="all">All</button>
+      <button type="button" data-status="active">Active</button>
+      <button type="button" data-status="inactive">Inactive</button>
+    </div>
+  </div>
+</div>
+
+<div id="status" aria-live="polite">Loading…</div>
+
+<main id="treeView" aria-label="Firmware lineage timeline">
+  <div id="viewport">
+    <div id="world">
+      <svg id="edges" aria-hidden="true"></svg>
+    </div>
+  </div>
+  <div id="axis" aria-hidden="true"></div>
+  <div id="tools" role="toolbar" aria-label="Tree tools">
+    <button type="button" id="expandAll" class="tool press" aria-pressed="false" title="Show every project">
+      <i class="fi" aria-hidden="true">&#xEA1E;</i><span class="label">Expand all</span>
+    </button>
+    <button type="button" id="arcsBtn" class="tool press" aria-pressed="false" title="Show code exchange: code taken from other lines, back-ports, influence">
+      <i class="fi" aria-hidden="true">&#xEA91;</i><span class="label">Code</span>
+    </button>
+    <span class="tool-sep" aria-hidden="true"></span>
+    <div class="seg" role="group" aria-label="Emphasis by forks or stars" id="emphSeg">
+      <span class="seg-thumb"></span>
+      <button type="button" data-emph="off"><i class="fi" aria-hidden="true">&#xEAA3;</i><span class="label">Off</span></button>
+      <button type="button" data-emph="forks"><i class="fi" aria-hidden="true">&#xEB2E;</i><span class="label">Forks</span></button>
+      <button type="button" data-emph="stars"><i class="fi" aria-hidden="true">&#xEA64;</i><span class="label">Stars</span></button>
+    </div>
+  </div>
+  <aside id="rail" aria-label="Projects">
+    <div id="dots" role="slider" tabindex="0" aria-label="Scroll projects" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    <div id="dotLabel" aria-hidden="true"></div>
+  </aside>
+</main>
+
+<main id="listView" aria-label="Firmware list" hidden>
+  <div class="list-inner">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col" class="col-name" data-col="name"><button type="button">Name<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-base">Base</th>
+          <th scope="col" class="col-author">Author</th>
+          <th scope="col" class="col-hw">Hardware</th>
+          <th scope="col" class="col-ver">Version</th>
+          <th scope="col" class="col-rel num" data-col="releases"><button type="button">Releases<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-stars num" data-col="stars"><button type="button">Stars<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-license" data-col="license"><button type="button">License<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-released" data-col="created"><button type="button">Created<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-updated" data-col="updated"><button type="button">Updated<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-links">Links</th>
+        </tr>
+      </thead>
+      <tbody id="listBody"></tbody>
+    </table>
+  </div>
+</main>
+
+<main id="insightView" aria-label="Insight" hidden>
+  <div class="insight-inner" id="insightInner"></div>
+  <div id="insightTip" role="tooltip" hidden></div>
+</main>
+
+<div id="info">
+  <section class="info-card" role="dialog" aria-modal="false" aria-labelledby="infoName" tabindex="-1">
+    <div class="info-head">
+      <div>
+        <span class="pick-badge" id="infoPick" hidden><i class="fi" aria-hidden="true">&#xEA2E;</i>Author's Choice</span>
+        <h2 class="info-name" id="infoName"></h2>
+        <div id="infoRows"></div>
+      </div>
+      <button id="closeInfo" class="close press" type="button" aria-label="Close"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
+    </div>
+    <div class="links" id="infoLinks"></div>
+  </section>
+</div>
+
+<dialog id="about" aria-labelledby="aboutTitle">
+  <div class="about-head">
+    <h2 id="aboutTitle">About</h2>
+    <button class="close press" type="button" data-close aria-label="Close"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
+  </div>
+  <div class="about-tabs">
+    <div class="seg" role="group" aria-label="Language" id="langSeg">
+      <span class="seg-thumb"></span>
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+      <button type="button" data-lang="es" aria-pressed="false">Español</button>
+    </div>
+  </div>
+  <div class="about-body">
+    <div lang="en">
+      <p>Hi, I'm the author of Felucca.</p>
+      <p>I'd stepped away from FM-1 custom firmware for a while. When I came back, there were so many projects that I got lost — so I made this site to sort them out.</p>
+      <p>Each project links to its author's own page, along with their support links where available. If you enjoy someone's work, please support them directly.</p>
+      <p><strong>For your safety, always install firmware from the author's own page. Every project here links to it.</strong></p>
+      <p class="thanks">Thank you to <a href="https://github.com/charlesvestal" target="_blank" rel="noopener noreferrer">Charles</a>, <a href="https://github.com/keremimo" target="_blank" rel="noopener noreferrer">keremimo</a>, <a href="https://github.com/genkigenki" target="_blank" rel="noopener noreferrer">genkigenki</a>, <a href="https://github.com/juanjiant-bit" target="_blank" rel="noopener noreferrer">juanjiant-bit</a> and <a href="https://github.com/isod89" target="_blank" rel="noopener noreferrer">isod89</a> for supporting my work.</p>
+      <p class="thanks">I wrote about making Felucca on note: <a href="https://note.com/kurogedelix/n/n225a8e2374cd" target="_blank" rel="noopener noreferrer">FM-1のCFW「Felucca」を作った話</a> (Japanese)</p>
+      <p class="sign">— Leo Kuroshita</p>
+      <section class="disclaimer" aria-label="Disclaimer">
+        <h3>Disclaimer</h3>
+        <p>This list was gathered by hand from GitHub and Reddit. It may be incomplete, and some information may be out of date or wrong.</p>
+        <p>FM-1 and SMK-37 are products of M-VAVE. Trademarks and names of existing products used as inspirations or clone targets were chosen by each project's author.</p>
+        <p>The copyright of each project belongs to its author.</p>
+        <p>For corrections or objections, please open an <a href="https://github.com/kurogedelic/FM-1_CFW_Database/issues" target="_blank" rel="noopener noreferrer">issue on GitHub</a>.</p>
+      </section>
+    </div>
+    <div lang="ja">
+      <p>Felucca の作者です。</p>
+      <p>しばらく FM-1 の CFW から離れていたのですが、久しぶりに見てみると数がとても多くて混乱してしまいました。そこで、整理するためにこのサイトを作りました。</p>
+      <p>各プロジェクトには作者のページへのリンクと、ある場合はサポートリンクを載せています。気に入ったものがあれば、ぜひ作者を直接サポートしてあげてください。</p>
+      <p><strong>セキュリティのため、ファームウェアのインストールは必ず作者自身のページから行ってください。各プロジェクトにそのリンクを用意しています。</strong></p>
+      <p class="thanks">私の活動を支えてくれた <a href="https://github.com/charlesvestal" target="_blank" rel="noopener noreferrer">Charles</a>、<a href="https://github.com/keremimo" target="_blank" rel="noopener noreferrer">keremimo</a>、<a href="https://github.com/genkigenki" target="_blank" rel="noopener noreferrer">genkigenki</a>、<a href="https://github.com/juanjiant-bit" target="_blank" rel="noopener noreferrer">juanjiant-bit</a>、<a href="https://github.com/isod89" target="_blank" rel="noopener noreferrer">isod89</a> に感謝します。</p>
+      <p class="thanks">Felucca を作ったときの話は note に書きました：<a href="https://note.com/kurogedelix/n/n225a8e2374cd" target="_blank" rel="noopener noreferrer">FM-1のCFW「Felucca」を作った話</a></p>
+      <p class="sign">— Leo Kuroshita</p>
+      <section class="disclaimer" aria-label="免責事項">
+        <h3>免責事項</h3>
+        <p>この一覧は GitHub と Reddit から目視で集めたものです。すべてを網羅しているとは限らず、情報が古い、または誤っている場合があります。</p>
+        <p>FM-1、SMK-37 は M-VAVE の製品です。インスピレーション元やクローン対象として使われている商標や既存製品の名称は、すべて各プロジェクトの作者による命名です。</p>
+        <p>各プロジェクトの著作権は、それぞれの作者に帰属します。</p>
+        <p>訂正や異議申し立ては、<a href="https://github.com/kurogedelic/FM-1_CFW_Database/issues" target="_blank" rel="noopener noreferrer">GitHub の Issues</a> からお願いします。</p>
+      </section>
+    </div>
+    <div lang="es">
+      <p>Hola, soy el autor de Felucca.</p>
+      <p>Me había alejado un tiempo del firmware personalizado para el FM-1. Al volver, había tantos proyectos que me perdí, así que hice este sitio para ordenarlos.</p>
+      <p>Cada proyecto enlaza a la página de su autor, junto con sus enlaces de apoyo cuando los hay. Si te gusta el trabajo de alguien, apóyalo directamente.</p>
+      <p><strong>Por seguridad, instala el firmware siempre desde la página del propio autor. Cada proyecto de aquí enlaza a ella.</strong></p>
+      <p class="thanks">Gracias a <a href="https://github.com/charlesvestal" target="_blank" rel="noopener noreferrer">Charles</a>, <a href="https://github.com/keremimo" target="_blank" rel="noopener noreferrer">keremimo</a>, <a href="https://github.com/genkigenki" target="_blank" rel="noopener noreferrer">genkigenki</a>, <a href="https://github.com/juanjiant-bit" target="_blank" rel="noopener noreferrer">juanjiant-bit</a> e <a href="https://github.com/isod89" target="_blank" rel="noopener noreferrer">isod89</a> por apoyar mi trabajo.</p>
+      <p class="thanks">Escribí sobre cómo hice Felucca en note: <a href="https://note.com/kurogedelix/n/n225a8e2374cd" target="_blank" rel="noopener noreferrer">FM-1のCFW「Felucca」を作った話</a> (en japonés)</p>
+      <p class="sign">— Leo Kuroshita</p>
+      <section class="disclaimer" aria-label="Aviso legal">
+        <h3>Aviso legal</h3>
+        <p>Esta lista se ha recopilado a mano desde GitHub y Reddit. Puede estar incompleta y parte de la información puede estar desactualizada o ser incorrecta.</p>
+        <p>FM-1 y SMK-37 son productos de M-VAVE. Las marcas y los nombres de productos existentes usados como inspiración o como objeto de clonación los ha elegido el autor de cada proyecto.</p>
+        <p>Los derechos de autor de cada proyecto pertenecen a su autor.</p>
+        <p>Para correcciones u objeciones, abre un <a href="https://github.com/kurogedelic/FM-1_CFW_Database/issues" target="_blank" rel="noopener noreferrer">issue en GitHub</a>.</p>
+      </section>
+    </div>
+    <p class="about-count" id="aboutCount"></p>
+  </div>
+</dialog>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>

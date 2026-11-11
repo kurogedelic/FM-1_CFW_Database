@@ -1,0 +1,12 @@
+{
+  "_note": "Author's Choice: picks by the Felucca author. Project ids from db/taxonomy.json. Merged into data/tree.json by scripts/build-data.mjs.",
+  "picks": [
+    "S:5",
+    "F:12",
+    "O:7",
+    "O:8",
+    "F:77",
+    "Z:21",
+    "T:10"
+  ]
+}

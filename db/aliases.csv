@@ -1,0 +1,10 @@
+﻿work_id,canonical_name,alias_type,alias_value,evidence,renamed_at,rename_evidence
+F:21,Argo,former_name,Felucca 8 Patterns,https://github.com/echoe/argo_fm1/blob/main/README.md,2026-11-05,https://github.com/echoe/argo_fm1/commit/94e2abc
+F:21,Argo,former_name,Felucca_seq_per_track,https://github.com/echoe/argo_fm1/blob/main/README.md,,
+F:21,Argo,former_repository,https://github.com/echoe/Felucca_8_patterns,https://github.com/echoe/argo_fm1/blob/main/README.md,,
+F:61,Tessera,former_name,Melodee (Tess),https://github.com/Rastapopolix/tessera/blob/main/README.md,2026-10-22,https://github.com/Rastapopolix/tessera/commit/5ed549f7
+F:61,Tessera,former_name,Melodee Tess,https://github.com/Rastapopolix/tessera/blob/main/README.md,2026-10-22,https://github.com/Rastapopolix/tessera/commit/5ed549f7
+F:61,Tessera,former_repository,https://github.com/Rastapopolix/melodee-tess,https://github.com/Rastapopolix/tessera/blob/main/README.md,,
+O:5,Jambox FM-1,former_repository,https://github.com/RayDNoper/fm1-fomnium,https://github.com/RayDNoper/fm1-jambox/blob/main/README.md,2026-10-23,https://github.com/RayDNoper/fm1-jambox/commit/44d6a12
+F:68,Elixir,former_name,Kettle,https://github.com/dmajka/elixir/blob/0443a659a3e98c62e6b55a84223cca3a3412f965/README.md,2026-10-26,https://github.com/dmajka/elixir/commit/b569160
+F:68,Elixir,former_repository,https://github.com/dmajka/kettle,https://github.com/dmajka/elixir/blob/0443a659a3e98c62e6b55a84223cca3a3412f965/README.md,,

@@ -1,0 +1,17 @@
+﻿id,name,parent_id,parent_name,hardware,repo,source_url,confidence,port_status,base_revision,upstream_pr_status,upstream_pr_url,merged_at,pr_closed_at,pr_checked_at
+Z:3,Felucca / SMK-37 (genkigenki),F:1,Felucca,SMK-37,https://github.com/genkigenki/Felucca/tree/smk37,https://github.com/genkigenki/fm1-to-smk37,readme,,,closed-unmerged,https://github.com/hugelton/Felucca/pull/237,,2026-10-28T11:44:58Z,2026-11-11
+Z:4,SLOOP / SMK-37 (genkigenki),S:1,SLOOP,SMK-37,https://github.com/genkigenki/sloop-fm1/tree/smk37,https://github.com/genkigenki/fm1-to-smk37,readme,,,open,https://github.com/isod89/sloop-fm1/pull/112,,,2026-11-11
+Z:5,X0X / SMK-37,F:5,X0X,SMK-37,https://github.com/genkigenki/fm1-x0x/tree/smk37,https://github.com/genkigenki/fm1-to-smk37,readme,,,open,https://github.com/charlesvestal/fm1-x0x/pull/13,,,2026-11-11
+Z:6,FoMni / SMK-37,O:1,FoMni-1,SMK-37,https://github.com/genkigenki/fm1-fomni/tree/smk37,https://github.com/genkigenki/fm1-to-smk37,readme,,,open,https://github.com/charlesvestal/fm1-fomni/pull/2,,,2026-11-11
+Z:7,MAKU / SMK-37,F:15,MAKU,SMK-37,https://github.com/genkigenki/Felucca/tree/maku-smk37-2,https://github.com/genkigenki/fm1-to-smk37,readme,,,open,https://github.com/okumurari2/maku/pull/4,,,2026-11-11
+Z:8,Rainbow / SMK-37,F:12,Rainbow mode,SMK-37,https://github.com/genkigenki/Felucca/tree/rainbow-smk37,https://github.com/genkigenki/fm1-to-smk37,readme,,,merged,https://github.com/joshbartlettband-web/felucca-rainbow/pull/1,2026-10-15T03:47:05Z,2026-10-15T03:47:05Z,2026-11-11
+Z:9,GHOULBOX / SMK-37,F:6,GHOULBOX,SMK-37,https://github.com/genkigenki/Felucca/tree/ghoulbox-smk37,https://github.com/genkigenki/fm1-to-smk37,readme,,,closed-unmerged,https://github.com/jasonpersinger/ghoulbox-fm1-dungeon-synth/pull/5,,2026-10-14T18:36:08Z,2026-11-11
+Z:10,SLOOP / Tab5,S:1,SLOOP,M5Stack Tab5,https://github.com/zircothc/sloop-tab5,https://github.com/zircothc/sloop-tab5/blob/main/README.md,readme,not-build-verified,d315ad88c5fbaad232ce9426b06db66395bd87db,,,,,
+Z:11,X0X / Tab5,F:5,X0X,M5Stack Tab5,https://github.com/zircothc/x0x-tab5,https://github.com/zircothc/x0x-tab5/blob/main/README.md,readme,binary-published-hardware-unverified,54194c54bb01e9d9b3fe9d641b3ddfa512ac04a3,,,,,
+Z:12,JIANT / Tab5,S:5,JIANT FM,M5Stack Tab5,https://github.com/zircothc/jiant-tab5,https://github.com/zircothc/jiant-tab5/blob/main/README.md,readme,not-build-verified,JIANT v0.9.18 (no SHA supplied),,,,,
+Z:13,Felucca SMK (Chance),F:1,Felucca,SMK-37,https://github.com/ChanceTheMaker/felucca-smk,https://github.com/ChanceTheMaker/felucca-smk,readme,,,,,,,
+Z:14,SLOOP SMK (Chance),S:1,SLOOP,SMK-37,https://github.com/ChanceTheMaker/sloop-smk,https://github.com/ChanceTheMaker/sloop-smk,readme,,,,,,,
+Z:15,SLOOP Pro,S:1,SLOOP,SMK-37,https://github.com/isod89/sloop-pro,https://github.com/isod89/sloop-pro,readme,,,,,,,
+Z:16,Skiff / SMK-37,F:20,Skiff,SMK-37,https://github.com/illuminus5/skiff/blob/main/SMK37.md,https://github.com/illuminus5/skiff/blob/main/SMK37.md,readme,,,,,,,
+T:7,SMK BASE,T:1,Dinghy,SMK-37,https://github.com/fc79/smk37-base,https://github.com/fc79/smk37-base/blob/main/docs/CHANGES.md,readme,,,,,,,
+N:112,Clipper Pro,F:36,Clipper,SMK-37,https://github.com/isod89/clipper-pro,https://github.com/isod89/clipper-pro#readme,readme,,,,,,,
