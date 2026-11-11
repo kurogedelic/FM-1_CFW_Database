@@ -157,10 +157,11 @@ const isBase = p => NOT_CFW.has(p.kind);
 // Code exchange between lines: uptake (code copied in), shared code, influence, merge back.
 // Data update dates (UTC midnight of each): a faint dated line for each.
 const SNAPS = (raw.snapshots || []).map(d => Date.parse(d + 'T00:00:00Z')).filter(Number.isFinite);
-// About: how much has been collected so far, and as of when.
+// About: how many firmware have actually been released (at least one release), and as of when.
+const releasedFirmware = projects.filter(p => !isBase(p) && versionsOf.get(p.id).length).length;
 {
-  const fw = projects.filter(p => !isBase(p)).length, last = SNAPS.at(-1);
-  $('#aboutCount').textContent = `${fw} firmware, ${projects.length - fw} platforms and tools` + (last ? ` · as of ${fmtLong(last)}` : '');
+  const last = SNAPS.at(-1);
+  $('#aboutCount').textContent = `${releasedFirmware} released firmware` + (last ? ` · as of ${fmtLong(last)}` : '');
 }
 const exchanges = (raw.exchanges || []).filter(x => byId.has(x.from) && byId.has(x.to));
 const codeFrom = new Map(), codeTo = new Map();
@@ -1384,7 +1385,7 @@ function renderInsight() {
   const stats = el('div', 'ins-stats');
   const allReleases = fw.reduce((n, p) => n + versionsOf.get(p.id).length, 0);
   const authors = new Set(fw.map(p => (p.author || '').toLowerCase()).filter(Boolean));
-  for (const [v, label] of [[fw.length, 'Firmware'], [authors.size, 'Authors'], [allReleases, 'Releases on GitHub and sites'], [fw.reduce((n, p) => n + (p.stars || 0), 0), 'GitHub stars']]) {
+  for (const [v, label] of [[releasedFirmware, 'Released firmware'], [authors.size, 'Authors'], [allReleases, 'Releases on GitHub and sites'], [fw.reduce((n, p) => n + (p.stars || 0), 0), 'GitHub stars']]) {
     const s = el('div', 'ins-stat');
     s.append(el('b', null, v.toLocaleString('en-US')), el('span', null, label));
     stats.append(s);
