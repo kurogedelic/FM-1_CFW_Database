@@ -173,14 +173,12 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .disclaimer a { color: var(--accent); text-decoration: none; }
 .disclaimer a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .about-body strong { font-weight: 600; }
-.about-count { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 8px; margin: 22px 0 0; color: var(--muted); font-size: var(--fs-sm); }
 /* Other angles: small number tiles */
 .angles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 12px; }
 .ins-card .angles { margin-top: 4px; }
 .angle { padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, var(--fg) 5%, var(--bg)); }
 .angle b { display: block; font-size: var(--fs-lg); font-weight: 600; letter-spacing: -.015em; font-variant-numeric: tabular-nums; }
 .angle span { display: block; margin-top: 2px; color: var(--muted); font-size: var(--fs-xs); line-height: 1.4; }
-.count-num { font-size: var(--fs-xl); font-weight: 600; line-height: 1.1; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }
 
 /* ---------- Filter panel ---------- */
 #panel {
@@ -634,8 +632,8 @@ td.col-links { white-space: normal; min-width: 120px; }
     <button type="button" id="expandAll" class="tool press" aria-pressed="false" title="Show every project">
       <i class="fi" aria-hidden="true">&#xEA1E;</i><span class="label">Expand all</span>
     </button>
-    <button type="button" id="arcsBtn" class="tool press" aria-pressed="false" title="Show code taken from other lines, and back-ports" data-i18n-title="codeTitle">
-      <i class="fi" aria-hidden="true">&#xEA91;</i><span class="label" data-i18n="code">Code</span>
+    <button type="button" id="arcsBtn" class="tool press" aria-pressed="false" title="Show back-ports: code taken from other lines" data-i18n-title="codeTitle">
+      <i class="fi" aria-hidden="true">&#xEA91;</i><span class="label" data-i18n="code">Back-ports</span>
     </button>
     <span class="tool-sep" aria-hidden="true"></span>
     <div class="seg" role="group" aria-label="Emphasis by forks or stars" data-i18n-aria="emphasis" id="emphSeg">
@@ -755,7 +753,6 @@ td.col-links { white-space: normal; min-width: 120px; }
         <p>Para correcciones u objeciones, abre un <a href="https://github.com/kurogedelic/FM-1_CFW_Database/issues" target="_blank" rel="noopener noreferrer">issue en GitHub</a>.</p>
       </section>
     </div>
-    <p class="about-count" id="aboutCount"></p>
   </div>
 </dialog>
 

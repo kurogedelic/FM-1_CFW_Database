@@ -187,7 +187,6 @@ const countUp = (node, to, dur = 900) => {
   node.textContent = '0';
   requestAnimationFrame(step);
 };
-const aboutNum = el('b', 'count-num', String(releasedFirmware));
 // The same numbers seen another way. The FM-1 price is the usual street price (about $70).
 const FM1_PRICE = 70;
 const otherAngles = () => {
@@ -218,11 +217,6 @@ const angleTiles = () => {
   }
   return box;
 };
-{
-  const last = SNAPS.at(-1);
-  $('#aboutCount').append(aboutNum, el('span', null, t('releasedFirmware') + (last ? ` · ${t('asOf', { date: fmtLong(last) })}` : '')));
-  $('#aboutCount').after(angleTiles());
-}
 const exchanges = (raw.exchanges || []).filter(x => byId.has(x.from) && byId.has(x.to));
 const codeFrom = new Map(), codeTo = new Map();
 for (const x of exchanges) {
@@ -1633,7 +1627,6 @@ $('#aboutBtn').addEventListener('click', () => {
   closePanel(false);
   about.showModal();
   showAboutLang(getLang());
-  countUp(aboutNum, releasedFirmware);
 });
 about.querySelector('[data-close]').addEventListener('click', () => about.close());
 // After a language change from the About tabs, open it again.
