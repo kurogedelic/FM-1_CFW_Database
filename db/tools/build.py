@@ -22,7 +22,7 @@ NODE_KEYS = ['id', 'name', 'aliases', 'previous_repo_urls', 'repo', 'kind', 'har
              'upstream_pr_status', 'upstream_pr_url', 'upstream_pr_merged_at', 'source_catalog_group', 'notes',
              'root_id', 'lineage_path', 'clade_id', 'classification']
 EDGE_KEYS = ['source', 'target', 'relation', 'confidence', 'evidence', 'notes']
-WORK_COLS = ['id', 'name', 'aliases', 'previous_repo_urls', 'original_title', 'author', 'repo', 'hardware', 'family',
+WORK_COLS = ['id', 'name', 'aliases', 'previous_repo_urls', 'original_title', 'author', 'author_country', 'repo', 'hardware', 'family',
              'kind', 'status', 'source', 'notes', 'port_status', 'base_revision', 'upstream_pr_status',
              'upstream_pr_url', 'upstream_pr_merged_at', 'github_repo_exists', 'github_fork', 'github_fork_parent',
              'github_checked_at', 'github_created_at']

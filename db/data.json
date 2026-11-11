@@ -19,7 +19,8 @@
       "github_created_at": "2026-10-02T12:09:30Z",
       "hide_support": [
         "GitHub Sponsors"
-      ]
+      ],
+      "author_country": "JP"
     },
     {
       "id": "F:2",
@@ -55,7 +56,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-03T10:33:47Z"
+      "github_created_at": "2026-10-03T10:33:47Z",
+      "author_country": "BE"
     },
     {
       "id": "F:4",
@@ -91,7 +93,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-04T08:03:49Z"
+      "github_created_at": "2026-10-04T08:03:49Z",
+      "author_country": "DE"
     },
     {
       "id": "F:6",
@@ -109,7 +112,8 @@
       "github_fork": true,
       "github_fork_parent": "hugelton/Felucca",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-07T00:04:18Z"
+      "github_created_at": "2026-10-07T00:04:18Z",
+      "author_country": "US"
     },
     {
       "id": "F:7",
@@ -127,7 +131,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-04T17:28:03Z"
+      "github_created_at": "2026-10-04T17:28:03Z",
+      "author_country": "BR"
     },
     {
       "id": "F:9",
@@ -181,7 +186,8 @@
       "github_fork": true,
       "github_fork_parent": "hugelton/Felucca",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-08T00:46:38Z"
+      "github_created_at": "2026-10-08T00:46:38Z",
+      "author_country": "CA"
     },
     {
       "id": "F:12",
@@ -217,7 +223,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-06T18:25:45Z"
+      "github_created_at": "2026-10-06T18:25:45Z",
+      "author_country": "CA"
     },
     {
       "id": "F:14",
@@ -271,7 +278,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-12T06:31:58Z"
+      "github_created_at": "2026-10-12T06:31:58Z",
+      "author_country": "DE"
     },
     {
       "id": "F:17",
@@ -289,7 +297,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-10T21:30:06Z"
+      "github_created_at": "2026-10-10T21:30:06Z",
+      "author_country": "AT"
     },
     {
       "id": "F:18",
@@ -368,7 +377,8 @@
       "previous_repo_urls": [
         "https://github.com/echoe/Felucca_8_patterns"
       ],
-      "github_created_at": "2026-10-09T04:20:38Z"
+      "github_created_at": "2026-10-09T04:20:38Z",
+      "author_country": "US"
     },
     {
       "id": "F:22",
@@ -386,7 +396,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-15T14:10:52Z"
+      "github_created_at": "2026-10-15T14:10:52Z",
+      "author_country": "US"
     },
     {
       "id": "F:23",
@@ -422,7 +433,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-11T02:38:37Z"
+      "github_created_at": "2026-10-11T02:38:37Z",
+      "author_country": "CA"
     },
     {
       "id": "F:25",
@@ -494,7 +506,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-16T15:00:23Z"
+      "github_created_at": "2026-10-16T15:00:23Z",
+      "author_country": "ES"
     },
     {
       "id": "F:29",
@@ -512,7 +525,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-13T23:49:35Z"
+      "github_created_at": "2026-10-13T23:49:35Z",
+      "author_country": "US"
     },
     {
       "id": "F:30",
@@ -530,7 +544,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-11T21:24:13Z"
+      "github_created_at": "2026-10-11T21:24:13Z",
+      "author_country": "NZ"
     },
     {
       "id": "F:31",
@@ -602,7 +617,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-11T16:50:45Z"
+      "github_created_at": "2026-10-11T16:50:45Z",
+      "author_country": "CA"
     },
     {
       "id": "F:35",
@@ -746,7 +762,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-15T07:04:51Z"
+      "github_created_at": "2026-10-15T07:04:51Z",
+      "author_country": "AU"
     },
     {
       "id": "F:43",
@@ -836,7 +853,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-16T10:28:43Z"
+      "github_created_at": "2026-10-16T10:28:43Z",
+      "author_country": "US"
     },
     {
       "id": "F:48",
@@ -854,7 +872,8 @@
       "github_fork": true,
       "github_fork_parent": "jasonpersinger/ghoulbox-fm1-dungeon-synth",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-11T06:23:37Z"
+      "github_created_at": "2026-10-11T06:23:37Z",
+      "author_country": "IL"
     },
     {
       "id": "F:49",
@@ -926,7 +945,8 @@
       "github_fork": true,
       "github_fork_parent": "charlesvestal/fm1-x0x",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-13T06:39:27Z"
+      "github_created_at": "2026-10-13T06:39:27Z",
+      "author_country": "CA"
     },
     {
       "id": "F:54",
@@ -998,7 +1018,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-22T03:23:54Z"
+      "github_created_at": "2026-10-22T03:23:54Z",
+      "author_country": "US"
     },
     {
       "id": "F:58",
@@ -1077,7 +1098,8 @@
       "previous_repo_urls": [
         "https://github.com/Rastapopolix/melodee-tess"
       ],
-      "github_created_at": "2026-10-11T21:24:13Z"
+      "github_created_at": "2026-10-11T21:24:13Z",
+      "author_country": "NZ"
     },
     {
       "id": "F:62",
@@ -1113,7 +1135,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-17T10:14:30Z"
+      "github_created_at": "2026-10-17T10:14:30Z",
+      "author_country": "FI"
     },
     {
       "id": "F:64",
@@ -1209,7 +1232,8 @@
       "previous_repo_urls": [
         "https://github.com/dmajka/kettle"
       ],
-      "github_created_at": "2026-10-24T15:45:11Z"
+      "github_created_at": "2026-10-24T15:45:11Z",
+      "author_country": "US"
     },
     {
       "id": "F:69",
@@ -1264,7 +1288,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-03T22:45:36Z"
+      "github_created_at": "2026-11-03T22:45:36Z",
+      "author_country": "US"
     },
     {
       "id": "F:72",
@@ -1394,7 +1419,8 @@
       "github_fork": true,
       "github_fork_parent": "isod89/sloop-fm1",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-06T06:01:21Z"
+      "github_created_at": "2026-10-06T06:01:21Z",
+      "author_country": "DE"
     },
     {
       "id": "S:3",
@@ -1430,7 +1456,8 @@
       "github_fork": true,
       "github_fork_parent": "isod89/sloop-fm1",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-06T23:53:09Z"
+      "github_created_at": "2026-10-06T23:53:09Z",
+      "author_country": "BR"
     },
     {
       "id": "S:5",
@@ -1484,7 +1511,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-09T09:39:52Z"
+      "github_created_at": "2026-10-09T09:39:52Z",
+      "author_country": "CH"
     },
     {
       "id": "S:8",
@@ -1502,7 +1530,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-05T18:23:28Z"
+      "github_created_at": "2026-10-05T18:23:28Z",
+      "author_country": "AU"
     },
     {
       "id": "S:9",
@@ -1538,7 +1567,8 @@
       "github_fork": true,
       "github_fork_parent": "isod89/sloop-fm1",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-06T14:31:56Z"
+      "github_created_at": "2026-10-06T14:31:56Z",
+      "author_country": "FI"
     },
     {
       "id": "S:11",
@@ -1556,7 +1586,8 @@
       "github_fork": true,
       "github_fork_parent": "isod89/sloop-fm1",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-05T15:04:10Z"
+      "github_created_at": "2026-10-05T15:04:10Z",
+      "author_country": "DE"
     },
     {
       "id": "S:12",
@@ -1592,7 +1623,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-13T19:48:11Z"
+      "github_created_at": "2026-10-13T19:48:11Z",
+      "author_country": "BR"
     },
     {
       "id": "S:14",
@@ -1610,7 +1642,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-16T23:10:49Z"
+      "github_created_at": "2026-10-16T23:10:49Z",
+      "author_country": "BR"
     },
     {
       "id": "S:15",
@@ -1664,7 +1697,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-07T07:51:48Z"
+      "github_created_at": "2026-10-07T07:51:48Z",
+      "author_country": "DE"
     },
     {
       "id": "S:18",
@@ -1971,7 +2005,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-06T18:19:04Z"
+      "github_created_at": "2026-10-06T18:19:04Z",
+      "author_country": "DE"
     },
     {
       "id": "O:2",
@@ -2065,7 +2100,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-07T15:33:58Z"
+      "github_created_at": "2026-10-07T15:33:58Z",
+      "author_country": "DE"
     },
     {
       "id": "Z:2",
@@ -2083,7 +2119,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-07T10:26:22Z"
+      "github_created_at": "2026-10-07T10:26:22Z",
+      "author_country": "DE"
     },
     {
       "id": "Z:3",
@@ -2106,7 +2143,8 @@
       "upstream_pr_merged_at": null,
       "github_created_at": "2026-10-11T20:33:09Z",
       "pr_closed_at": "2026-10-28T11:44:58Z",
-      "pr_checked_at": "2026-11-11"
+      "pr_checked_at": "2026-11-11",
+      "author_country": "DE"
     },
     {
       "id": "Z:4",
@@ -2128,7 +2166,8 @@
       "upstream_pr_status": "open",
       "upstream_pr_merged_at": null,
       "github_created_at": "2026-10-11T18:53:33Z",
-      "pr_checked_at": "2026-11-11"
+      "pr_checked_at": "2026-11-11",
+      "author_country": "DE"
     },
     {
       "id": "Z:5",
@@ -2150,7 +2189,8 @@
       "upstream_pr_status": "open",
       "upstream_pr_merged_at": null,
       "github_created_at": "2026-10-11T12:44:51Z",
-      "pr_checked_at": "2026-11-11"
+      "pr_checked_at": "2026-11-11",
+      "author_country": "DE"
     },
     {
       "id": "Z:6",
@@ -2172,7 +2212,8 @@
       "upstream_pr_status": "open",
       "upstream_pr_merged_at": null,
       "github_created_at": "2026-10-11T12:44:45Z",
-      "pr_checked_at": "2026-11-11"
+      "pr_checked_at": "2026-11-11",
+      "author_country": "DE"
     },
     {
       "id": "Z:7",
@@ -2194,7 +2235,8 @@
       "upstream_pr_status": "open",
       "upstream_pr_merged_at": null,
       "github_created_at": "2026-10-11T20:33:09Z",
-      "pr_checked_at": "2026-11-11"
+      "pr_checked_at": "2026-11-11",
+      "author_country": "DE"
     },
     {
       "id": "Z:8",
@@ -2217,7 +2259,8 @@
       "upstream_pr_merged_at": "2026-10-15T03:47:05Z",
       "github_created_at": "2026-10-11T20:33:09Z",
       "pr_closed_at": "2026-10-15T03:47:05Z",
-      "pr_checked_at": "2026-11-11"
+      "pr_checked_at": "2026-11-11",
+      "author_country": "DE"
     },
     {
       "id": "Z:9",
@@ -2240,7 +2283,8 @@
       "upstream_pr_merged_at": null,
       "github_created_at": "2026-10-11T20:33:09Z",
       "pr_closed_at": "2026-10-14T18:36:08Z",
-      "pr_checked_at": "2026-11-11"
+      "pr_checked_at": "2026-11-11",
+      "author_country": "DE"
     },
     {
       "id": "Z:10",
@@ -2260,7 +2304,8 @@
       "github_checked_at": "2026-11-11",
       "port_status": "not-build-verified",
       "base_revision": "d315ad88c5fbaad232ce9426b06db66395bd87db",
-      "github_created_at": "2026-10-23T09:22:37Z"
+      "github_created_at": "2026-10-23T09:22:37Z",
+      "author_country": "ES"
     },
     {
       "id": "Z:11",
@@ -2280,7 +2325,8 @@
       "github_checked_at": "2026-11-11",
       "port_status": "binary-published-hardware-unverified",
       "base_revision": "54194c54bb01e9d9b3fe9d641b3ddfa512ac04a3",
-      "github_created_at": "2026-10-24T20:25:46Z"
+      "github_created_at": "2026-10-24T20:25:46Z",
+      "author_country": "ES"
     },
     {
       "id": "Z:12",
@@ -2300,7 +2346,8 @@
       "github_checked_at": "2026-11-11",
       "port_status": "not-build-verified",
       "base_revision": "JIANT v0.9.18 (no SHA supplied)",
-      "github_created_at": "2026-10-23T10:32:01Z"
+      "github_created_at": "2026-10-23T10:32:01Z",
+      "author_country": "ES"
     },
     {
       "id": "Z:13",
@@ -2390,7 +2437,8 @@
       "github_fork": true,
       "github_fork_parent": "isod89/sloop-fm1",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-11T18:53:33Z"
+      "github_created_at": "2026-10-11T18:53:33Z",
+      "author_country": "DE"
     },
     {
       "id": "Z:18",
@@ -2411,7 +2459,8 @@
       "github_created_at": "2026-10-09T02:30:27Z",
       "ancestry_basis": "extraction",
       "assurance": "author-readme-claim",
-      "lineage_category": "felucca-extracted-bsp"
+      "lineage_category": "felucca-extracted-bsp",
+      "author_country": "JP"
     },
     {
       "id": "Z:20",
@@ -2429,7 +2478,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-17T09:17:39Z"
+      "github_created_at": "2026-10-17T09:17:39Z",
+      "author_country": "DE"
     },
     {
       "id": "T:1",
@@ -2447,7 +2497,8 @@
       "github_fork": null,
       "github_fork_parent": "",
       "github_checked_at": "",
-      "github_created_at": "2026-10-09T13:57:12Z"
+      "github_created_at": "2026-10-09T13:57:12Z",
+      "author_country": "DE"
     },
     {
       "id": "T:2",
@@ -2483,7 +2534,8 @@
       "github_fork": null,
       "github_fork_parent": "",
       "github_checked_at": "",
-      "github_created_at": "2026-10-15T14:49:56Z"
+      "github_created_at": "2026-10-15T14:49:56Z",
+      "author_country": "US"
     },
     {
       "id": "T:4",
@@ -2540,7 +2592,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-13T08:25:23Z"
+      "github_created_at": "2026-10-13T08:25:23Z",
+      "author_country": "DE"
     },
     {
       "id": "T:7",
@@ -2821,7 +2874,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-14T15:22:02Z"
+      "github_created_at": "2026-10-14T15:22:02Z",
+      "author_country": "DE"
     },
     {
       "id": "Z:21",
@@ -2839,7 +2893,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-08T10:49:30Z"
+      "github_created_at": "2026-10-08T10:49:30Z",
+      "author_country": "DE"
     },
     {
       "id": "Z:22",
@@ -2857,7 +2912,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-14T04:09:46Z"
+      "github_created_at": "2026-10-14T04:09:46Z",
+      "author_country": "DE"
     },
     {
       "id": "Z:23",
@@ -2875,7 +2931,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-16T06:35:42Z"
+      "github_created_at": "2026-10-16T06:35:42Z",
+      "author_country": "DE"
     },
     {
       "id": "F:78",
@@ -2893,7 +2950,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-16T19:31:42Z"
+      "github_created_at": "2026-10-16T19:31:42Z",
+      "author_country": "DE"
     },
     {
       "id": "O:8",
@@ -2929,7 +2987,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-15T03:04:31Z"
+      "github_created_at": "2026-10-15T03:04:31Z",
+      "author_country": "US"
     },
     {
       "id": "T:10",
@@ -2965,7 +3024,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-02T04:18:15Z"
+      "github_created_at": "2026-11-02T04:18:15Z",
+      "author_country": "JP"
     },
     {
       "id": "Z:25",
@@ -2983,7 +3043,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-02T04:18:19Z"
+      "github_created_at": "2026-11-02T04:18:19Z",
+      "author_country": "JP"
     },
     {
       "id": "N:1",
@@ -3004,7 +3065,8 @@
       "github_created_at": "2026-09-06T23:08:35Z",
       "first_public_date": "2026-10-18",
       "first_public_evidence": "Felucca author (Leo Kuroshita), 2026-11-11: public around 2026-10-18; no release or tag to pin it",
-      "stage": "in development"
+      "stage": "in development",
+      "author_country": "US"
     },
     {
       "id": "N:2",
@@ -3022,7 +3084,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-21T18:49:37Z"
+      "github_created_at": "2026-10-21T18:49:37Z",
+      "author_country": "SE"
     },
     {
       "id": "N:3",
@@ -3040,7 +3103,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-14T13:00:40Z"
+      "github_created_at": "2026-10-14T13:00:40Z",
+      "author_country": "LV"
     },
     {
       "id": "N:4",
@@ -3058,7 +3122,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-18T17:11:48Z"
+      "github_created_at": "2026-10-18T17:11:48Z",
+      "author_country": "US"
     },
     {
       "id": "N:5",
@@ -3112,7 +3177,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-08T01:32:30Z"
+      "github_created_at": "2026-10-08T01:32:30Z",
+      "author_country": "US"
     },
     {
       "id": "N:8",
@@ -3166,7 +3232,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-23T18:57:52Z"
+      "github_created_at": "2026-10-23T18:57:52Z",
+      "author_country": "BE"
     },
     {
       "id": "N:11",
@@ -3292,7 +3359,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-06T12:38:23Z"
+      "github_created_at": "2026-11-06T12:38:23Z",
+      "author_country": "KR"
     },
     {
       "id": "N:18",
@@ -3364,7 +3432,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-30T06:19:30Z"
+      "github_created_at": "2026-10-30T06:19:30Z",
+      "author_country": "NL"
     },
     {
       "id": "N:22",
@@ -3526,7 +3595,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-14T07:02:04Z"
+      "github_created_at": "2026-10-14T07:02:04Z",
+      "author_country": "DE"
     },
     {
       "id": "N:31",
@@ -3598,7 +3668,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-27T01:08:28Z"
+      "github_created_at": "2026-10-27T01:08:28Z",
+      "author_country": "AR"
     },
     {
       "id": "N:35",
@@ -3616,7 +3687,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-01T10:32:56Z"
+      "github_created_at": "2026-11-01T10:32:56Z",
+      "author_country": "DE"
     },
     {
       "id": "N:36",
@@ -3706,7 +3778,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-27T08:30:53Z"
+      "github_created_at": "2026-10-27T08:30:53Z",
+      "author_country": "CZ"
     },
     {
       "id": "N:41",
@@ -3742,7 +3815,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-26T00:20:24Z"
+      "github_created_at": "2026-10-26T00:20:24Z",
+      "author_country": "US"
     },
     {
       "id": "N:43",
@@ -3778,7 +3852,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-30T20:05:16Z"
+      "github_created_at": "2026-10-30T20:05:16Z",
+      "author_country": "DE"
     },
     {
       "id": "N:45",
@@ -3796,7 +3871,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-09T01:38:13Z"
+      "github_created_at": "2026-11-09T01:38:13Z",
+      "author_country": "KR"
     },
     {
       "id": "N:46",
@@ -3868,7 +3944,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-10T11:40:12Z"
+      "github_created_at": "2026-10-10T11:40:12Z",
+      "author_country": "DE"
     },
     {
       "id": "N:50",
@@ -3904,7 +3981,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-27T19:09:30Z"
+      "github_created_at": "2026-10-27T19:09:30Z",
+      "author_country": "GB"
     },
     {
       "id": "N:52",
@@ -3922,7 +4000,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-18T16:13:21Z"
+      "github_created_at": "2026-10-18T16:13:21Z",
+      "author_country": "US"
     },
     {
       "id": "N:53",
@@ -3994,7 +4073,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-26T18:02:29Z"
+      "github_created_at": "2026-10-26T18:02:29Z",
+      "author_country": "US"
     },
     {
       "id": "N:57",
@@ -4012,7 +4092,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-03T12:37:18Z"
+      "github_created_at": "2026-11-03T12:37:18Z",
+      "author_country": "US"
     },
     {
       "id": "N:58",
@@ -4102,7 +4183,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-11T03:48:40Z"
+      "github_created_at": "2026-10-11T03:48:40Z",
+      "author_country": "US"
     },
     {
       "id": "N:63",
@@ -4120,7 +4202,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-07T06:47:52Z"
+      "github_created_at": "2026-11-07T06:47:52Z",
+      "author_country": "US"
     },
     {
       "id": "N:64",
@@ -4228,7 +4311,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-10T05:52:32Z"
+      "github_created_at": "2026-10-10T05:52:32Z",
+      "author_country": "US"
     },
     {
       "id": "N:70",
@@ -4300,7 +4384,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-26T16:40:27Z"
+      "github_created_at": "2026-10-26T16:40:27Z",
+      "author_country": "PL"
     },
     {
       "id": "N:74",
@@ -4354,7 +4439,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-21T11:26:07Z"
+      "github_created_at": "2026-10-21T11:26:07Z",
+      "author_country": "US"
     },
     {
       "id": "N:77",
@@ -4426,7 +4512,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-23T02:08:46Z"
+      "github_created_at": "2026-10-23T02:08:46Z",
+      "author_country": "US"
     },
     {
       "id": "N:81",
@@ -4516,7 +4603,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-19T16:39:19Z"
+      "github_created_at": "2026-10-19T16:39:19Z",
+      "author_country": "CN"
     },
     {
       "id": "N:86",
@@ -4624,7 +4712,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-05T16:45:51Z"
+      "github_created_at": "2026-11-05T16:45:51Z",
+      "author_country": "DE"
     },
     {
       "id": "N:92",
@@ -4642,7 +4731,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-12T16:56:40Z"
+      "github_created_at": "2026-10-12T16:56:40Z",
+      "author_country": "US"
     },
     {
       "id": "N:93",
@@ -4786,7 +4876,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-09T00:45:06Z"
+      "github_created_at": "2026-11-09T00:45:06Z",
+      "author_country": "US"
     },
     {
       "id": "N:101",
@@ -4858,7 +4949,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-18T01:08:33Z"
+      "github_created_at": "2026-10-18T01:08:33Z",
+      "author_country": "DE"
     },
     {
       "id": "N:105",
@@ -4876,7 +4968,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-10T09:18:44Z"
+      "github_created_at": "2026-10-10T09:18:44Z",
+      "author_country": "DE"
     },
     {
       "id": "N:106",
@@ -4894,7 +4987,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-14T19:34:29Z"
+      "github_created_at": "2026-10-14T19:34:29Z",
+      "author_country": "DE"
     },
     {
       "id": "N:107",
@@ -5020,7 +5114,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-10T15:38:22Z"
+      "github_created_at": "2026-10-10T15:38:22Z",
+      "author_country": "DE"
     },
     {
       "id": "N:114",
@@ -5164,7 +5259,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-08T09:12:56Z"
+      "github_created_at": "2026-11-08T09:12:56Z",
+      "author_country": "US"
     },
     {
       "id": "N:122",
@@ -5218,7 +5314,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-25T12:12:44Z"
+      "github_created_at": "2026-10-25T12:12:44Z",
+      "author_country": "FR"
     },
     {
       "id": "N:125",
@@ -5254,7 +5351,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-28T16:27:19Z"
+      "github_created_at": "2026-10-28T16:27:19Z",
+      "author_country": "US"
     },
     {
       "id": "N:127",
@@ -5272,7 +5370,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-21T12:32:48Z"
+      "github_created_at": "2026-10-21T12:32:48Z",
+      "author_country": "AU"
     },
     {
       "id": "N:128",
@@ -5308,7 +5407,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-05T16:09:48Z"
+      "github_created_at": "2026-11-05T16:09:48Z",
+      "author_country": "RU"
     },
     {
       "id": "N:130",
@@ -5344,7 +5444,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-27T23:25:45Z"
+      "github_created_at": "2026-10-27T23:25:45Z",
+      "author_country": "US"
     },
     {
       "id": "N:132",
@@ -5362,7 +5463,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-10T03:51:04Z"
+      "github_created_at": "2026-11-10T03:51:04Z",
+      "author_country": "US"
     },
     {
       "id": "N:133",
@@ -5398,7 +5500,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-04T14:40:48Z"
+      "github_created_at": "2026-11-04T14:40:48Z",
+      "author_country": "US"
     },
     {
       "id": "N:135",
@@ -5506,7 +5609,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-22T15:08:57Z"
+      "github_created_at": "2026-10-22T15:08:57Z",
+      "author_country": "US"
     },
     {
       "id": "N:141",
@@ -5524,7 +5628,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-07T12:04:55Z"
+      "github_created_at": "2026-11-07T12:04:55Z",
+      "author_country": "NL"
     },
     {
       "id": "N:142",
@@ -5560,7 +5665,8 @@
       "github_fork": false,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-25T19:50:07Z"
+      "github_created_at": "2026-10-25T19:50:07Z",
+      "author_country": "CA"
     },
     {
       "id": "N:144",
@@ -5740,7 +5846,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-12T11:05:40Z"
+      "github_created_at": "2026-10-12T11:05:40Z",
+      "author_country": "ES"
     },
     {
       "id": "N:154",
@@ -5776,7 +5883,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-16T04:47:12Z"
+      "github_created_at": "2026-10-16T04:47:12Z",
+      "author_country": "US"
     },
     {
       "id": "N:156",
@@ -5794,7 +5902,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-01T15:20:47Z"
+      "github_created_at": "2026-11-01T15:20:47Z",
+      "author_country": "US"
     },
     {
       "id": "N:157",
@@ -5848,7 +5957,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-05T00:56:53Z"
+      "github_created_at": "2026-10-05T00:56:53Z",
+      "author_country": "US"
     },
     {
       "id": "N:160",
@@ -5866,7 +5976,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-16T16:34:22Z"
+      "github_created_at": "2026-10-16T16:34:22Z",
+      "author_country": "MX"
     },
     {
       "id": "N:161",
@@ -5920,7 +6031,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-11-02T01:35:45Z"
+      "github_created_at": "2026-11-02T01:35:45Z",
+      "author_country": "US"
     },
     {
       "id": "N:164",
@@ -6010,7 +6122,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-26T14:51:40Z"
+      "github_created_at": "2026-10-26T14:51:40Z",
+      "author_country": "TH"
     },
     {
       "id": "N:169",
@@ -6046,7 +6159,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-16T05:51:31Z"
+      "github_created_at": "2026-10-16T05:51:31Z",
+      "author_country": "TW"
     },
     {
       "id": "N:171",
@@ -6064,7 +6178,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-31T13:06:15Z"
+      "github_created_at": "2026-10-31T13:06:15Z",
+      "author_country": "GB"
     },
     {
       "id": "N:172",
@@ -6100,7 +6215,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-24T04:54:51Z"
+      "github_created_at": "2026-10-24T04:54:51Z",
+      "author_country": "US"
     },
     {
       "id": "N:174",
@@ -6280,7 +6396,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-19T21:26:17Z"
+      "github_created_at": "2026-10-19T21:26:17Z",
+      "author_country": "RU"
     },
     {
       "id": "N:184",
@@ -6352,7 +6469,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-29T15:01:01Z"
+      "github_created_at": "2026-10-29T15:01:01Z",
+      "author_country": "ID"
     },
     {
       "id": "N:188",
@@ -6478,7 +6596,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-11T11:10:47Z"
+      "github_created_at": "2026-10-11T11:10:47Z",
+      "author_country": "DE"
     },
     {
       "id": "N:195",
@@ -6514,7 +6633,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-26T01:03:34Z"
+      "github_created_at": "2026-10-26T01:03:34Z",
+      "author_country": "US"
     },
     {
       "id": "N:197",
@@ -6622,7 +6742,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-29T19:50:45Z"
+      "github_created_at": "2026-10-29T19:50:45Z",
+      "author_country": "RU"
     },
     {
       "id": "N:203",
@@ -6658,7 +6779,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-14T00:32:23Z"
+      "github_created_at": "2026-10-14T00:32:23Z",
+      "author_country": "US"
     },
     {
       "id": "N:205",
@@ -6676,7 +6798,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-22T20:01:27Z"
+      "github_created_at": "2026-10-22T20:01:27Z",
+      "author_country": "CZ"
     },
     {
       "id": "N:206",
@@ -6694,7 +6817,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-29T19:12:24Z"
+      "github_created_at": "2026-10-29T19:12:24Z",
+      "author_country": "PL"
     },
     {
       "id": "N:207",
@@ -6820,7 +6944,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-22T18:00:39Z"
+      "github_created_at": "2026-10-22T18:00:39Z",
+      "author_country": "BR"
     },
     {
       "id": "N:214",
@@ -6874,7 +6999,8 @@
       "github_fork": true,
       "github_fork_parent": "",
       "github_checked_at": "2026-11-11",
-      "github_created_at": "2026-10-05T16:38:55Z"
+      "github_created_at": "2026-10-05T16:38:55Z",
+      "author_country": "US"
     },
     {
       "id": "N:217",
@@ -11295,7 +11421,8 @@
       "port_status": "Repository/build/real-device validation state is distinct from a verified origin relationship.",
       "platform": "Platform migration (e.g. onto fm1-base) and platform reuse are lateral component edges, never instrument ancestry. felucca-bsp, fm1-base and Felucca-Engines form a separate dependency network.",
       "prehistory": "Work before or outside Felucca is kept as separate categories: pre-felucca-research (analysis, tools, prototypes) and stock-firmware-modification (patched or extended M-VAVE firmware). Felucca was created 2026-10-02; these nodes are not Felucca ancestors.",
-      "bsp": "A BSP extracted from Felucca is recorded as kind bsp with an extraction edge from Felucca. It is not a standalone instrument and is not placed in the instrument tree; works built on it link to it by component edges."
+      "bsp": "A BSP extracted from Felucca is recorded as kind bsp with an extraction edge from Felucca. It is not a standalone instrument and is not placed in the instrument tree; works built on it link to it by component edges.",
+      "author_country": "ISO 3166-1 country code from the location the repository owner gives on their GitHub profile (a place of residence as stated, not nationality); left out when the location is missing or unclear. Database only; not shown on the site."
     }
   }
 }

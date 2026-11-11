@@ -20,7 +20,8 @@
     "port_status": "Repository/build/real-device validation state is distinct from a verified origin relationship.",
     "platform": "Platform migration (e.g. onto fm1-base) and platform reuse are lateral component edges, never instrument ancestry. felucca-bsp, fm1-base and Felucca-Engines form a separate dependency network.",
     "prehistory": "Work before or outside Felucca is kept as separate categories: pre-felucca-research (analysis, tools, prototypes) and stock-firmware-modification (patched or extended M-VAVE firmware). Felucca was created 2026-10-02; these nodes are not Felucca ancestors.",
-    "bsp": "A BSP extracted from Felucca is recorded as kind bsp with an extraction edge from Felucca. It is not a standalone instrument and is not placed in the instrument tree; works built on it link to it by component edges."
+    "bsp": "A BSP extracted from Felucca is recorded as kind bsp with an extraction edge from Felucca. It is not a standalone instrument and is not placed in the instrument tree; works built on it link to it by component edges.",
+    "author_country": "ISO 3166-1 country code from the location the repository owner gives on their GitHub profile (a place of residence as stated, not nationality); left out when the location is missing or unclear. Database only; not shown on the site."
   },
   "summary": {
     "all_nodes": 373,

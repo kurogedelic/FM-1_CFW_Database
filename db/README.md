@@ -60,4 +60,6 @@ python3 tools/check.py
 | `pre-felucca-research` | Analysis, tools and prototypes before Felucca |
 | `stock-firmware-modification` | Patched or extended M-VAVE firmware |
 
+`author_country` (on works): the country from the location the repository owner gives on their GitHub profile, as an ISO code. It is where they say they are, not nationality, and it is left out when the location is missing or unclear. It is not shown on the site.
+
 IDs: the letters `F`, `S`, `O`, `T`, `Z` come from the first catalogue groups and say nothing about lineage; `P` marks work before Felucca; `N` marks later additions.
