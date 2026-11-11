@@ -1651,6 +1651,43 @@ function showAboutLang(lang) {
   $('#aboutTitle').textContent = t('about');
   syncSeg(langSeg);
 }
+// Language picker at the bottom left: the same choice as the About tabs.
+const LANG_NAMES = { en: 'English', ja: '日本語', es: 'Español' };
+const langBtn = $('#langBtn'), langMenu = $('#langMenu');
+$('#langName').textContent = LANG_NAMES[getLang()];
+for (const l of LANGS) {
+  const o = el('button', 'opt');
+  o.type = 'button';
+  o.setAttribute('role', 'menuitemradio');
+  o.setAttribute('aria-checked', String(l === getLang()));
+  o.lang = l;
+  o.append(el('span', null, LANG_NAMES[l]), fi('checkmark'));
+  o.addEventListener('click', () => {
+    if (l === getLang()) return closeLangMenu(true);
+    store.set('lang', l);
+    location.reload();
+  });
+  langMenu.append(o);
+}
+function closeLangMenu(focusBtn) {
+  langMenu.hidden = true;
+  langBtn.setAttribute('aria-expanded', 'false');
+  if (focusBtn) langBtn.focus({ preventScroll: true });
+}
+langBtn.addEventListener('click', () => {
+  if (!langMenu.hidden) return closeLangMenu(false);
+  langMenu.hidden = false;
+  langBtn.setAttribute('aria-expanded', 'true');
+  langMenu.querySelector('[aria-checked="true"]')?.focus({ preventScroll: true });
+});
+langMenu.addEventListener('keydown', e => {
+  const items = [...langMenu.children], i = items.indexOf(document.activeElement);
+  if (e.key === 'Escape') { e.preventDefault(); closeLangMenu(true); }
+  else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length].focus(); }
+});
+document.addEventListener('pointerdown', e => {
+  if (!langMenu.hidden && !langMenu.contains(e.target) && !langBtn.contains(e.target)) closeLangMenu(false);
+});
 // Choosing a language here switches the whole site; the page reloads with the About open.
 for (const b of langSeg.querySelectorAll('button')) b.addEventListener('click', () => {
   if (b.dataset.lang === getLang()) return;

@@ -446,6 +446,22 @@ body.emph .ver-dot { opacity: calc(.45 + var(--w, 0) * .55); }
 .info-head .pick-badge[hidden] { display: none; }
 
 /* ---------- Popover ---------- */
+/* Language picker, bottom left */
+#langBtn {
+  position: fixed; left: max(12px, env(safe-area-inset-left)); bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 6;
+  display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 10px 0 12px;
+  border: .5px solid var(--border); border-radius: 12px; color: var(--fg); font-size: var(--fs-sm); font-weight: 500;
+  background: var(--scrim); -webkit-backdrop-filter: saturate(1.8) blur(20px); backdrop-filter: saturate(1.8) blur(20px);
+  box-shadow: var(--shadow-md); animation: pop .3s .2s var(--ease) both; transform-origin: bottom left;
+}
+#langBtn .fi { font-size: 11px; color: var(--muted); transform: rotate(180deg); }
+#langMenu {
+  position: fixed; left: max(12px, env(safe-area-inset-left)); bottom: calc(54px + env(safe-area-inset-bottom)); z-index: 30; min-width: 150px;
+  padding: 6px; background: var(--surface); border-radius: 14px; box-shadow: var(--shadow-lg);
+  transform-origin: bottom left; animation: pop .2s var(--ease);
+}
+#langMenu .opt[aria-checked="true"] { font-weight: 600; }
+
 #info { position: fixed; left: 0; top: 0; z-index: 15; width: min(260px, calc(100vw - 16px)); pointer-events: none; }
 .info-card {
   max-height: calc(100dvh - var(--bar-h) - 16px); overflow-y: auto; overscroll-behavior: contain;
@@ -616,6 +632,8 @@ td.col-links { white-space: normal; min-width: 120px; }
 </header>
 
 <div id="viewMenu" role="menu" hidden></div>
+<button id="langBtn" class="press" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="langMenu" data-i18n-aria="language" aria-label="Language"><span id="langName">English</span><i class="fi" aria-hidden="true">&#xEAD2;</i></button>
+<div id="langMenu" role="menu" hidden></div>
 <div id="panel" role="dialog" aria-label="Sort and filter" data-i18n-aria="sortFilter" hidden>
   <div id="sortGroup">
     <div class="panel-label" id="sortLabel" data-i18n="sort">Sort</div>
