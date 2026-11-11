@@ -191,12 +191,12 @@ const countUp = (node, to, dur = 900) => {
 const FM1_PRICE = 70;
 const otherAngles = () => {
   const fw = projects.filter(p => !isBase(p));
-  const authors = new Set(fw.map(p => (p.author || '').toLowerCase()).filter(Boolean)).size;
+  // Authors of released firmware, to match the released count.
+  const authors = new Set(fw.filter(p => versionsOf.get(p.id).length).map(p => (p.author || '').toLowerCase()).filter(Boolean)).size;
   const since = timeOf.get('F:1'), until = SNAPS.at(-1) ?? Date.now();
   const hours = Math.max(1, (until + DAY - since) / 3600000);
   const born = fw.filter(p => p.created && timeOf.get(p.id) >= since).length;
   const releases = fw.flatMap(p => versionsOf.get(p.id)).filter(v => v.t >= since).length;
-  const code = fw.reduce((n, p) => n + (p.codeBytes || 0), 0);
   const num = n => fmtNum(Math.round(n));
   const one = n => n.toLocaleString(locale(), { maximumFractionDigits: 1 });
   // [value, what it means]
@@ -204,18 +204,8 @@ const otherAngles = () => {
     [t('angleDays', one(releasedFirmware / 24)), t('angleDaysText')],
     [`$${num(authors * FM1_PRICE)}`, t('angleMoneyText', num(authors))],
     [t('angleHours', one(hours / born)), t('angleHoursText')],
-    [t('angleMinutes', num(hours * 60 / releases)), t('angleMinutesText')],
-    code ? [t('angleLines', code / 30), t('angleLinesText')] : null
-  ].filter(Boolean);
-};
-const angleTiles = () => {
-  const box = el('div', 'angles');
-  for (const [v, label] of otherAngles()) {
-    const t = el('div', 'angle');
-    t.append(el('b', null, v), el('span', null, label));
-    box.append(t);
-  }
-  return box;
+    [t('angleMinutes', num(hours * 60 / releases)), t('angleMinutesText')]
+  ];
 };
 const exchanges = (raw.exchanges || []).filter(x => byId.has(x.from) && byId.has(x.to));
 const codeFrom = new Map(), codeTo = new Map();
@@ -1376,6 +1366,7 @@ function setView(v) {
   }
   else if (switching) { shown.classList.remove('view-in'); void shown.offsetWidth; shown.classList.add('view-in'); }
   for (const b of $$('#viewSeg button')) b.setAttribute('aria-pressed', String(b.dataset.view === v));
+  if (typeof syncViewMenu === 'function') syncViewMenu();
   syncSeg($('#viewSeg'));
   $('#sortGroup').hidden = v !== 'list';
   const modeRow = $('#modeSeg').closest('.panel-row');
@@ -1384,6 +1375,43 @@ function setView(v) {
   requestAnimationFrame(positionInfo);
 }
 for (const b of $$('#viewSeg button')) b.addEventListener('click', () => setView(b.dataset.view));
+// The same four views as a menu, for the narrowest screens.
+const viewMenu = $('#viewMenu'), viewMenuBtn = $('#viewMenuBtn');
+for (const b of $$('#viewSeg button')) {
+  const o = el('button', 'opt');
+  o.type = 'button';
+  o.setAttribute('role', 'menuitemradio');
+  o.dataset.view = b.dataset.view;
+  o.append(b.querySelector('.fi').cloneNode(true), el('span', null, b.querySelector('.label').textContent));
+  o.addEventListener('click', () => { closeViewMenu(true); setView(o.dataset.view); });
+  viewMenu.append(o);
+}
+function syncViewMenu() {
+  for (const o of viewMenu.children) o.setAttribute('aria-checked', String(o.dataset.view === state.view));
+  const cur = $(`#viewSeg [data-view="${state.view}"] .fi`);
+  if (cur) viewMenuBtn.querySelector('.cur').textContent = cur.textContent;
+}
+function closeViewMenu(focusBtn) {
+  viewMenu.hidden = true;
+  viewMenuBtn.setAttribute('aria-expanded', 'false');
+  if (focusBtn) viewMenuBtn.focus({ preventScroll: true });
+}
+viewMenuBtn.addEventListener('click', () => {
+  if (!viewMenu.hidden) return closeViewMenu(false);
+  closePanel(false);
+  syncViewMenu();
+  viewMenu.hidden = false;
+  viewMenuBtn.setAttribute('aria-expanded', 'true');
+  viewMenu.querySelector('[aria-checked="true"]')?.focus({ preventScroll: true });
+});
+viewMenu.addEventListener('keydown', e => {
+  const items = [...viewMenu.children], i = items.indexOf(document.activeElement);
+  if (e.key === 'Escape') { e.preventDefault(); closeViewMenu(true); }
+  else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length].focus(); }
+});
+document.addEventListener('pointerdown', e => {
+  if (!viewMenu.hidden && !viewMenu.contains(e.target) && !viewMenuBtn.contains(e.target)) closeViewMenu(false);
+});
 
 // ---------- Insight ----------
 // A few plain counts over the whole database: what has been made, by whom, on what, and when.
@@ -1458,7 +1486,7 @@ function renderInsight() {
   // Headline numbers.
   const stats = el('div', 'ins-stats');
   const allReleases = fw.reduce((n, p) => n + versionsOf.get(p.id).length, 0);
-  const authors = new Set(fw.map(p => (p.author || '').toLowerCase()).filter(Boolean));
+  const authors = new Set(fw.filter(p => versionsOf.get(p.id).length).map(p => (p.author || '').toLowerCase()).filter(Boolean));
   for (const [v, label] of [[releasedFirmware, t('statReleased')], [authors.size, t('statAuthors')], [allReleases, t('statReleases')], [fw.reduce((n, p) => n + (p.stars || 0), 0), t('statStars')]]) {
     const s = el('div', 'ins-stat');
     const num = el('b', null, fmtNum(v));
@@ -1469,8 +1497,15 @@ function renderInsight() {
   inner.append(stats);
 
   // The same numbers, another way.
+  // The same numbers seen another way: a second row of tiles, no card around them.
   {
-    card(t('angleTitle'), null, true).append(angleTiles());
+    const row = el('div', 'ins-stats ins-angles');
+    for (const [v, label] of otherAngles()) {
+      const tile = el('div', 'ins-stat');
+      tile.append(el('b', null, v), el('span', null, label));
+      row.append(tile);
+    }
+    inner.append(row);
   }
 
   // New firmware per day, and releases per day.

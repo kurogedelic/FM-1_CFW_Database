@@ -97,7 +97,7 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
   -webkit-backdrop-filter: saturate(1.8) blur(20px); backdrop-filter: saturate(1.8) blur(20px);
   border-bottom: .5px solid var(--border);
 }
-.search { position: relative; flex: 1 1 auto; max-width: 420px; display: flex; align-items: center; }
+.search { position: relative; flex: 1 1 auto; min-width: 80px; max-width: 420px; display: flex; align-items: center; }
 .search > .fi { position: absolute; left: 10px; color: var(--muted); pointer-events: none; }
 #search {
   width: 100%; height: 34px; padding: 0 64px 0 32px;
@@ -116,7 +116,19 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 }
 #searchClear.show { opacity: 1; transform: none; pointer-events: auto; }
 #searchClear .fi { font-size: 11px; }
-.bar-end { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.bar-end { display: flex; align-items: center; gap: 8px; margin-left: auto; flex: none; }
+/* View menu: replaces the view buttons on the narrowest screens */
+#viewMenuBtn { display: none; width: auto; gap: 4px; padding: 0 8px 0 10px; grid-auto-flow: column; }
+#viewMenuBtn .chev { font-size: 11px; color: var(--muted); }
+#viewMenu {
+  position: fixed; top: calc(var(--bar-h) + 6px); right: 12px; z-index: 30; min-width: 180px;
+  padding: 6px; background: var(--surface); border-radius: 14px; box-shadow: var(--shadow-lg);
+  transform-origin: top right; animation: pop .2s var(--ease);
+}
+#viewMenu .opt { justify-content: flex-start; gap: 10px; }
+#viewMenu .opt .fi { opacity: 1; transform: none; color: var(--muted); }
+#viewMenu .opt[aria-checked="true"] { color: var(--fg); font-weight: 600; }
+#viewMenu .opt[aria-checked="true"] .fi { color: var(--accent); }
 
 /* Segmented control with a sliding thumb */
 .seg { position: relative; display: inline-flex; padding: 2px; background: var(--fill); border-radius: 9px; }
@@ -129,7 +141,7 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .seg button {
   position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   height: 28px; padding: 0 12px; border: 0; background: none; color: var(--muted); font-weight: 500;
-  transition: color .2s;
+  white-space: nowrap; flex: none; transition: color .2s;
 }
 .seg button[aria-pressed="true"] { color: var(--fg); }
 .icon-btn {
@@ -173,12 +185,6 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .disclaimer a { color: var(--accent); text-decoration: none; }
 .disclaimer a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .about-body strong { font-weight: 600; }
-/* Other angles: small number tiles */
-.angles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 12px; }
-.ins-card .angles { margin-top: 4px; }
-.angle { padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, var(--fg) 5%, var(--bg)); }
-.angle b { display: block; font-size: var(--fs-lg); font-weight: 600; letter-spacing: -.015em; font-variant-numeric: tabular-nums; }
-.angle span { display: block; margin-top: 2px; color: var(--muted); font-size: var(--fs-xs); line-height: 1.4; }
 
 /* ---------- Filter panel ---------- */
 #panel {
@@ -386,6 +392,8 @@ body.emph .ver-dot { opacity: calc(.45 + var(--w, 0) * .55); }
 .ins-stat { padding: 14px 16px; border-radius: 14px; background: color-mix(in srgb, var(--fg) 4%, var(--bg)); }
 .ins-stat b { display: block; font-size: var(--fs-xl); line-height: 1.15; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.015em; }
 .ins-stat span { color: var(--muted); font-size: var(--fs-xs); }
+.ins-angles { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: -4px; }
+.ins-angles .ins-stat b { font-size: var(--fs-lg); }
 /* Column chart (one series over time) */
 .ins-cols { display: flex; align-items: flex-end; gap: 2px; height: 120px; border-bottom: .5px solid var(--border); }
 .ins-col { flex: 1; min-width: 2px; height: 100%; display: flex; align-items: flex-end; cursor: default; }
@@ -526,7 +534,17 @@ td.col-links { white-space: normal; min-width: 120px; }
 @keyframes pop { from { opacity: 0; transform: scale(.96); } }
 
 /* ---------- Narrow ---------- */
+@media (max-width: 1080px) {
+  #viewSeg .label { display: none; }
+  #viewSeg button { padding: 0 10px; }
+}
 @media (max-width: 680px) {
+  #viewSeg { display: none; }
+  #viewMenuBtn { display: grid; }
+  #about { width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; border-radius: 0; }
+  #about[open] { display: flex; flex-direction: column; animation: rise .26s var(--ease); }
+  .about-head { padding-top: max(16px, env(safe-area-inset-top)); }
+  .about-body { flex: 1; max-height: none; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
   #tools { right: calc(var(--rail-w) + 8px); gap: 4px; }
   #tools .label { display: none; }
   #tools .tool { padding: 0 8px; }
@@ -586,6 +604,9 @@ td.col-links { white-space: normal; min-width: 120px; }
         <span class="label" data-i18n="insight">Insight</span>
       </button>
     </div>
+    <button id="viewMenuBtn" class="icon-btn press" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="viewMenu" data-i18n-aria="views" aria-label="View">
+      <i class="fi cur" aria-hidden="true">&#xEB3D;</i><i class="fi chev" aria-hidden="true">&#xEAD2;</i>
+    </button>
     <button id="panelBtn" class="icon-btn press" type="button" aria-label="Sort and filter" data-i18n-aria="sortFilter" aria-haspopup="dialog" aria-expanded="false" aria-controls="panel">
       <i class="fi" aria-hidden="true">&#xEA5A;</i>
       <span class="badge" id="panelBadge" hidden></span>
@@ -594,6 +615,7 @@ td.col-links { white-space: normal; min-width: 120px; }
   </div>
 </header>
 
+<div id="viewMenu" role="menu" hidden></div>
 <div id="panel" role="dialog" aria-label="Sort and filter" data-i18n-aria="sortFilter" hidden>
   <div id="sortGroup">
     <div class="panel-label" id="sortLabel" data-i18n="sort">Sort</div>
