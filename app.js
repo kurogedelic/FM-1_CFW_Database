@@ -6,6 +6,7 @@
 //     a fork's vertical connector never crosses another project's line
 // Smaller projects fold into "Other N" by an invisible weight (stars + forks over the subtree).
 
+import { LANGS, t, setLanguage, getLang, locale, translatePage } from './i18n.js';
 const DATA_URL = 'data/tree.json';
 const MAIN_COUNT = 30;   // projects shown individually in "Main" mode
 const HEAVY_COUNT = 8;   // heaviest projects get a bolder name
@@ -30,8 +31,20 @@ const store = {
 const mqNarrow = matchMedia('(max-width: 680px)');
 const mqReduce = matchMedia('(prefers-reduced-motion: reduce)');
 const DAY = 86400000;
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const fmtLong = ms => new Date(ms).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+// Language: saved choice, else the browser's, else English.
+const guessLang = () => {
+  let saved = null;
+  try { saved = localStorage.getItem('felucca-tree:lang'); } catch {}
+  if (LANGS.includes(saved)) return saved;
+  const nav = (navigator.languages || [navigator.language]).map(l => (l || '').slice(0, 2));
+  return nav.find(l => LANGS.includes(l)) || 'en';
+};
+setLanguage(guessLang());
+translatePage();
+const fmtLong = ms => new Date(ms).toLocaleDateString(locale(), { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const fmtDay = ms => new Date(ms).toLocaleDateString(locale(), { month: 'short', day: 'numeric', timeZone: 'UTC' });
+const fmtMonth = ms => new Date(ms).toLocaleDateString(locale(), { month: 'short', timeZone: 'UTC' });
+const fmtNum = n => Number(n).toLocaleString(locale());
 const numericId = (a, b) => a.localeCompare(b, 'en', { numeric: true });
 
 // ---------- Load ----------
@@ -43,7 +56,7 @@ try {
   raw = await res.json();
 } catch (err) {
   statusEl.classList.add('error');
-  statusEl.textContent = `Couldn't load ${DATA_URL} (${err.message}).`;
+  statusEl.textContent = t('loadError', { url: DATA_URL, error: err.message });
   throw err;
 }
 statusEl.remove();
@@ -91,12 +104,14 @@ const resolveEnd = p => {
   return e;
 };
 projects.forEach(resolveEnd);
-const minT = Math.min(...timeOf.values());
+// The FM-1 went on sale at the end of June 2026 (orders open by June 30; announced June 14).
+const FM1_ON_SALE = Date.parse('2026-06-30T00:00:00Z');
+const minT = Math.min(...timeOf.values(), FM1_ON_SALE);
 const maxT = Math.max(...endOf.values(), Date.now());
 // Display time: proportional to real time, except quiet stretches longer than two days
 // (e.g. the months of prehistory before Felucca) are shortened to two days.
 const QUIET_CAP = 2 * DAY;
-const evTimes = [...new Set([...timeOf.values(), ...endOf.values(), ...[...versionsOf.values()].flat().map(v => v.t), Date.now()])].sort((a, b) => a - b);
+const evTimes = [...new Set([...timeOf.values(), ...endOf.values(), ...[...versionsOf.values()].flat().map(v => v.t), Date.now(), FM1_ON_SALE])].sort((a, b) => a - b);
 const evDisp = [0];
 for (let i = 1; i < evTimes.length; i++) evDisp.push(evDisp[i - 1] + Math.min(evTimes[i] - evTimes[i - 1], QUIET_CAP));
 const segOf = (arr, v) => { let lo = 0, hi = arr.length - 1; while (hi - lo > 1) { const m = (lo + hi) >> 1; if (arr[m] <= v) lo = m; else hi = m; } return lo; };
@@ -159,9 +174,54 @@ const isBase = p => NOT_CFW.has(p.kind);
 const SNAPS = (raw.snapshots || []).map(d => Date.parse(d + 'T00:00:00Z')).filter(Number.isFinite);
 // About: how many firmware have actually been released (at least one release), and as of when.
 const releasedFirmware = projects.filter(p => !isBase(p) && versionsOf.get(p.id).length).length;
+// Headline counts roll up from zero when they come into view.
+const countUp = (node, to, dur = 900) => {
+  const fmt = n => fmtNum(Math.round(n));
+  if (mqReduce.matches) { node.textContent = fmt(to); return; }
+  const t0 = performance.now();
+  const step = now => {
+    const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+    node.textContent = fmt(to * e);
+    if (p < 1) requestAnimationFrame(step);
+  };
+  node.textContent = '0';
+  requestAnimationFrame(step);
+};
+const aboutNum = el('b', 'count-num', String(releasedFirmware));
+// The same numbers seen another way. The FM-1 price is the usual street price (about $70).
+const FM1_PRICE = 70;
+const otherAngles = () => {
+  const fw = projects.filter(p => !isBase(p));
+  const authors = new Set(fw.map(p => (p.author || '').toLowerCase()).filter(Boolean)).size;
+  const since = timeOf.get('F:1'), until = SNAPS.at(-1) ?? Date.now();
+  const hours = Math.max(1, (until + DAY - since) / 3600000);
+  const born = fw.filter(p => p.created && timeOf.get(p.id) >= since).length;
+  const releases = fw.flatMap(p => versionsOf.get(p.id)).filter(v => v.t >= since).length;
+  const code = fw.reduce((n, p) => n + (p.codeBytes || 0), 0);
+  const num = n => fmtNum(Math.round(n));
+  const one = n => n.toLocaleString(locale(), { maximumFractionDigits: 1 });
+  // [value, what it means]
+  return [
+    [t('angleDays', one(releasedFirmware / 24)), t('angleDaysText')],
+    [`$${num(authors * FM1_PRICE)}`, t('angleMoneyText', num(authors))],
+    [t('angleHours', one(hours / born)), t('angleHoursText')],
+    [t('angleMinutes', num(hours * 60 / releases)), t('angleMinutesText')],
+    code ? [t('angleLines', code / 30), t('angleLinesText')] : null
+  ].filter(Boolean);
+};
+const angleTiles = () => {
+  const box = el('div', 'angles');
+  for (const [v, label] of otherAngles()) {
+    const t = el('div', 'angle');
+    t.append(el('b', null, v), el('span', null, label));
+    box.append(t);
+  }
+  return box;
+};
 {
   const last = SNAPS.at(-1);
-  $('#aboutCount').textContent = `${releasedFirmware} released firmware` + (last ? ` · as of ${fmtLong(last)}` : '');
+  $('#aboutCount').append(aboutNum, el('span', null, t('releasedFirmware') + (last ? ` · ${t('asOf', { date: fmtLong(last) })}` : '')));
+  $('#aboutCount').after(angleTiles());
 }
 const exchanges = (raw.exchanges || []).filter(x => byId.has(x.from) && byId.has(x.to));
 const codeFrom = new Map(), codeTo = new Map();
@@ -175,15 +235,16 @@ for (const x of exchanges) {
 const relationText = p => {
   const par = parentOf(p);
   if (!par) return p.summary ?? {
-    research: 'Research and tools',
-    'stock-mod': 'Stock firmware modification',
-    official: 'Official M-VAVE source',
-    bsp: 'Hardware layer split from Felucca',
+    research: t('research'),
+    'stock-mod': t('stockMod'),
+    official: t('official'),
+    bsp: t('bsp'),
     unplaced: null
-  }[p.group] ?? (children.get(p.id).length ? 'Original' : null);
-  if (p.platform) return [p.platform === 'extraction' ? 'Split from ' : 'Built on ', par];
-  if (p.tentative) return ['Possibly from ', par];
-  return [{ fork: 'Fork of ', port: 'Port of ', variant: 'Variant of ' }[p.relation] ?? 'Based on ', par];
+  }[p.group] ?? (children.get(p.id).length ? t('original') : null);
+  // [key of the relation, parent]: keys are i18n keys (splitFrom, builtOn, forkOf...).
+  if (p.platform) return [p.platform === 'extraction' ? 'splitFrom' : 'builtOn', par];
+  if (p.tentative) return ['possiblyFrom', par];
+  return [{ fork: 'forkOf', port: 'portOf', variant: 'variantOf' }[p.relation] ?? 'basedOn', par];
 };
 
 // ---------- Lineage colors ----------
@@ -294,11 +355,11 @@ const COLUMNS = {
 };
 // Presets offered in the filter panel.
 const SORTS = {
-  'created:desc': 'Newest',
-  'created:asc':  'Oldest',
-  'updated:desc': 'Recently updated',
-  'stars:desc':   'Most stars',
-  'name:asc':     'Name'
+  'created:desc': t('sortNewest'),
+  'created:asc':  t('sortOldest'),
+  'updated:desc': t('sortUpdated'),
+  'stars:desc':   t('sortStars'),
+  'name:asc':     t('sortName')
 };
 const DEFAULT_SORT = 'created:desc';
 const validSort = s => { const [c, d] = (s || '').split(':'); return COLUMNS[c] && (d === 'asc' || d === 'desc'); };
@@ -436,6 +497,11 @@ function computeGeometry() {
   world.style.height = worldH + 'px';
   edgesSvg.setAttribute('width', worldW);
   edgesSvg.setAttribute('height', worldH);
+  // FM-1 on sale: a faint line with a star and a label at its start.
+  const fx = isTimeline() ? LEFT - 12 : xOfTime(FM1_ON_SALE), fy = isTimeline() ? yOfTime(FM1_ON_SALE) : TOP - 20;
+  fm1Line.setAttribute('d', isTimeline() ? `M ${fx} ${fy} H ${worldW}` : `M ${fx} ${fy} V ${worldH}`);
+  fm1Mark.style.transform = `translate(${fx}px, ${fy}px)`;
+  fm1Mark.hidden = !isTimeline();
   SNAPS.forEach((t, i) => snapLines[i].setAttribute('d', isTimeline()
     ? `M ${LEFT - 12} ${yOfTime(t)} H ${worldW}`
     : `M ${xOfTime(t)} ${TOP - 20} V ${worldH}`));
@@ -443,7 +509,12 @@ function computeGeometry() {
   buildAxis();
 }
 const snapLines = SNAPS.map(() => svgEl('path', { class: 'snap' }));
-edgesSvg.prepend(...snapLines);
+const fm1Line = svgEl('path', { class: 'snap fm1' });
+edgesSvg.prepend(fm1Line, ...snapLines);
+const fm1Mark = el('div', 'fm1-mark');
+fm1Mark.append(fi('star_fill'), el('span', null, t('fm1OnSale', { date: fmtLong(FM1_ON_SALE) })));
+fm1Mark.title = t('fm1Title', { announced: fmtLong(Date.parse('2026-06-14T00:00:00Z')), sale: fmtLong(FM1_ON_SALE) });
+world.append(fm1Mark);
 // Arcs for code exchange sit above the lines; their arrowhead is a small chevron.
 const arcDefs = svgEl('defs', {});
 const arrow = svgEl('marker', { id: 'arcHead', viewBox: '0 0 10 10', refX: '9', refY: '5', markerWidth: '5.5', markerHeight: '5.5', markerUnits: 'userSpaceOnUse', orient: 'auto' });
@@ -459,12 +530,12 @@ const arcEls = arcExchanges.map(x => {
   const p = svgEl('path', { class: `arc ${x.relation}${back ? ' back' : ''}`, 'marker-end': 'url(#arcHead)' });
   paintColor(p, x.from);
   const label = { uptake: 'code from', 'shared-code': 'shared code with', influence: 'inspired', 'upstream-merge': 'merged back into' }[x.relation];
-  const t = svgEl('title', {});
-  t.textContent = x.relation === 'influence' ? `${byId.get(x.from).name} inspired ${byId.get(x.to).name}`
-    : x.relation === 'upstream-merge' ? `${byId.get(x.from).name} merged back into ${byId.get(x.to).name}`
-    : x.relation === 'shared-code' ? `${byId.get(x.from).name} and ${byId.get(x.to).name} share code`
-    : `${byId.get(x.to).name} took code from ${byId.get(x.from).name}${back ? ' (back-port)' : ''}`;
-  p.append(t);
+  const from = byId.get(x.from).name, to = byId.get(x.to).name;
+  const tip = svgEl('title', {});
+  tip.textContent = x.relation === 'upstream-merge' ? t('mergedBack', { from, to })
+    : x.relation === 'shared-code' ? t('shareCode', { a: from, b: to })
+    : t('tookCode', { from, to }) + (back ? t('backPort') : '');
+  p.append(tip);
   arcLayer.append(p);
   return { x, el: p, back, label };
 });
@@ -569,7 +640,7 @@ function makeItem(it, index) {
     if (!p.created) wrap.classList.add('undated');
     if (p.stage === 'beta') wrap.classList.add('beta');   // never released: hollow, like a pre-release
     if (heavy.has(p.id)) wrap.classList.add('heavy');
-    if (isBase(p)) { wrap.classList.add('base'); btn.title = `${p.name} (not a firmware in itself: ${p.kind})`; }
+    if (isBase(p)) { wrap.classList.add('base'); btn.title = t('notFirmware', { name: p.name, kind: p.kind }); }
     btn.textContent = p.name;
     btn.addEventListener('click', () => state.selected === p.id ? clearSelection(false) : selectNode(p.id));
     btn.addEventListener('focus', () => { if (!panning) ensureVisible(p.id); });
@@ -647,9 +718,9 @@ function relayout({ animate = true, from = null, duration = 420 } = {}) {
     }
     if (it.kind === 'group') {
       const btn = btnEls.get(it.id);
-      btn.textContent = `Other ${it.count}`;
+      btn.textContent = t('other', { n: it.count });
       btn.title = it.members.map(id => byId.get(id).name).join(', ');
-      btn.setAttribute('aria-label', `Show ${it.count} more projects`);
+      btn.setAttribute('aria-label', t('showMore', { n: it.count }));
     }
   });
   if (firstRun && !introDone && !mqReduce.matches) {
@@ -833,10 +904,16 @@ function buildAxis() {
     const month = t.getUTCDate() === 1;
     const today = snapDays.has(d);   // an update date: always labelled with its date
     const span = el('span', 'tick' + (month ? ' month' : '') + (today ? ' snap' : ''),
-      today || !month ? `${MONTHS[t.getUTCMonth()]} ${t.getUTCDate()}` : MONTHS[t.getUTCMonth()]);
+      today || !month ? fmtDay(d * DAY) : fmtMonth(d * DAY));
     axis.append(span);
     ticks.push({ el: span, x: xOfTime(d * DAY), weekday: t.getUTCDay(), date: t.getUTCDate(), month, today });
   }
+  // The FM-1 going on sale: a starred tick, first claim on space.
+  const star = el('span', 'tick fm1');
+  star.append(fi('star_fill'), el('span', null, 'FM-1'));
+  star.title = fm1Mark.title;
+  axis.append(star);
+  ticks.unshift({ el: star, x: xOfTime(FM1_ON_SALE), today: true, month: false });
 }
 function updateAxis() {
   if (isTimeline()) return;
@@ -950,7 +1027,7 @@ viewport.addEventListener('gesturechange', e => {
 // the date in Timeline, the project name in Family.
 const dotsEl = $('#dots'), dotLabel = $('#dotLabel');
 let dots = [], hoverIndex = -1, scrubbing = false, dotsKey = '';
-const itemName = it => it.kind === 'project' ? it.p.name : `Other ${it.count}`;
+const itemName = it => it.kind === 'project' ? it.p.name : t('other', { n: it.count });
 const spanY = () => {
   const first = TOP, last = isTimeline() ? worldH - 60 : yOfRow(Math.max(0, layout.items.length - 1));
   return [first, Math.max(first + 1, last)];
@@ -1080,30 +1157,30 @@ function fillInfo(p) {
   if (typeof rel === 'string') rows.append(el('div', 'info-row note', rel));
   else if (rel) {
     const [label, par] = rel;
-    if (p.platform) row('send', label.trim(), jump(par.id));
+    if (p.platform) row('send', t(label), jump(par.id));
     else {
       // Home = where it comes from; the kind of link (fork, port...) follows quietly.
-      const kind = { 'Fork of ': 'fork', 'Port of ': 'port', 'Variant of ': 'variant', 'Possibly from ': 'unconfirmed' }[label];
-      row('home', label.trim(), jump(par.id), ...(kind ? [el('span', 'row-kind', kind)] : []));
+      const kind = { forkOf: 'kFork', portOf: 'kPort', variantOf: 'kVariant', possiblyFrom: 'kUnconfirmed' }[label];
+      row('home', t(label), jump(par.id), ...(kind ? [el('span', 'row-kind', t(kind))] : []));
     }
   }
   if (p.author) {
     const who = p.authorUrl ? Object.assign(el('a', null, p.author), { href: p.authorUrl, target: '_blank', rel: 'noopener noreferrer' }) : p.author;
-    row('person', 'Author', who);
+    row('person', t('author'), who);
   }
-  const date = row('clock', 'Released', p.created ? fmtLong(timeOf.get(p.id)) : 'Date unknown');
-  if (p.stars) { const st = el('span', 'stars'); st.append(fi('star_fill'), p.stars.toLocaleString('en-US')); st.title = 'GitHub stars'; date.append(st); }
+  const date = row('clock', t('released'), p.created ? fmtLong(timeOf.get(p.id)) : t('dateUnknown'));
+  if (p.stars) { const st = el('span', 'stars'); st.append(fi('star_fill'), fmtNum(p.stars)); st.title = t('githubStars'); date.append(st); }
   const vs = versionsOf.get(p.id), latest = vs.at(-1);
-  const tagText = [latest ? `${latest.name} · ${vs.length} release${vs.length > 1 ? 's' : ''}` : (p.stage || null),
-    hardwareOf(p).join(', ') !== 'FM-1' ? hardwareOf(p).join(', ') || null : null, p.archived ? 'Archived' : null].filter(Boolean).join(' · ');
-  if (tagText) row('tag', 'Latest version, hardware', tagText);
+  const tagText = [latest ? `${latest.name} · ${t('releases', vs.length)}` : (p.stage || null),
+    hardwareOf(p).join(', ') !== 'FM-1' ? hardwareOf(p).join(', ') || null : null, p.archived ? t('archived') : null].filter(Boolean).join(' · ');
+  if (tagText) row('tag', t('versionHardware'), tagText);
   // Code exchange.
   const inc = codeFrom.get(p.id) || [], out = codeTo.get(p.id) || [];
   const took = inc.filter(x => x.relation !== 'influence').map(x => x.from);
   const gave = out.filter(x => x.relation !== 'influence').map(x => x.to);
   const insp = [...inc.filter(x => x.relation === 'influence').map(x => x.from)];
-  if (took.length) row('download', 'Code from', ...list(took));
-  if (gave.length) row('upload', 'Code went to', ...list(gave));
+  if (took.length) row('download', t('codeFrom'), ...list(took));
+  if (gave.length) row('upload', t('codeWentTo'), ...list(gave));
   if (insp.length) row('sparkles', 'Inspired by', ...list(insp));
   // Links, each with its own icon.
   const links = $('#infoLinks');
@@ -1111,12 +1188,14 @@ function fillInfo(p) {
   for (const [label, url] of linksOf(p)) {
     const link = el('a', 'link press');
     link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer';
-    link.append(label === 'GitHub' ? githubMark() : fi(label === 'Installer' ? 'download' : label === 'Simulator' ? 'play' : 'link'), el('span', null, label));
+    link.append(label === 'GitHub' ? githubMark() : fi(label === 'Installer' ? 'download' : label === 'Simulator' ? 'play' : 'link'), el('span', null, linkText(label)));
     links.append(link);
   }
   links.hidden = !links.children.length;
 }
 
+// Link labels shown in the interface language (service names stay as they are).
+const linkText = label => ({ Website: t('website'), Installer: t('installer'), Simulator: t('simulator') })[label] ?? label;
 // Pages only: never link straight to a file download.
 const isFile = url => /\.(zip|tar|gz|tgz|7z|bin|uf2|hex|dfu)$/i.test(url || '');
 function linksOf(p) {
@@ -1191,7 +1270,7 @@ function renderList() {
   listBody.replaceChildren();
   rowEls.clear();
   if (!rows.length) {
-    const tr = el('tr'), td = el('td', 'empty', 'No matches.');
+    const tr = el('tr'), td = el('td', 'empty', t('noMatches'));
     td.colSpan = 11; tr.append(td); listBody.append(tr);
   }
   const outLink = (cls, text, url) => {
@@ -1219,9 +1298,10 @@ function renderList() {
       const [label, par] = rel;
       const b = el('button', 'row-base', par.name);
       b.type = 'button';
-      b.title = `Show ${par.name}`;
+      b.title = t('show', { name: par.name });
       b.addEventListener('click', e => { e.stopPropagation(); selectNode(par.id); });
-      base.append(b, el('div', 'row-sub', { 'Fork of ': 'fork', 'Port of ': 'port', 'Variant of ': 'variant', 'Based on ': 'derived', 'Possibly from ': 'unconfirmed', 'Built on ': 'built on', 'Split from ': 'split from' }[label] ?? ''));
+      const kind = { forkOf: 'kFork', portOf: 'kPort', variantOf: 'kVariant', basedOn: 'kDerived', possiblyFrom: 'kUnconfirmed', builtOn: 'kBuiltOn', splitFrom: 'kSplitFrom' }[label];
+      base.append(b, el('div', 'row-sub', kind ? t(kind) : ''));
     }
     const author = el('td', 'col-author');
     author.append(p.author && p.authorUrl ? outLink('row-link', p.author, p.authorUrl) : (p.author || '—'));
@@ -1238,7 +1318,7 @@ function renderList() {
     else if (p.stage) ver.append(el('span', 'ver-tag pre', p.stage));
     else ver.append('—');
     const links = el('td', 'col-links');
-    for (const [label, url] of linksOf(p)) links.append(outLink('row-link', label, url));
+    for (const [label, url] of linksOf(p)) links.append(outLink('row-link', linkText(label), url));
     const vs = versionsOf.get(p.id);
     tr.append(
       name,
@@ -1247,7 +1327,7 @@ function renderList() {
       hw,
       ver,
       el('td', 'col-rel num muted', vs.length ? String(vs.length) : '—'),
-      el('td', 'col-stars num muted', p.stars ? p.stars.toLocaleString('en-US') : '—'),
+      el('td', 'col-stars num muted', p.stars ? fmtNum(p.stars) : '—'),
       el('td', 'col-license muted', p.license || '—'),
       el('td', 'col-released muted', p.created ? fmtLong(timeOf.get(p.id)) : '—'),
       el('td', 'col-updated muted', updatedMs(p) ? fmtLong(updatedMs(p)) : '—'),
@@ -1292,7 +1372,7 @@ function setView(v) {
   listView.hidden = v !== 'list';
   insightView.hidden = v !== 'insight';
   const shown = v === 'list' ? listView : v === 'insight' ? insightView : treeView;
-  if (v === 'insight') renderInsight();
+  if (v === 'insight') { renderInsight(); if (switching) for (const b of $$('.ins-stat b')) countUp(b, +b.dataset.to, 1100); }
   // Family ⇄ Timeline: rows slide to their new places instead of a crossfade.
   if (switching && wasTree && isTree()) {
     relayout({ duration: 700 });
@@ -1331,7 +1411,7 @@ function renderInsight() {
   const showTip = (e, text) => { tip.textContent = text; tip.hidden = false; tip.style.left = e.clientX + 'px'; tip.style.top = e.clientY + 'px'; };
   const hideTip = () => { tip.hidden = true; };
   // Ranked bars. rows: [{ label, value, id?, color? }]
-  const bars = (c, rows, fmt = v => v.toLocaleString('en-US')) => {
+  const bars = (c, rows, fmt = v => fmtNum(v)) => {
     const max = Math.max(1, ...rows.map(r => r.value));
     const box = el('div', 'ins-bars');
     for (const r of rows) {
@@ -1360,7 +1440,7 @@ function renderInsight() {
       const col = el('div', 'ins-col' + (n ? '' : ' zero')), bar = el('i');
       bar.style.height = (n / max * 100).toFixed(1) + '%';
       col.append(bar);
-      const label = `${fmtLong(d * DAY)} · ${n} ${unit}${n === 1 ? '' : 's'}`;
+      const label = `${fmtLong(d * DAY)} · ${t(unit, n)}`;
       col.addEventListener('pointermove', e => showTip(e, label));
       col.addEventListener('pointerleave', hideTip);
       col.setAttribute('aria-label', label);
@@ -1377,7 +1457,7 @@ function renderInsight() {
   const topWithOther = (pairs, n) => {
     const top = pairs.slice(0, n).map(([label, value]) => ({ label, value }));
     const rest = pairs.slice(n).reduce((a, [, v]) => a + v, 0);
-    if (rest) top.push({ label: `Other (${pairs.length - n})`, value: rest });
+    if (rest) top.push({ label: t('otherN', { n: pairs.length - n }), value: rest, other: true });
     return top;
   };
 
@@ -1385,32 +1465,39 @@ function renderInsight() {
   const stats = el('div', 'ins-stats');
   const allReleases = fw.reduce((n, p) => n + versionsOf.get(p.id).length, 0);
   const authors = new Set(fw.map(p => (p.author || '').toLowerCase()).filter(Boolean));
-  for (const [v, label] of [[releasedFirmware, 'Released firmware'], [authors.size, 'Authors'], [allReleases, 'Releases on GitHub and sites'], [fw.reduce((n, p) => n + (p.stars || 0), 0), 'GitHub stars']]) {
+  for (const [v, label] of [[releasedFirmware, t('statReleased')], [authors.size, t('statAuthors')], [allReleases, t('statReleases')], [fw.reduce((n, p) => n + (p.stars || 0), 0), t('statStars')]]) {
     const s = el('div', 'ins-stat');
-    s.append(el('b', null, v.toLocaleString('en-US')), el('span', null, label));
+    const num = el('b', null, fmtNum(v));
+    num.dataset.to = v;
+    s.append(num, el('span', null, label));
     stats.append(s);
   }
   inner.append(stats);
 
+  // The same numbers, another way.
+  {
+    card(t('angleTitle'), null, true).append(angleTiles());
+  }
+
   // New firmware per day, and releases per day.
   const born = new Map();
   for (const p of fw) if (p.created) { const d = dayOf(timeOf.get(p.id)); born.set(d, (born.get(d) || 0) + 1); }
-  columns(card('New firmware per day', 'By the date each project first appeared.', true), born, 'project');
+  columns(card(t('newPerDay'), t('newPerDaySub'), true), born, 'nProjects');
   const rel = new Map();
   for (const p of fw) for (const v of versionsOf.get(p.id)) { const d = dayOf(v.t); rel.set(d, (rel.get(d) || 0) + 1); }
-  columns(card('Releases per day', 'Every published release, across all projects.', true), rel, 'release');
+  columns(card(t('relPerDay'), t('relPerDaySub'), true), rel, 'nReleases');
 
   // Largest families: every project counted under the line it comes from.
   const size = p => children.get(p.id).reduce((n, c) => n + 1 + size(c), 0);
-  bars(card('Largest families', 'Projects built from each one, at any depth.'),
+  bars(card(t('families'), t('familiesSub')),
     projects.map(p => ({ id: p.id, label: p.name, value: size(p) })).filter(r => r.value).sort((a, b) => b.value - a.value).slice(0, 10));
-  bars(card('Most starred', 'GitHub stars.'),
+  bars(card(t('mostStarred'), t('mostStarredSub')),
     fw.filter(p => p.stars).sort((a, b) => b.stars - a.stars).slice(0, 10).map(p => ({ id: p.id, label: p.name, value: p.stars })));
-  bars(card('Most forked', 'GitHub forks, or forks recorded here.'),
+  bars(card(t('mostForked'), t('mostForkedSub')),
     fw.map(p => ({ id: p.id, label: p.name, value: Math.max(p.forks || 0, children.get(p.id).length) })).filter(r => r.value).sort((a, b) => b.value - a.value).slice(0, 10));
-  bars(card('Hardware', 'Firmware per device; ports count once per device.'), topWithOther(tally(fw, p => hardwareOf(p)), 6));
-  bars(card('Licenses'), topWithOther(tally(fw, p => p.license || 'Not stated'), 6));
-  bars(card('Most projects by one author', null, true), topWithOther(tally(fw, p => p.author), 10).filter(r => !r.label.startsWith('Other')));
+  bars(card(t('hardware'), t('hardwareSub')), topWithOther(tally(fw, p => hardwareOf(p)), 6));
+  bars(card(t('licenses')), topWithOther(tally(fw, p => p.license || t('notStated')), 6));
+  bars(card(t('topAuthors'), null, true), topWithOther(tally(fw, p => p.author), 10).filter(r => !r.other));
 }
 
 // ---------- Sort & filter panel ----------
@@ -1529,27 +1616,28 @@ addEventListener('hashchange', () => {
 
 // ---------- About ----------
 const about = $('#about'), langSeg = $('#langSeg');
-const LANGS = ['en', 'ja', 'es'];
-const guessLang = () => {
-  const saved = store.get('lang');
-  if (LANGS.includes(saved)) return saved;
-  const nav = (navigator.languages || [navigator.language]).map(l => (l || '').slice(0, 2));
-  return nav.find(l => LANGS.includes(l)) || 'en';
-};
-function setLang(lang) {
-  store.set('lang', lang);
+function showAboutLang(lang) {
   for (const b of langSeg.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
   for (const d of about.querySelectorAll('.about-body > [lang]')) d.classList.toggle('on', d.lang === lang);
-  $('#aboutTitle').textContent = { en: 'About', ja: 'このサイトについて', es: 'Acerca de' }[lang];
+  $('#aboutTitle').textContent = t('about');
   syncSeg(langSeg);
 }
-for (const b of langSeg.querySelectorAll('button')) b.addEventListener('click', () => setLang(b.dataset.lang));
+// Choosing a language here switches the whole site; the page reloads with the About open.
+for (const b of langSeg.querySelectorAll('button')) b.addEventListener('click', () => {
+  if (b.dataset.lang === getLang()) return;
+  store.set('lang', b.dataset.lang);
+  try { sessionStorage.setItem('felucca-tree:reopen-about', '1'); } catch {}
+  location.reload();
+});
 $('#aboutBtn').addEventListener('click', () => {
   closePanel(false);
   about.showModal();
-  setLang(guessLang());
+  showAboutLang(getLang());
+  countUp(aboutNum, releasedFirmware);
 });
 about.querySelector('[data-close]').addEventListener('click', () => about.close());
+// After a language change from the About tabs, open it again.
+try { if (sessionStorage.getItem('felucca-tree:reopen-about')) { sessionStorage.removeItem('felucca-tree:reopen-about'); setTimeout(() => $('#aboutBtn').click(), 0); } } catch {}
 about.addEventListener('click', e => { if (e.target === about) about.close(); }); // click on the backdrop
 about.addEventListener('close', () => $('#aboutBtn').focus({ preventScroll: true }));
 
@@ -1583,8 +1671,8 @@ function setArcs(on) {
 $('#arcsBtn').addEventListener('click', () => setArcs(!state.arcs));
 function syncTools() {
   $('#expandAll').setAttribute('aria-pressed', String(state.mode === 'all'));
-  $('#expandAll .label').textContent = state.mode === 'all' ? 'Collapse' : 'Expand all';
-  $('#expandAll').title = state.mode === 'all' ? 'Fold smaller projects into “Other”' : 'Show every project';
+  $('#expandAll .label').textContent = state.mode === 'all' ? t('collapse') : t('expandAll');
+  $('#expandAll').title = state.mode === 'all' ? t('collapseTitle') : t('expandTitle');
 }
 afterRelayout = applyEmphasis;
 $('#expandAll').addEventListener('click', () => { setMode(state.mode === 'all' ? 'main' : 'all'); syncTools(); });

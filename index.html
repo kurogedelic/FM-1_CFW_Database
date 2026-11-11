@@ -33,11 +33,12 @@
   --shadow-md: 0 4px 14px rgba(0, 0, 0, .07);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, .14), 0 0 0 .5px rgba(0, 0, 0, .06);
 
-  /* Four type sizes only. */
+  /* Four type sizes, plus one display size for headline counts only. */
   --fs-xs: 11px;
   --fs-sm: 13px;
   --fs-md: 15px;
   --fs-lg: 19px;
+  --fs-xl: 34px;
 
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Hiragino Sans", "Segoe UI", sans-serif;
   --ease: cubic-bezier(.2, .8, .2, 1);
@@ -172,7 +173,14 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .disclaimer a { color: var(--accent); text-decoration: none; }
 .disclaimer a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .about-body strong { font-weight: 600; }
-.about-count { margin: 18px 0 0; color: var(--faint); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; }
+.about-count { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 8px; margin: 22px 0 0; color: var(--muted); font-size: var(--fs-sm); }
+/* Other angles: small number tiles */
+.angles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 12px; }
+.ins-card .angles { margin-top: 4px; }
+.angle { padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, var(--fg) 5%, var(--bg)); }
+.angle b { display: block; font-size: var(--fs-lg); font-weight: 600; letter-spacing: -.015em; font-variant-numeric: tabular-nums; }
+.angle span { display: block; margin-top: 2px; color: var(--muted); font-size: var(--fs-xs); line-height: 1.4; }
+.count-num { font-size: var(--fs-xl); font-weight: 600; line-height: 1.1; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }
 
 /* ---------- Filter panel ---------- */
 #panel {
@@ -216,6 +224,9 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .life.tail { stroke-dasharray: 1 5; opacity: .55; }
 .life.tail.is-dim { opacity: .15; }
 .snap { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 4; opacity: .35; }
+.snap.fm1 { opacity: .5; }
+.fm1-mark { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 4px; margin: -18px 0 0 -7px; color: var(--muted); font-size: var(--fs-xs); white-space: nowrap; pointer-events: auto; }
+.fm1-mark .fi { font-size: 13px; color: var(--fg); }
 .life.is-path, .conn.is-path { stroke-width: 3; opacity: 1; }
 .life.is-hover, .conn.is-hover { stroke-width: 3.5; opacity: 1; }
 .is-dim { opacity: .22; }
@@ -294,6 +305,8 @@ body:not(.vertical) .ver-name { left: 50%; top: -10px; transform: translate(-50%
 }
 .tick.month { color: var(--fg); font-weight: 600; }
 .tick.snap { color: var(--muted); }
+.tick.fm1 { display: inline-flex; align-items: center; gap: 3px; color: var(--fg); font-weight: 600; }
+.tick.fm1 .fi { font-size: 11px; }
 body.vertical #axis { display: none; }
 
 /* ---------- Date rail (dots) ---------- */
@@ -373,7 +386,7 @@ body.emph .ver-dot { opacity: calc(.45 + var(--w, 0) * .55); }
 .ins-card .ins-sub { margin: 0 0 12px; color: var(--muted); font-size: var(--fs-xs); }
 .ins-stats { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .ins-stat { padding: 14px 16px; border-radius: 14px; background: color-mix(in srgb, var(--fg) 4%, var(--bg)); }
-.ins-stat b { display: block; font-size: var(--fs-lg); font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.015em; }
+.ins-stat b { display: block; font-size: var(--fs-xl); line-height: 1.15; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.015em; }
 .ins-stat span { color: var(--muted); font-size: var(--fs-xs); }
 /* Column chart (one series over time) */
 .ins-cols { display: flex; align-items: flex-end; gap: 2px; height: 120px; border-bottom: .5px solid var(--border); }
@@ -543,117 +556,117 @@ td.col-links { white-space: normal; min-width: 120px; }
 </style>
 </head>
 <body data-view="family">
-<noscript><p style="padding:80px 20px">This page needs JavaScript to draw the firmware timeline.</p></noscript>
+<noscript><p style="padding:80px 20px" data-i18n="noscript">This page needs JavaScript to draw the firmware timeline.</p></noscript>
 
 <header id="bar">
   <a class="brand" href="./" aria-label="FM-1 CFW Database"><i class="fi" aria-hidden="true">&#xEB56;</i><span>FM-1 CFW Database</span></a>
   <div class="search" role="search">
     <i class="fi" aria-hidden="true">&#xEA58;</i>
-    <input id="search" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-label="Search firmware or author">
+    <input id="search" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-label="Search firmware or author" data-i18n-placeholder="search" data-i18n-aria="searchLabel">
     <div class="search-end">
       <span id="searchCount" aria-live="polite"></span>
-      <button id="searchClear" class="press" type="button" aria-label="Clear search"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
+      <button id="searchClear" class="press" type="button" aria-label="Clear search" data-i18n-aria="clearSearch"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
     </div>
   </div>
   <div class="bar-end">
-    <div class="seg" role="group" aria-label="View" id="viewSeg">
+    <div class="seg" role="group" aria-label="View" id="viewSeg" data-i18n-aria="views">
       <span class="seg-thumb"></span>
-      <button type="button" data-view="family" aria-pressed="true" title="Family">
+      <button type="button" data-view="family" aria-pressed="true" title="Family" data-i18n-title="family">
         <i class="fi" aria-hidden="true">&#xEB3D;</i>
-        <span class="label">Family</span>
+        <span class="label" data-i18n="family">Family</span>
       </button>
-      <button type="button" data-view="timeline" aria-pressed="false" title="Timeline">
+      <button type="button" data-view="timeline" aria-pressed="false" title="Timeline" data-i18n-title="timeline">
         <i class="fi" aria-hidden="true">&#xEA30;</i>
-        <span class="label">Timeline</span>
+        <span class="label" data-i18n="timeline">Timeline</span>
       </button>
-      <button type="button" data-view="list" aria-pressed="false" title="List">
+      <button type="button" data-view="list" aria-pressed="false" title="List" data-i18n-title="list">
         <i class="fi" aria-hidden="true">&#xEA51;</i>
-        <span class="label">List</span>
+        <span class="label" data-i18n="list">List</span>
       </button>
-      <button type="button" data-view="insight" aria-pressed="false" title="Insight">
+      <button type="button" data-view="insight" aria-pressed="false" title="Insight" data-i18n-title="insight">
         <i class="fi" aria-hidden="true">&#xEA2F;</i>
-        <span class="label">Insight</span>
+        <span class="label" data-i18n="insight">Insight</span>
       </button>
     </div>
-    <button id="panelBtn" class="icon-btn press" type="button" aria-label="Sort and filter" aria-haspopup="dialog" aria-expanded="false" aria-controls="panel">
+    <button id="panelBtn" class="icon-btn press" type="button" aria-label="Sort and filter" data-i18n-aria="sortFilter" aria-haspopup="dialog" aria-expanded="false" aria-controls="panel">
       <i class="fi" aria-hidden="true">&#xEA5A;</i>
       <span class="badge" id="panelBadge" hidden></span>
     </button>
-    <button id="aboutBtn" class="icon-btn press" type="button" aria-label="About this site" aria-haspopup="dialog"><i class="fi" aria-hidden="true">&#xEB1D;</i></button>
+    <button id="aboutBtn" class="icon-btn press" type="button" aria-label="About this site" data-i18n-aria="aboutSite" aria-haspopup="dialog"><i class="fi" aria-hidden="true">&#xEB1D;</i></button>
   </div>
 </header>
 
-<div id="panel" role="dialog" aria-label="Sort and filter" hidden>
+<div id="panel" role="dialog" aria-label="Sort and filter" data-i18n-aria="sortFilter" hidden>
   <div id="sortGroup">
-    <div class="panel-label" id="sortLabel">Sort</div>
+    <div class="panel-label" id="sortLabel" data-i18n="sort">Sort</div>
     <div role="radiogroup" aria-labelledby="sortLabel" id="sortOptions"></div>
     <div class="panel-sep"></div>
   </div>
-  <div class="panel-label">Projects</div>
+  <div class="panel-label" data-i18n="projects">Projects</div>
   <div class="panel-row">
-    <div class="seg" role="group" aria-label="Projects shown" id="modeSeg">
+    <div class="seg" role="group" aria-label="Projects shown" data-i18n-aria="projectsShown" id="modeSeg">
       <span class="seg-thumb"></span>
-      <button type="button" data-mode="main">Main</button>
-      <button type="button" data-mode="all">All</button>
+      <button type="button" data-mode="main" data-i18n="main">Main</button>
+      <button type="button" data-mode="all" data-i18n="all">All</button>
     </div>
   </div>
-  <div class="panel-label">Activity</div>
+  <div class="panel-label" data-i18n="activity">Activity</div>
   <div class="panel-row">
-    <div class="seg" role="group" aria-label="Activity filter" id="statusSeg">
+    <div class="seg" role="group" aria-label="Activity filter" data-i18n-aria="activityFilter" id="statusSeg">
       <span class="seg-thumb"></span>
-      <button type="button" data-status="all">All</button>
-      <button type="button" data-status="active">Active</button>
-      <button type="button" data-status="inactive">Inactive</button>
+      <button type="button" data-status="all" data-i18n="all">All</button>
+      <button type="button" data-status="active" data-i18n="active">Active</button>
+      <button type="button" data-status="inactive" data-i18n="inactive">Inactive</button>
     </div>
   </div>
 </div>
 
-<div id="status" aria-live="polite">Loading…</div>
+<div id="status" aria-live="polite" data-i18n="loading">Loading…</div>
 
-<main id="treeView" aria-label="Firmware lineage timeline">
+<main id="treeView" aria-label="Firmware lineage timeline" data-i18n-aria="treeView">
   <div id="viewport">
     <div id="world">
       <svg id="edges" aria-hidden="true"></svg>
     </div>
   </div>
   <div id="axis" aria-hidden="true"></div>
-  <div id="tools" role="toolbar" aria-label="Tree tools">
+  <div id="tools" role="toolbar" aria-label="Tree tools" data-i18n-aria="tools">
     <button type="button" id="expandAll" class="tool press" aria-pressed="false" title="Show every project">
       <i class="fi" aria-hidden="true">&#xEA1E;</i><span class="label">Expand all</span>
     </button>
-    <button type="button" id="arcsBtn" class="tool press" aria-pressed="false" title="Show code exchange: code taken from other lines, back-ports, influence">
-      <i class="fi" aria-hidden="true">&#xEA91;</i><span class="label">Code</span>
+    <button type="button" id="arcsBtn" class="tool press" aria-pressed="false" title="Show code taken from other lines, and back-ports" data-i18n-title="codeTitle">
+      <i class="fi" aria-hidden="true">&#xEA91;</i><span class="label" data-i18n="code">Code</span>
     </button>
     <span class="tool-sep" aria-hidden="true"></span>
-    <div class="seg" role="group" aria-label="Emphasis by forks or stars" id="emphSeg">
+    <div class="seg" role="group" aria-label="Emphasis by forks or stars" data-i18n-aria="emphasis" id="emphSeg">
       <span class="seg-thumb"></span>
-      <button type="button" data-emph="off"><i class="fi" aria-hidden="true">&#xEAA3;</i><span class="label">Off</span></button>
-      <button type="button" data-emph="forks"><i class="fi" aria-hidden="true">&#xEB2E;</i><span class="label">Forks</span></button>
-      <button type="button" data-emph="stars"><i class="fi" aria-hidden="true">&#xEA64;</i><span class="label">Stars</span></button>
+      <button type="button" data-emph="off"><i class="fi" aria-hidden="true">&#xEAA3;</i><span class="label" data-i18n="off">Off</span></button>
+      <button type="button" data-emph="forks"><i class="fi" aria-hidden="true">&#xEB2E;</i><span class="label" data-i18n="forks">Forks</span></button>
+      <button type="button" data-emph="stars"><i class="fi" aria-hidden="true">&#xEA64;</i><span class="label" data-i18n="stars">Stars</span></button>
     </div>
   </div>
-  <aside id="rail" aria-label="Projects">
-    <div id="dots" role="slider" tabindex="0" aria-label="Scroll projects" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+  <aside id="rail" aria-label="Projects" data-i18n-aria="rail">
+    <div id="dots" role="slider" tabindex="0" aria-label="Scroll projects" data-i18n-aria="scrollProjects" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
     <div id="dotLabel" aria-hidden="true"></div>
   </aside>
 </main>
 
-<main id="listView" aria-label="Firmware list" hidden>
+<main id="listView" aria-label="Firmware list" data-i18n-aria="listView" hidden>
   <div class="list-inner">
     <table>
       <thead>
         <tr>
-          <th scope="col" class="col-name" data-col="name"><button type="button">Name<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
-          <th scope="col" class="col-base">Base</th>
-          <th scope="col" class="col-author">Author</th>
-          <th scope="col" class="col-hw">Hardware</th>
-          <th scope="col" class="col-ver">Version</th>
-          <th scope="col" class="col-rel num" data-col="releases"><button type="button">Releases<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
-          <th scope="col" class="col-stars num" data-col="stars"><button type="button">Stars<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
-          <th scope="col" class="col-license" data-col="license"><button type="button">License<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
-          <th scope="col" class="col-released" data-col="created"><button type="button">Created<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
-          <th scope="col" class="col-updated" data-col="updated"><button type="button">Updated<i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
-          <th scope="col" class="col-links">Links</th>
+          <th scope="col" class="col-name" data-col="name"><button type="button"><span data-i18n="colName">Name</span><i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-base" data-i18n="colBase">Base</th>
+          <th scope="col" class="col-author" data-i18n="colAuthor">Author</th>
+          <th scope="col" class="col-hw" data-i18n="colHardware">Hardware</th>
+          <th scope="col" class="col-ver" data-i18n="colVersion">Version</th>
+          <th scope="col" class="col-rel num" data-col="releases"><button type="button"><span data-i18n="colReleases">Releases</span><i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-stars num" data-col="stars"><button type="button"><span data-i18n="colStars">Stars</span><i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-license" data-col="license"><button type="button"><span data-i18n="colLicense">License</span><i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-released" data-col="created"><button type="button"><span data-i18n="colCreated">Created</span><i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-updated" data-col="updated"><button type="button"><span data-i18n="colUpdated">Updated</span><i class="fi" aria-hidden="true">&#xEAD2;</i></button></th>
+          <th scope="col" class="col-links" data-i18n="colLinks">Links</th>
         </tr>
       </thead>
       <tbody id="listBody"></tbody>
@@ -661,7 +674,7 @@ td.col-links { white-space: normal; min-width: 120px; }
   </div>
 </main>
 
-<main id="insightView" aria-label="Insight" hidden>
+<main id="insightView" aria-label="Insight" data-i18n-aria="insightView" hidden>
   <div class="insight-inner" id="insightInner"></div>
   <div id="insightTip" role="tooltip" hidden></div>
 </main>
@@ -670,11 +683,11 @@ td.col-links { white-space: normal; min-width: 120px; }
   <section class="info-card" role="dialog" aria-modal="false" aria-labelledby="infoName" tabindex="-1">
     <div class="info-head">
       <div>
-        <span class="pick-badge" id="infoPick" hidden><i class="fi" aria-hidden="true">&#xEA2E;</i>Author's Choice</span>
+        <span class="pick-badge" id="infoPick" hidden><i class="fi" aria-hidden="true">&#xEA2E;</i><span data-i18n="authorsChoice">Author's Choice</span></span>
         <h2 class="info-name" id="infoName"></h2>
         <div id="infoRows"></div>
       </div>
-      <button id="closeInfo" class="close press" type="button" aria-label="Close"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
+      <button id="closeInfo" class="close press" type="button" aria-label="Close" data-i18n-aria="close"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
     </div>
     <div class="links" id="infoLinks"></div>
   </section>
@@ -682,11 +695,11 @@ td.col-links { white-space: normal; min-width: 120px; }
 
 <dialog id="about" aria-labelledby="aboutTitle">
   <div class="about-head">
-    <h2 id="aboutTitle">About</h2>
-    <button class="close press" type="button" data-close aria-label="Close"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
+    <h2 id="aboutTitle" data-i18n="about">About</h2>
+    <button class="close press" type="button" data-close aria-label="Close" data-i18n-aria="close"><i class="fi" aria-hidden="true">&#xEAA3;</i></button>
   </div>
   <div class="about-tabs">
-    <div class="seg" role="group" aria-label="Language" id="langSeg">
+    <div class="seg" role="group" aria-label="Language" data-i18n-aria="language" id="langSeg">
       <span class="seg-thumb"></span>
       <button type="button" data-lang="en" aria-pressed="true">English</button>
       <button type="button" data-lang="ja" aria-pressed="false">日本語</button>

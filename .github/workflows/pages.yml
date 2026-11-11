@@ -39,7 +39,7 @@ jobs:
       - name: Collect the site
         run: |
           mkdir _site
-          cp -r index.html app.js .nojekyll fonts data _site/
+          cp -r index.html app.js i18n.js .nojekyll fonts data _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

@@ -4,6 +4,7 @@ Static site (GitHub Pages) for custom firmware of the M-VAVE FM-1: lineage, vers
 
 - `index.html` — page and styles
 - `app.js` — loads `data/tree.json` and draws the tree, the list and the Insight page (counts and rankings)
+- `i18n.js` — interface text in English, Japanese and Spanish; the browser's language picks one, and the About tabs switch it
 - `data/tree.json` — generated; do not edit by hand
 - `db/` — the lineage database
 - `scripts/build-data.mjs` — builds `data/tree.json` from `db/`

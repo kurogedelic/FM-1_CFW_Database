@@ -135,6 +135,7 @@ const repoKey = url => {
 };
 // Installer, simulator and support links: the repository's homepage, its FUNDING.yml
 // (fundingLinks) and links in its README, picked by keywords. Never a direct file download.
+const FIRMWARE_LANGS = new Set(['C', 'C++', 'Assembly', 'Rust', 'Zig', 'Objective-C']);
 const FUNDING = { GITHUB: 'GitHub Sponsors', PATREON: 'Patreon', KO_FI: 'Ko-fi', OPEN_COLLECTIVE: 'Open Collective', LIBERAPAY: 'Liberapay', BUY_ME_A_COFFEE: 'Buy Me a Coffee', POLAR: 'Polar', THANKS_DEV: 'thanks.dev', ISSUEHUNT: 'IssueHunt', LFX_CROWDFUNDING: 'LFX Crowdfunding', TIDELIFT: 'Tidelift', COMMUNITY_BRIDGE: 'Community Bridge' };
 const SUPPORT_HOSTS = [
   [/(^|\.)ko-fi\.com$/, 'Ko-fi'], [/(^|\.)patreon\.com$/, 'Patreon'], [/(^|\.)buymeacoffee\.com$/, 'Buy Me a Coffee'],
@@ -192,7 +193,7 @@ if (token) {
   for (let i = 0; i < targets.length; i += 25) {
     const batch = targets.slice(i, i + 25);
     const query = 'query {' + batch.map((t, j) =>
-      ` r${j}: repository(owner: ${JSON.stringify(t.key.owner)}, name: ${JSON.stringify(t.key.name)}) { stargazerCount forkCount pushedAt isArchived homepageUrl licenseInfo { spdxId name } fundingLinks { platform url } readme: object(expression: "HEAD:README.md") { ... on Blob { text } } readmeLower: object(expression: "HEAD:readme.md") { ... on Blob { text } } releases(first: 50, orderBy: { field: CREATED_AT, direction: DESC }) { nodes { tagName name publishedAt createdAt isDraft isPrerelease } } }`
+      ` r${j}: repository(owner: ${JSON.stringify(t.key.owner)}, name: ${JSON.stringify(t.key.name)}) { stargazerCount forkCount pushedAt languages(first: 10) { edges { size node { name } } } isArchived homepageUrl licenseInfo { spdxId name } fundingLinks { platform url } readme: object(expression: "HEAD:README.md") { ... on Blob { text } } readmeLower: object(expression: "HEAD:readme.md") { ... on Blob { text } } releases(first: 50, orderBy: { field: CREATED_AT, direction: DESC }) { nodes { tagName name publishedAt createdAt isDraft isPrerelease } } }`
     ).join('') + ' }';
     const res = await fetch('https://api.github.com/graphql', {
       method: 'POST',
@@ -205,6 +206,9 @@ if (token) {
       const r = result?.[`r${j}`];
       if (!r) return;
       if (r.stargazerCount) t.p.stars = r.stargazerCount;
+      // Firmware code only (C, C++, assembly...): web pages and tools in the same repository are left out.
+      const code = (r.languages?.edges ?? []).filter(e => FIRMWARE_LANGS.has(e.node.name)).reduce((n, e) => n + e.size, 0);
+      if (code) t.p.codeBytes = code;
       if (r.forkCount) t.p.forks = r.forkCount;
       if (r.pushedAt) t.p.updated = r.pushedAt;
       if (r.isArchived) t.p.archived = true;
