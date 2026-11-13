@@ -24,7 +24,7 @@
     "author_country": "ISO 3166-1 country code from the location the repository owner gives on their GitHub profile (a place of residence as stated, not nationality); left out when the location is missing or unclear. Database only; not shown on the site."
   },
   "summary": {
-    "all_nodes": 373,
+    "all_nodes": 374,
     "all_relations": 507,
     "felucca_nodes": 229,
     "official_open_nodes": 14,
@@ -34,8 +34,8 @@
     "git_fork_edges": 100,
     "shared_commit_verified": 3,
     "pinned_submodule_verified": 1,
-    "root_nodes": 114,
-    "unresolved_root_nodes": 112,
+    "root_nodes": 115,
+    "unresolved_root_nodes": 113,
     "aliases": 9,
     "tab5_ports": 3,
     "pre_felucca_research_nodes": 1,
@@ -155,7 +155,8 @@
     "N:145",
     "N:146",
     "N:218",
-    "N:219"
+    "N:219",
+    "N:220"
   ],
   "nodes": [
     {
@@ -4592,7 +4593,7 @@
       "aliases": [],
       "previous_repo_urls": [],
       "repo": "https://github.com/joakimeriksson/fm1-dock",
-      "kind": "firmware",
+      "kind": "platform",
       "hardware": "FM-1",
       "primary_parent": null,
       "primary_relation": null,
@@ -4605,7 +4606,7 @@
       "upstream_pr_url": null,
       "upstream_pr_merged_at": null,
       "source_catalog_group": "Added 2026-11-11 (GitHub sweep)",
-      "notes": "One firmware installed once; synths run as modules in flash slots, deployed over MIDI. README: \"The base: Dinghy (zvenson), on the platform of Felucca (Leo Kuroshita, Hugelton Instruments) as SLOOP (isod89) carries it.\" GPL-3.0",
+      "notes": "One firmware installed once; synths run as modules in flash slots, deployed over MIDI. README: \"The base: Dinghy (zvenson), on the platform of Felucca (Leo Kuroshita, Hugelton Instruments) as SLOOP (isod89) carries it.\" GPL-3.0. 2026-11-13: classed as platform (a module host, not an instrument in itself)",
       "root_id": "N:2",
       "lineage_path": [
         "N:2"
@@ -10674,6 +10675,33 @@
       "root_id": "N:219",
       "lineage_path": [
         "N:219"
+      ],
+      "clade_id": null,
+      "classification": "unplaced"
+    },
+    {
+      "id": "N:220",
+      "name": "m-bootloader",
+      "aliases": [],
+      "previous_repo_urls": [],
+      "repo": "https://github.com/jvitkauskas/m-bootloader",
+      "kind": "tool",
+      "hardware": "FM-1, SMK-37",
+      "primary_parent": null,
+      "primary_relation": null,
+      "ancestry_evidence": null,
+      "ancestry_basis": "unresolved",
+      "assurance": "unplaced",
+      "port_status": null,
+      "base_revision": null,
+      "upstream_pr_status": null,
+      "upstream_pr_url": null,
+      "upstream_pr_merged_at": null,
+      "source_catalog_group": "Added 2026-11-13",
+      "notes": "Clean-room MIT bootloader for the FM-1 and SMK-37 Pro / Elite (JieLi AC791N) replacing M-VAVE's: download mode from the keys, a recovery menu, reinstalling firmware over USB MIDI from a browser installer, and flash backup; also M-Flasher's flash loader. Not derived from another FM-1 project.",
+      "root_id": "N:220",
+      "lineage_path": [
+        "N:220"
       ],
       "clade_id": null,
       "classification": "unplaced"
