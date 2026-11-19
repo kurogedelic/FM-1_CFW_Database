@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "revision": "v0.6",
-  "as_of": "2026-11-11",
+  "as_of": "2026-11-19",
   "policy": {
     "primary_parent": "Exactly one evidenced primary ancestor of the instrument itself: GitHub fork parent, shared historical commit, author README or owner description stating the instrument derives from another work. Platform, BSP or library dependency does not qualify.",
     "fork": "GitHub fork metadata indicates repository genealogy, not necessarily music or functionality.",
@@ -24,18 +24,18 @@
     "author_country": "ISO 3166-1 country code from the location the repository owner gives on their GitHub profile (a place of residence as stated, not nationality); left out when the location is missing or unclear. Database only; not shown on the site."
   },
   "summary": {
-    "all_nodes": 374,
-    "all_relations": 507,
+    "all_nodes": 376,
+    "all_relations": 509,
     "felucca_nodes": 229,
     "official_open_nodes": 14,
     "primary_edges": 255,
-    "horizontal_edges": 248,
+    "horizontal_edges": 250,
     "candidate_edges": 4,
     "git_fork_edges": 100,
     "shared_commit_verified": 3,
     "pinned_submodule_verified": 1,
-    "root_nodes": 115,
-    "unresolved_root_nodes": 113,
+    "root_nodes": 117,
+    "unresolved_root_nodes": 115,
     "aliases": 9,
     "tab5_ports": 3,
     "pre_felucca_research_nodes": 1,
@@ -156,7 +156,9 @@
     "N:146",
     "N:218",
     "N:219",
-    "N:220"
+    "N:220",
+    "N:221",
+    "N:222"
   ],
   "nodes": [
     {
@@ -10705,6 +10707,60 @@
       ],
       "clade_id": null,
       "classification": "unplaced"
+    },
+    {
+      "id": "N:221",
+      "name": "SHRUB",
+      "aliases": [],
+      "previous_repo_urls": [],
+      "repo": "https://shrub.audio/",
+      "kind": "firmware",
+      "hardware": "FM-1",
+      "primary_parent": null,
+      "primary_relation": null,
+      "ancestry_evidence": null,
+      "ancestry_basis": "unresolved",
+      "assurance": "unplaced",
+      "port_status": null,
+      "base_revision": null,
+      "upstream_pr_status": null,
+      "upstream_pr_url": null,
+      "upstream_pr_merged_at": null,
+      "source_catalog_group": "Added 2026-11-19",
+      "notes": "Closed source, free, Beta. Stripped-down Serum for the FM-1: wavetable oscillators, Serum envelopes and filters, FX rack, motion sequencer; browser installer, editor and emulator. Handbook: https://github.com/slowphase/shrub-gently (CC BY-SA 4.0). Parent not established",
+      "root_id": "N:221",
+      "lineage_path": [
+        "N:221"
+      ],
+      "clade_id": null,
+      "classification": "unplaced"
+    },
+    {
+      "id": "N:222",
+      "name": "Fune",
+      "aliases": [],
+      "previous_repo_urls": [],
+      "repo": "https://github.com/hugelton/Fune",
+      "kind": "firmware",
+      "hardware": "FM-1, SMK-37 Pro / Elite, M5Stack Cardputer Zero",
+      "primary_parent": null,
+      "primary_relation": null,
+      "ancestry_evidence": null,
+      "ancestry_basis": "unresolved",
+      "assurance": "unplaced",
+      "port_status": null,
+      "base_revision": null,
+      "upstream_pr_status": null,
+      "upstream_pr_url": null,
+      "upstream_pr_merged_at": null,
+      "source_catalog_group": "Added 2026-11-19",
+      "notes": "README: 0.0.1 Alpha, FM-1 Beta; sequencer with six synth engines, drums and effects, plugin SDK. CREDITS: engines grown from the owner's Felucca and Felucca-Engines; hardware layer felucca-bsp. README: not compatible with Felucca or its derivatives; runs only with the stock bootloader. Instrument is its own",
+      "root_id": "N:222",
+      "lineage_path": [
+        "N:222"
+      ],
+      "clade_id": null,
+      "classification": "unplaced"
     }
   ],
   "horizontal_relations": [
@@ -12691,6 +12747,22 @@
       "confidence": "readme",
       "evidence": "https://github.com/Keitark/fm1-doom#readme",
       "notes": "README: source 783a03d \"adds the NES port's live filter/Wah effect\" (same author, same WL82 SDK route)"
+    },
+    {
+      "source": "F:1",
+      "target": "N:222",
+      "relation": "uptake",
+      "confidence": "readme",
+      "evidence": "https://github.com/hugelton/Fune/blob/main/CREDITS.md",
+      "notes": "CREDITS: engines and drums grown from Felucca and Felucca-Engines"
+    },
+    {
+      "source": "Z:18",
+      "target": "N:222",
+      "relation": "component",
+      "confidence": "readme",
+      "evidence": "https://github.com/hugelton/Fune/blob/main/CREDITS.md",
+      "notes": "Hardware layer: felucca-bsp"
     }
   ],
   "candidate_relations": [

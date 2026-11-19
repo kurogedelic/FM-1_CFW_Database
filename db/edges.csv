@@ -506,3 +506,5 @@ F:1,N:71,component,readme,https://github.com/y6zkcqnf5r-hue/fm1-trawler#readme,"
 S:1,N:19,influence,readme,https://github.com/Erbubar23/bubba-machine#readme,"README: ""Grabación como SLOOP"" (recording like SLOOP); no code files identical to the main lineages"
 N:16,N:9,derive,readme,https://github.com/FartyPants/fm1-piano/blob/HEAD/hybrid/nightly/install/index.html,"Installer page: ""FM-1 HYBRID PIANO is built on Felucca ... by way of X0X and FoMni"" (the AMB-1 family's credit line). Same author as NACHTFAHRT; the web emulator is NACHTFAHRT's (amb.wasm from web/emu/amb_web.c, a file only DUB-1 and NACHTFAHRT have; worklet.js differs from NACHTFAHRT's in 4 of 134 lines). Firmware source not published"
 N:218,N:219,uptake,readme,https://github.com/Keitark/fm1-doom#readme,"README: source 783a03d ""adds the NES port's live filter/Wah effect"" (same author, same WL82 SDK route)"
+F:1,N:222,uptake,readme,https://github.com/hugelton/Fune/blob/main/CREDITS.md,CREDITS: engines and drums grown from Felucca and Felucca-Engines
+Z:18,N:222,component,readme,https://github.com/hugelton/Fune/blob/main/CREDITS.md,Hardware layer: felucca-bsp

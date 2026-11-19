@@ -247,3 +247,5 @@ F:1,Felucca,N:76,Modd,component,readme,https://github.com/DimmKirr/modd/blob/HEA
 F:1,Felucca,N:71,Trawler,component,readme,https://github.com/y6zkcqnf5r-hue/fm1-trawler#readme,"README credits: Felucca (Leo Kuroshita / Hügelton Instruments), the hardware layer, for the port; no byte-identical files (rewritten)",,,,,,
 S:1,SLOOP,N:19,Bubba Machine,influence,readme,https://github.com/Erbubar23/bubba-machine#readme,"README: ""Grabación como SLOOP"" (recording like SLOOP); no code files identical to the main lineages",,,,,,
 N:218,fm1-nes,N:219,FM-1 Doom (Keitark),uptake,readme,https://github.com/Keitark/fm1-doom#readme,"README: source 783a03d ""adds the NES port's live filter/Wah effect"" (same author, same WL82 SDK route)",,,,,,
+F:1,Felucca,N:222,Fune,uptake,readme,https://github.com/hugelton/Fune/blob/main/CREDITS.md,CREDITS: engines and drums grown from Felucca and Felucca-Engines,,,,,,
+Z:18,felucca-bsp,N:222,Fune,component,readme,https://github.com/hugelton/Fune/blob/main/CREDITS.md,Hardware layer: felucca-bsp,,,,,,

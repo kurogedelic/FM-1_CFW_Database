@@ -7081,6 +7081,46 @@
       "github_fork_parent": "",
       "github_checked_at": "2026-11-13",
       "github_created_at": "2026-10-16T22:42:52Z"
+    },
+    {
+      "id": "N:221",
+      "name": "SHRUB",
+      "original_title": "SHRUB by Xfer Inc",
+      "author": "Xfer Inc (Steve Duda)",
+      "repo": "https://shrub.audio/",
+      "hardware": "FM-1",
+      "status": "first-party-record",
+      "source": "https://shrub.audio/",
+      "notes": "Closed source, free, Beta. Stripped-down Serum for the FM-1: wavetable oscillators, Serum envelopes and filters, FX rack, motion sequencer; browser installer, editor and emulator. Handbook: https://github.com/slowphase/shrub-gently (CC BY-SA 4.0). Parent not established",
+      "summary": "Serum on the FM-1 (Xfer, closed source)",
+      "github_repo_exists": false,
+      "github_created_at": "",
+      "author_country": "US",
+      "family": "Added 2026-11-19",
+      "kind": "firmware",
+      "github_fork": false,
+      "github_fork_parent": "",
+      "github_checked_at": "2026-11-19"
+    },
+    {
+      "id": "N:222",
+      "name": "Fune",
+      "original_title": "Fune by hugelton",
+      "author": "hugelton",
+      "repo": "https://github.com/hugelton/Fune",
+      "hardware": "FM-1, SMK-37 Pro / Elite, M5Stack Cardputer Zero",
+      "status": "readme-backed",
+      "source": "https://github.com/hugelton/Fune/blob/main/CREDITS.md",
+      "notes": "README: 0.0.1 Alpha, FM-1 Beta; sequencer with six synth engines, drums and effects, plugin SDK. CREDITS: engines grown from the owner's Felucca and Felucca-Engines; hardware layer felucca-bsp. README: not compatible with Felucca or its derivatives; runs only with the stock bootloader. Instrument is its own",
+      "summary": "Small music studio with sequencer, synths and plugins",
+      "github_repo_exists": true,
+      "github_created_at": "2026-11-13T11:09:26Z",
+      "author_country": "JP",
+      "family": "Added 2026-11-19",
+      "kind": "firmware",
+      "github_fork": false,
+      "github_fork_parent": "",
+      "github_checked_at": "2026-11-19"
     }
   ],
   "edges": [
@@ -11329,10 +11369,26 @@
       "confidence": "readme",
       "evidence": "https://github.com/Keitark/fm1-doom#readme",
       "notes": "README: source 783a03d \"adds the NES port's live filter/Wah effect\" (same author, same WL82 SDK route)"
+    },
+    {
+      "source": "F:1",
+      "target": "N:222",
+      "relation": "uptake",
+      "confidence": "readme",
+      "evidence": "https://github.com/hugelton/Fune/blob/main/CREDITS.md",
+      "notes": "CREDITS: engines and drums grown from Felucca and Felucca-Engines"
+    },
+    {
+      "source": "Z:18",
+      "target": "N:222",
+      "relation": "component",
+      "confidence": "readme",
+      "evidence": "https://github.com/hugelton/Fune/blob/main/CREDITS.md",
+      "notes": "Hardware layer: felucca-bsp"
     }
   ],
   "revision": "v0.5",
-  "as_of": "2026-11-11",
+  "as_of": "2026-11-19",
   "audit": {
     "catalog": "https://github.com/aroum/fm1-custom-fw/blob/9ef45b81885e0530fb21ad205b07e81b1bd47ae2/README.md"
   },
