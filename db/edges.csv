@@ -508,3 +508,18 @@ N:16,N:9,derive,readme,https://github.com/FartyPants/fm1-piano/blob/HEAD/hybrid/
 N:218,N:219,uptake,readme,https://github.com/Keitark/fm1-doom#readme,"README: source 783a03d ""adds the NES port's live filter/Wah effect"" (same author, same WL82 SDK route)"
 F:1,N:222,uptake,readme,https://github.com/hugelton/Fune/blob/main/CREDITS.md,CREDITS: engines and drums grown from Felucca and Felucca-Engines
 Z:18,N:222,component,readme,https://github.com/hugelton/Fune/blob/main/CREDITS.md,Hardware layer: felucca-bsp
+O:1,N:223,fork,readme,https://github.com/Cyder465/fm1-qchord#readme,README: fork of FoMni
+F:1,N:224,fork,readme,https://github.com/altessproduction/MT-4OX#readme,README: fork of Felucca 1.8
+F:1,N:225,fork,readme,https://github.com/RudimentSeq/RudimentSeq-FM1#readme,README: Felucca fork
+F:1,N:226,fork,readme,https://github.com/futumixxx/universynth-fm1#readme,README: fork of Felucca
+F:28,N:227,derive,readme,https://github.com/marwanfarha/dubengine#readme,README: built on DUB 1
+F:1,N:227,component,readme,https://github.com/marwanfarha/dubengine#readme,README: platform layer from Felucca
+S:16,N:228,uptake,readme,https://github.com/andrewdamelio/aurora-fm1#readme,"README: GR!MM platform, DSP and reverb"
+Z:20,N:229,component,readme,https://github.com/twaroshinto/AEther#readme,README: platform fm1-base
+Z:18,N:229,component,readme,https://github.com/twaroshinto/AEther#readme,README: felucca-bsp
+S:1,N:230,influence,readme,https://github.com/isod89/sloop3-fm1#readme,"README: successor of SLOOP, new code"
+F:1,N:231,component,readme,https://github.com/Kenneth-Rakentine/Ravel-FM1#readme,THIRD_PARTY: Felucca hardware layer via X0X
+T:4,N:232,component,readme,https://github.com/C0DED00D/fm1-cowbell#readme,README: fm1_open SDK
+N:2,N:232,component,readme,https://github.com/C0DED00D/fm1-cowbell#readme,README: fm1-dock module
+T:4,N:233,component,readme,https://github.com/jonludwig1234/fm1-stacktrace-cfw#readme,README: built on FM1 Open V14
+T:4,N:234,component,readme,https://github.com/ColdChrome/Chrome-Boy-Studio-Portable#readme,README: built on M-VAVE's open FM1 SDK
