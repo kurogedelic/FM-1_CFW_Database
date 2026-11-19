@@ -7091,7 +7091,7 @@
       "hardware": "FM-1",
       "status": "first-party-record",
       "source": "https://shrub.audio/",
-      "notes": "Closed source, free, Beta. Stripped-down Serum for the FM-1: wavetable oscillators, Serum envelopes and filters, FX rack, motion sequencer; browser installer, editor and emulator. Handbook: https://github.com/slowphase/shrub-gently (CC BY-SA 4.0). Parent not established",
+      "notes": "Closed source, free, Beta. Stripped-down Serum for the FM-1: wavetable oscillators, Serum envelopes and filters, FX rack, motion sequencer; browser installer, editor and emulator. Handbook: https://github.com/slowphase/shrub-gently (CC BY-SA 4.0). Parent not established. First public date is the earliest Wayback snapshot of shrub.audio (no release date published); firmware V1.15 per the guide",
       "summary": "Serum on the FM-1 (Xfer, closed source)",
       "github_repo_exists": false,
       "github_created_at": "",
@@ -7100,7 +7100,9 @@
       "kind": "firmware",
       "github_fork": false,
       "github_fork_parent": "",
-      "github_checked_at": "2026-11-19"
+      "github_checked_at": "2026-11-19",
+      "first_public_date": "2026-11-14",
+      "first_public_evidence": "https://web.archive.org/web/20261114054749/https://shrub.audio/"
     },
     {
       "id": "N:222",
@@ -7120,7 +7122,18 @@
       "kind": "firmware",
       "github_fork": false,
       "github_fork_parent": "",
-      "github_checked_at": "2026-11-19"
+      "github_checked_at": "2026-11-19",
+      "first_public_date": "2026-11-13",
+      "first_public_evidence": "https://github.com/hugelton/Fune/releases/tag/v0.0.1-alpha",
+      "releases": [
+        {
+          "name": "0.0.1 Alpha",
+          "date": "2026-11-13",
+          "pre": true,
+          "url": "https://github.com/hugelton/Fune/releases/tag/v0.0.1-alpha"
+        }
+      ],
+      "releases_source": "https://github.com/hugelton/Fune/tags"
     },
     {
       "id": "N:223",
